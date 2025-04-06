@@ -3,11 +3,20 @@ package co.edu.uniquindio.proyecto.model;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
 public class Usuario {
-    private String nombreUsuario;
-    private String idUsuario;
-    private String emailUsuario;
-    private String telefonoUsuario;
-    private String contraseniaUsuario;
+        private String idUsuario;
+        private String nombreUsuario;
+        private String emailUsuario;
+        private String telefonoUsuario;
+        private String contraseniaUsuario;
+
+        public Usuario( String idUsuario,String nombreUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
+
+            this.idUsuario = idUsuario;
+            this.nombreUsuario = nombreUsuario;
+            this.emailUsuario = emailUsuario;
+            this.telefonoUsuario = telefonoUsuario;
+            this.contraseniaUsuario = contraseniaUsuario;
+        }
 
     public String getIdUsuario() {return idUsuario;}
 
@@ -28,8 +37,8 @@ public class Usuario {
     public String getContraseniaUsuario() {return contraseniaUsuario;}
 
     public void setContraseniaUsuario(String contraseniaUsuario) {this.contraseniaUsuario = contraseniaUsuario;}
-    public static UsuarioBuilder builder(){
-        return new UsuarioBuilder();
+    public static UsuarioBuilder builder( String idUsuario,String nombreUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
+        return new UsuarioBuilder(idUsuario, nombreUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
     }
 
     @Override

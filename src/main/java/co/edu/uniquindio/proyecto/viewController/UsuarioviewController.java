@@ -1,8 +1,12 @@
 package co.edu.uniquindio.proyecto.viewController;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.proyecto.model.GestionBilletera;
+import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -90,7 +94,10 @@ public class UsuarioviewController {
 
     }
 
+
+
     @FXML
     void initialize() {}
 }
+
 

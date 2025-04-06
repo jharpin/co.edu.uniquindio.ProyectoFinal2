@@ -1,4 +1,5 @@
 package co.edu.uniquindio.proyecto.model;
+import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import co.edu.uniquindio.proyecto.services.IAdministradorCrud;
 import co.edu.uniquindio.proyecto.services.ICuentaCrud;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
@@ -31,4 +32,20 @@ public class GestionBilletera implements IModelFactoryServices, ICuentaCrud, IAd
     }
     @Override
     public boolean mostrarListaBanco() {return false;}
+
+
+    @Override
+    public boolean crearUsuario(UsuarioBuilder NuevoUsuario) {
+        return false;
+    }
+
+    @Override
+    public boolean eliminarUsuario(String idUsuario) {
+        return false;
+    }
+
+    @Override
+    public Usuario obtenerUsuario(String idUsuario) {
+        return null;
+    }
 }

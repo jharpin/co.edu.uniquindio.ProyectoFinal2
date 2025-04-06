@@ -21,11 +21,7 @@
             <Font name="Dubai Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="btnLogin" fitHeight="108.0" fitWidth="87.0" layoutX="42.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../../../Downloads/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1742031.jpg" />
-         </image>
-      </ImageView>
+
       <Label fx:id="lblIdentificacionLogin" layoutX="173.0" layoutY="103.0" text="Identificacion">
          <font>
             <Font name="Dubai Regular" size="16.0" />

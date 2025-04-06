@@ -6,4 +6,7 @@ module co.edu.uniquindio.gestionempleadofx.proyecto {
 
     opens co.edu.uniquindio.proyecto to javafx.fxml;
     exports co.edu.uniquindio.proyecto;
+    opens co.edu.uniquindio.proyecto.viewController to javafx.fxml;
+    exports co.edu.uniquindio.proyecto.viewController;
+
 }

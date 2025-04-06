@@ -1,13 +1,14 @@
 package co.edu.uniquindio.proyecto.viewController;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 public class UsuarioviewController {
-
     @FXML
     private ResourceBundle resources;
 
@@ -57,7 +58,16 @@ public class UsuarioviewController {
     private TextField txtcontrasenia;
 
     @FXML
-    void initialize() {
+    void IrinicioSesion(ActionEvent event) {
+
     }
+
+    @FXML
+    void Registrar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {}
 }
 

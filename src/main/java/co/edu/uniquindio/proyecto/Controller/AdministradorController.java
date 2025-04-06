@@ -9,7 +9,7 @@ public class AdministradorController {
         modelFactory = ModelFactory.getInstance();
     }
 
-    public List<Administradordto> obtenerAdministrador() {
-        return (List<Administradordtoo>) modelFactory.Administradordto();
-    }
+    //public List<Administradordto> obtenerAdministrador() {
+        //eturn (List<Administradordtoo>) modelFactory.Administradordto();
+    //}
 }

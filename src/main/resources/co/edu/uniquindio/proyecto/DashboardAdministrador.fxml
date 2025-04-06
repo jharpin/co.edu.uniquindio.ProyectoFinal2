@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.skin.SplitPaneSkin.Content?>
+<AnchorPane prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
    <children>
-      <TabPane layoutX="-4.0" prefHeight="406.0" prefWidth="702.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="563.0" prefWidth="709.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="seccionActualizar" text="Actualizar Datos " />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <SplitPane layoutX="14.0" layoutY="7.0" orientation="Vertical">
+                     <items>
+                        <fx:include source="ActualizarDatosAdmi.fxml" />
+                     </items>
+                  </SplitPane>
+               </children>
+               </AnchorPane>
+
           <Tab text="Gestionar Usuarios" />
             <Tab text="Gestionar cuentas" />
             <Tab text="Gestionar Transaciones" />
@@ -25,49 +30,5 @@
         </tabs>
       </TabPane>
       <Label layoutX="61.0" layoutY="-37.0" text="Label" />
-      <Pane layoutX="6.0" layoutY="46.0" prefHeight="423.0" prefWidth="681.0">
-         <children>
-            <Label fx:id="lblBilleteraVirtual" layoutX="256.0" layoutY="14.0" text="Billetera Virtual ">
-               <font>
-                  <Font name="Dubai Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblActualizar" layoutX="271.0" layoutY="58.0" text="Actualizar Datos ">
-               <font>
-                  <Font name="Dubai Regular" size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblnombreActualizar" layoutX="38.0" layoutY="125.0" text="nombreAdministrador:">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblEmailActualizar" layoutX="38.0" layoutY="181.0" text="EmailAdminitrador :">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lActualizarAdmi" layoutX="347.0" layoutY="181.0" text="TelefonoAdministrador:">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblActualizarDireccionAd" layoutX="355.0" layoutY="125.0" text="DirecciónAdministrador:">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
-            <TableView layoutX="47.0" layoutY="306.0" prefHeight="62.0" prefWidth="545.0">
-              <columns>
-                <TableColumn fx:id="tablaDatosAdmi" prefWidth="544.1999893188477" text="Administrador Datos " />
-              </columns>
-            </TableView>
-            <Button fx:id="btnActualizarDatosAdmi" layoutX="278.0" layoutY="248.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="99.0" text="Actualizar" />
-            <TextField fx:id="txtNombreAdmActu" layoutX="185.0" layoutY="128.0" />
-            <TextField fx:id="txtEmailAdmAct" layoutX="171.0" layoutY="183.0" />
-            <TextField fx:id="txtDireccionadAct" layoutX="517.0" layoutY="127.0" />
-            <TextField fx:id="txtTelefAdmAct" layoutX="501.0" layoutY="183.0" prefWidth="150.0" />
-         </children>
-      </Pane>
    </children>
 </AnchorPane>

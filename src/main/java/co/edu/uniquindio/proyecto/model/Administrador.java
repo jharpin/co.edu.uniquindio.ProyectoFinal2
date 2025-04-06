@@ -9,7 +9,7 @@ public class Administrador {
     private String telefonoAdministrador;
     private String contraseniaAdministrador;
 
-    public Administrador() {
+    public Administrador()  {
     }
 
     public String getNombreAdministrador() {

@@ -10,5 +10,11 @@ public class Banco {
     public void setNombreBanco(String nombreBanco) {this.nombreBanco = nombreBanco;}
 
 
-
+    @Override
+    public String toString() {
+        return "Banco{" +
+                "nombreBanco='" + nombreBanco + '\'' +
+                ", idBanco='" + idBanco + '\'' +
+                '}';
+    }
 }

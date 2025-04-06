@@ -44,7 +44,7 @@ public class GestionBilletera implements IModelFactoryServices, ICuentaCrud, IAd
        for(Usuario usuario : usuarios){
            if(usuario.getIdUsuario().equals(nuevoUsuario.getIdUsuario())){
                return false;
-           }  
+           }
        }
 
         return false;

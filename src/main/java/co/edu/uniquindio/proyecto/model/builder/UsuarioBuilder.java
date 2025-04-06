@@ -24,6 +24,6 @@ public class UsuarioBuilder {
     public UsuarioBuilder setTelefonoUsuario(String telefonoUsuario) {this.telefonoUsuario = telefonoUsuario;return this;}
     public UsuarioBuilder setContraseniaUsuario(String contraseniaUsuario) {this.contraseniaUsuario = contraseniaUsuario;return this;}
     public Usuario build() {
-        return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
+        return new Usuario( idUsuario,nombreUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
     }
 }

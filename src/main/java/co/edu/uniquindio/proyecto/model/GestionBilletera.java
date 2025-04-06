@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 public class GestionBilletera implements IModelFactoryServices, ICuentaCrud, IAdministradorCrud, IUsuarioCrud {
     private ArrayList<Cuenta> cuentas;
+    private ArrayList<Usuario> usuarios;
     private ArrayList<Banco> bancos;
 
 
     public GestionBilletera() {
         /// inicializacion de listas
         this.cuentas = new ArrayList<>();
+        this.usuarios = new ArrayList<>();
         this.bancos = new ArrayList<>();
           }
 
@@ -22,6 +24,8 @@ public class GestionBilletera implements IModelFactoryServices, ICuentaCrud, IAd
     public void setCuentas(ArrayList<Cuenta> cuentas) {this.cuentas = cuentas;}
     public ArrayList<Banco> getBancos() {return bancos;}
     public void setBancos(ArrayList<Banco> bancos) {this.bancos = bancos;}
+    public ArrayList<Usuario> getUsuarios() {return usuarios;}
+    public void setUsuarios(ArrayList<Usuario> usuarios) {this.usuarios = usuarios;}
 
     @Override
     public void mostrarInfoBilletera() {
@@ -35,7 +39,14 @@ public class GestionBilletera implements IModelFactoryServices, ICuentaCrud, IAd
 
 
     @Override
-    public boolean crearUsuario(UsuarioBuilder NuevoUsuario) {
+    public boolean crearUsuario(UsuarioBuilder NuevoUsuarioBuilder){
+       Usuario  nuevoUsuario = NuevoUsuarioBuilder.build();
+       for(Usuario usuario : usuarios){
+           if(usuario.getIdUsuario().equals(nuevoUsuario.getIdUsuario())){
+               return false;
+           }
+       }
+
         return false;
     }
 

@@ -55,7 +55,14 @@ public class Administrador {
         return new AdministradorBuilder();
     }
 
+    @Override
     public String toString() {
-        return nombreAdministrador;
+        return "Administrador{" +
+                "nombreAdministrador='" + nombreAdministrador + '\'' +
+                ", idAdministrador='" + idAdministrador + '\'' +
+                ", emailAdministrador='" + emailAdministrador + '\'' +
+                ", telefonoAdministrador='" + telefonoAdministrador + '\'' +
+                ", contraseniaAdministrador='" + contraseniaAdministrador + '\'' +
+                '}';
     }
 }

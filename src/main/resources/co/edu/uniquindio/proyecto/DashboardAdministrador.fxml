@@ -24,7 +24,7 @@
           <Tab text="Gestionar Usuarios" />
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                 <children>
-                    <SplitPane layoutX="14.0" layoutY="7.0" orientation="Vertical">
+                    <SplitPane orientation="Vertical">>
                         <items>
                             <fx:include source="GestionarUsuariosAdmi.fxml" />
                         </items>

@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.proyecto.GestionarUsuariosAdmi"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.GestionUsuarioViewController">
+   <children>
+      <AnchorPane layoutX="-2.0" prefHeight="402.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="lblBilleteraVirtual" layoutX="216.0" layoutY="14.0" text="Billetera Virtual ">
+               <font>
+                  <Font name="Dubai Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblLogintl" layoutX="236.0" layoutY="58.0" text="Gestion Usuarios">
+               <font>
+                  <Font name="Dubai Regular" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnActualizarUsuario" layoutX="64.0" layoutY="102.0" mnemonicParsing="false" onAction="#ActualizarUsuario" prefHeight="35.0" prefWidth="122.0" text="Actualizar Usuario" />
+            <Button fx:id="btnCrearUsuario" layoutX="228.0" layoutY="102.0" mnemonicParsing="false" onAction="#irCrearUsuario" prefHeight="35.0" prefWidth="122.0" text="Crear Usuario " />
+            <Button fx:id="btnEliminarUsuario" layoutX="385.0" layoutY="102.0" mnemonicParsing="false" onAction="#Eliminarusuario" prefHeight="35.0" prefWidth="140.0" text="Eliminar Usuario " />
+            <TableView fx:id="tableUsuariosmostrar" layoutX="19.0" layoutY="163.0" onSort="#mostrarusuarios" prefHeight="200.0" prefWidth="562.0">
+              <columns>
+                <TableColumn prefWidth="561.599987411499" text="Usuarios del sistema" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

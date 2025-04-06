@@ -16,7 +16,7 @@ public class AdministradorBuilder {
     public AdministradorBuilder setEmailAdministrador(String emailAdministrador) {this.emailAdministrador = emailAdministrador;return this;}
     public AdministradorBuilder setTelefonoAdministrador(String telefonoAdministrador){this.telefonoAdministrador = telefonoAdministrador;return this;}
 
-    public Administrador build() {
+    public AdministradorBuilder build() {
         return null;
     }
 }

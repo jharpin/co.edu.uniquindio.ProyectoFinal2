@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyecto.model;
 
-import co.edu.uniquindio.proyecto.model.builder.AdministradorBuilder;
+import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
 public class Usuario {
     private String nombreUsuario;

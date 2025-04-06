@@ -3,7 +3,7 @@ import co.edu.uniquindio.gestionempleadofx.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.gestionempleadofx.proyecto.model.Administrador;
 import co.edu.uniquindio.gestionempleadofx.proyecto.mapping.dto.Administradordto;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class AdministradorController {
     ModelFactory modelFactory;
@@ -13,7 +13,6 @@ public class AdministradorController {
     }
 
     public List<Administradordto> obtenerAdministrador() {
-        //return (List<Administradordtoo>) modelFactory.Administradordto();
+        return (List<Administradordtoo>) modelFactory.Administradordto();
     }
-
 }

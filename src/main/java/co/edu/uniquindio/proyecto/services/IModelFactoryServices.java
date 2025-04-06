@@ -1,4 +1,9 @@
 package co.edu.uniquindio.proyecto.services;
 
-public interface IModelFactoryServices {
+public interface IModelFactoryServices extends IUsuarioCrud, IAdministradorCrud, ICuentaCrud, IGestionBilleteraCrud {
+    void mostrarInfoBilletera();
+
+    boolean mostrarListaUsuarios();
+    boolean mostrarListaBanco();
+
 }

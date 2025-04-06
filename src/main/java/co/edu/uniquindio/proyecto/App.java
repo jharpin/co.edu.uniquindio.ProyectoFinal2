@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import co.edu.uniquindio.proyecto.factory.ModelFactory;
+import co.edu.uniquindio.proyecto.model.GestionBilletera;
+import co.edu.uniquindio.proyecto.model.Usuario;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import java.io.IOException;
 
 public class App extends Application {

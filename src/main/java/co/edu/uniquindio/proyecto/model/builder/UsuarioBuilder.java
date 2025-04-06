@@ -10,6 +10,11 @@ public class UsuarioBuilder {
     private String contraseniaUsuario;
 
     public UsuarioBuilder (String idUsuario,String nombreUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.emailUsuario = emailUsuario;
+        this.telefonoUsuario = telefonoUsuario;
+        this.contraseniaUsuario = contraseniaUsuario;
     }
     public UsuarioBuilder(){}
 

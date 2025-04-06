@@ -3,7 +3,7 @@ package co.edu.uniquindio.proyecto.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
@@ -13,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class UsuarioviewController {
@@ -91,13 +88,67 @@ public class UsuarioviewController {
 
     @FXML
     void Registrar(ActionEvent event) {
+        // Obtener datos del formulario
+        String idUsuario = txtIdeusuario.getText();
+        String nombreUsuario = txtNombreUsuario.getText();
+        String emailUsuario = txtEmailUsuario.getText();
+        String telefonoUsuario = txtTelefonoUsuario.getText();
+        String contraseniaUsuario = txtcontrasenia.getText();
 
+        // Validación básica
+        if (idUsuario.isEmpty() || nombreUsuario.isEmpty() || emailUsuario.isEmpty()
+                || telefonoUsuario.isEmpty() || contraseniaUsuario.isEmpty()) {
+            mostrarAlerta("Campos incompletos", null, "Por favor complete todos los campos.");
+            return;
+        }
+
+        // Crear el builder y construir el usuario
+        UsuarioBuilder builder = new UsuarioBuilder()
+                .setIdUsuario(idUsuario)
+                .setNombreUsuario(nombreUsuario)
+                .setEmailUsuario(emailUsuario)
+                .setTelefonoUsuario(telefonoUsuario)
+                .setContraseniaUsuario(contraseniaUsuario);
+
+        // Acceder al modelo desde el factory
+        GestionBilletera gestion = ModelFactory.getInstance().getGestionBilletera();
+
+        boolean creado = gestion.crearUsuario(builder);
+
+        if (creado) {
+            mostrarAlerta("Éxito", null, "Usuario registrado exitosamente.");
+            txtIdeusuario.clear();
+            txtNombreUsuario.clear();
+            txtEmailUsuario.clear();
+            txtTelefonoUsuario.clear();
+            txtcontrasenia.clear();
+
+            // Mostrar la lista actual de usuarios
+            String listaUsuarios = "Usuarios registrados:\n";
+            for (Usuario u : gestion.getUsuarios()) {
+                listaUsuarios += "- " + u.getNombreUsuario() + " (ID: " + u.getIdUsuario() + ")\n";
+            }
+            mostrarAlerta("Lista de Usuarios", null, listaUsuarios);
+
+        } else {
+            mostrarAlerta("Error", null, "El usuario ya existe o ocurrió un error.");
+        }
+    }
+
+
+    private void mostrarAlerta(String titulo, String encabezado, String contenido) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(encabezado);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 
 
 
     @FXML
     void initialize() {}
+
 }
 
 

@@ -46,8 +46,8 @@ public class GestionBilletera implements IModelFactoryServices, ICuentaCrud, IAd
                return false;
            }
        }
-
-        return false;
+        usuarios.add(nuevoUsuario);
+        return true;
     }
 
     @Override

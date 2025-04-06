@@ -4,6 +4,6 @@ module co.edu.uniquindio.gestionempleadofx.proyecto {
 
     requires org.controlsfx.controls;
 
-    opens co.edu.uniquindio.gestionempleadofx.proyecto to javafx.fxml;
-    exports co.edu.uniquindio.gestionempleadofx.proyecto;
+    opens co.edu.uniquindio.proyecto to javafx.fxml;
+    exports co.edu.uniquindio.proyecto;
 }

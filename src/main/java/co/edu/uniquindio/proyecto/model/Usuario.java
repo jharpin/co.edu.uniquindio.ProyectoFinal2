@@ -37,8 +37,8 @@ public class Usuario {
     public String getContraseniaUsuario() {return contraseniaUsuario;}
 
     public void setContraseniaUsuario(String contraseniaUsuario) {this.contraseniaUsuario = contraseniaUsuario;}
-    public static UsuarioBuilder builder( String idUsuario,String nombreUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
-        return new UsuarioBuilder(idUsuario, nombreUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
+    public static UsuarioBuilder builder( ) {
+        return new UsuarioBuilder();
     }
 
     @Override

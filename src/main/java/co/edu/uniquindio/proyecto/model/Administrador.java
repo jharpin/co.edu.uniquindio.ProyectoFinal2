@@ -9,7 +9,12 @@ public class Administrador {
     private String telefonoAdministrador;
     private String contraseniaAdministrador;
 
-    public Administrador()  {
+    public Administrador(String nombreAdministrador,String idAdministrador,String emailAdministrador,String telefonoAdministrador,String contraseniaAdministrador){
+        this.nombreAdministrador=nombreAdministrador;
+        this.idAdministrador=idAdministrador;
+        this.emailAdministrador=emailAdministrador;
+        this.telefonoAdministrador=telefonoAdministrador;
+        this.contraseniaAdministrador=contraseniaAdministrador;
     }
 
     public String getNombreAdministrador() {
@@ -33,7 +38,7 @@ public class Administrador {
     }
 
     public void setEmailAdministrador(String emailAdministrador) {
-        this.nombreAdministrador = nombreAdministrador;
+        this.emailAdministrador = nombreAdministrador;
     }
 
     public String getTelefonoAdministrador() {
@@ -41,7 +46,7 @@ public class Administrador {
     }
 
     public void setTelefonoAdministrador(String telefonoAdministrador) {
-        this.nombreAdministrador = nombreAdministrador;
+        this.telefonoAdministrador = nombreAdministrador;
     }
 
     public String getContraseniaAdministrador() {

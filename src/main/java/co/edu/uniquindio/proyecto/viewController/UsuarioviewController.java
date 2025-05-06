@@ -103,12 +103,14 @@ public class UsuarioviewController {
         }
 
         // Crear el builder y construir el usuario
-        UsuarioBuilder builder = new UsuarioBuilder()
-                .setIdUsuario(idUsuario)
-                .setNombreUsuario(nombreUsuario)
-                .setEmailUsuario(emailUsuario)
-                .setTelefonoUsuario(telefonoUsuario)
-                .setContraseniaUsuario(contraseniaUsuario);
+        UsuarioBuilder builder = new UsuarioBuilder();
+                Usuario usuario1=Usuario.builder()
+                .nombreUsuario(nombreUsuario)
+                .idUsuario(idUsuario)
+                .emailUsuario(emailUsuario)
+                .telefonoUsuario(telefonoUsuario)
+                .contraseniaUsuario(contraseniaUsuario)
+                        .build();
 
         // Acceder al modelo desde el factory
         GestionBilletera gestion = ModelFactory.getInstance().getGestionBilletera();

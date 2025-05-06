@@ -5,7 +5,7 @@ import co.edu.uniquindio.proyecto.services.ICuentaCrud;
 public class Cuenta implements ICuentaCrud {
     private String nombreCuenta;
     private String idCuenta;
-    private Cuenta cuenta = new Cuenta();
+    private Cuenta cuenta;
     private String numeroCuenta;
     private String tipoCuenta;
 

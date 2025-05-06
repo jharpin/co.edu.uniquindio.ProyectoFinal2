@@ -63,7 +63,7 @@ public class UsuarioviewController {
     private TextField txtTelefonoUsuario;
 
     @FXML
-    private TextField txtcontrasenia;
+    private PasswordField txtcontrasenia;
 
     @FXML
     void IrinicioSesion(ActionEvent event) {

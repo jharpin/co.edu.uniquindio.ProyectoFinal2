@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="392.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.UsuarioviewController">
+<AnchorPane prefHeight="392.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.RegistroUsuarioviewController">
    <children>
       <Label fx:id="lblBilleteraVirtual" layoutX="227.0" layoutY="6.0" text="Billetera Virtual ">
          <font>
@@ -37,7 +37,7 @@
       <TextField fx:id="txtNombreUsuario" layoutX="155.0" layoutY="95.0" />
       <TextField fx:id="txtIdeusuario" layoutX="155.0" layoutY="144.0" />
       <TextField fx:id="txtEmailUsuario" layoutX="155.0" layoutY="194.0" />
-      <Button fx:id="btnRegistrarUsuario" layoutX="273.0" layoutY="304.0" mnemonicParsing="false" onAction="#Registrar" prefHeight="35.0" prefWidth="99.0" text="Registrarse" />
+      <Button fx:id="btnRegistrarUsuario" layoutX="273.0" layoutY="304.0" mnemonicParsing="false" onAction="#onRegistrar" prefHeight="35.0" prefWidth="99.0" text="Registrarse" />
       <Label fx:id="lblTelefonoUsuario" layoutX="327.0" layoutY="142.0" text="telefonoUsuario:">
          <font>
             <Font name="Dubai Regular" size="16.0" />

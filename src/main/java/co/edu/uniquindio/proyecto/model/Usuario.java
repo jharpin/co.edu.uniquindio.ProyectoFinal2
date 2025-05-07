@@ -9,7 +9,7 @@ public class Usuario {
         private String telefonoUsuario;
         private String contraseniaUsuario;
 
-        public Usuario( String idUsuario,String nombreUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
+        public Usuario( String nombreUsuario,String idUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
 
             this.idUsuario = idUsuario;
             this.nombreUsuario = nombreUsuario;

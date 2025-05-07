@@ -15,8 +15,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import co.edu.uniquindio.proyecto.Controller.UsuarioController;
+public class RegistroUsuarioviewController {
 
-public class UsuarioviewController {
+    UsuarioController usuarioController;
+
     @FXML
     private ResourceBundle resources;
 
@@ -64,7 +67,13 @@ public class UsuarioviewController {
 
     @FXML
     private TextField txtcontrasenia;
-
+    @FXML
+    void initialize() {
+        usuarioController=new UsuarioController();
+        initView();
+    }
+    private void initView() {
+    }
     @FXML
     void IrinicioSesion(ActionEvent event) {
         try {
@@ -87,7 +96,7 @@ public class UsuarioviewController {
     }
 
     @FXML
-    void Registrar(ActionEvent event) {
+    void onRegistrar(ActionEvent event) {
         // Obtener datos del formulario
         String idUsuario = txtIdeusuario.getText();
         String nombreUsuario = txtNombreUsuario.getText();
@@ -103,18 +112,14 @@ public class UsuarioviewController {
         }
 
         // Crear el builder y construir el usuario
-        UsuarioBuilder builder = new UsuarioBuilder();
-                Usuario usuario1=Usuario.builder()
-                .nombreUsuario(nombreUsuario)
-                .idUsuario(idUsuario)
-                .emailUsuario(emailUsuario)
-                .telefonoUsuario(telefonoUsuario)
-                .contraseniaUsuario(contraseniaUsuario)
-                        .build();
+        UsuarioBuilder builder = new UsuarioBuilder()
+                .setNombreUsuario(nombreUsuario)
+                .setIdUsuario(idUsuario)
+                .setEmailUsuario(emailUsuario)
+                .setTelefonoUsuario(telefonoUsuario)
+                .setContraseniaUsuario(contraseniaUsuario);
 
-        // Acceder al modelo desde el factory
         GestionBilletera gestion = ModelFactory.getInstance().getGestionBilletera();
-
         boolean creado = gestion.crearUsuario(builder);
 
         if (creado) {
@@ -127,7 +132,7 @@ public class UsuarioviewController {
 
             // Mostrar la lista actual de usuarios
             String listaUsuarios = "Usuarios registrados:\n";
-            for (Usuario u : gestion.getUsuarios()) {
+            for (Usuario u : gestion.getListaUsuarios()) {
                 listaUsuarios += "- " + u.getNombreUsuario() + " (ID: " + u.getIdUsuario() + ")\n";
             }
             mostrarAlerta("Lista de Usuarios", null, listaUsuarios);
@@ -148,8 +153,7 @@ public class UsuarioviewController {
 
 
 
-    @FXML
-    void initialize() {}
+
 
 }
 

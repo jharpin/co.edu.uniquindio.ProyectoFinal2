@@ -32,4 +32,28 @@ public class UsuarioBuilder {
     public Usuario build() {
 return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
     }
+    public UsuarioBuilder setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+        return this;
+    }
+
+    public UsuarioBuilder setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+        return this;
+    }
+
+    public UsuarioBuilder setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+        return this;
+    }
+
+    public UsuarioBuilder setTelefonoUsuario(String telefonoUsuario) {
+        this.telefonoUsuario = telefonoUsuario;
+        return this;
+    }
+
+    public UsuarioBuilder setContraseniaUsuario(String contraseniaUsuario) {
+        this.contraseniaUsuario = contraseniaUsuario;
+        return this;
+    }
 }

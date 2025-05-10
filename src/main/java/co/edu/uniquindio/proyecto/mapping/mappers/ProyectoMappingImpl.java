@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.mapping.mappers;
 
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 
@@ -23,23 +24,18 @@ public class ProyectoMappingImpl implements IProyectoMapping {
 
     @Override
     public UsuarioDto usuarioToUsuarioDto(Usuario usuario) {
-        return new UsuarioDto(
-                usuario.getNombreUsuario(),
-                usuario.getIdUsuario(),
-                usuario.getContraseniaUsuario(),
-                usuario.getEmailUsuario(),
-                usuario.getTelefonoUsuario());
+        return null;
     }
 
     @Override
-    public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
-        return Usuario.builder()
-                .nombreUsuario(usuarioDto.nombreUsuario())
-                .idUsuario(usuarioDto.idUsuario())
-                .contraseniaUsuario(usuarioDto.contraseniaUsuario())
-                .emailUsuario(usuarioDto.emailUsuario())
-                .telefonoUsuario(usuarioDto.telefonoUsuario())
-                .build();
+    public Usuario usuarioDtoToUsuario(UsuarioDto usuario) {
+        return null;
     }
-}
 
+    @Override
+    public Usuario usuariodtoToUsuario(UsuarioDto usuario) {
+        return null;
+    }
+
+
+}

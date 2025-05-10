@@ -40,6 +40,21 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
+    public boolean agregarCuenta() {
+        return false;
+    }
+
+    @Override
+    public boolean eliminarCuenta() {
+        return false;
+    }
+
+    @Override
+    public boolean actualizarCuenta() {
+        return false;
+    }
+
+    @Override
     public List<UsuarioDto> obtenerUsuario() {
         return mapper.getUsuarioDtos(gestionBilletera.getListaUsuarios());
     }
@@ -50,12 +65,27 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
+    public List<UsuarioDto> obtenerUsuarios() {
+        return List.of();
+    }
+
+    @Override
     public boolean mostrarListaUsuarios() {
         return false;
     }
 
     @Override
     public boolean mostrarListaBanco() {
+        return false;
+    }
+
+    @Override
+    public boolean agregarUsuario(UsuarioDto usuariodto) {
+        return false;
+    }
+
+    @Override
+    public boolean actualizarUsuario(UsuarioDto usuariodto) {
         return false;
     }
 }

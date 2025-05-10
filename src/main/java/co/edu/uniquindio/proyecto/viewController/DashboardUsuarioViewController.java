@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
+
 public class DashboardUsuarioViewController {
     @FXML
     private ResourceBundle resources;
@@ -15,6 +17,9 @@ public class DashboardUsuarioViewController {
 
     @FXML
     private Button btnActualizarUsuario;
+
+    @FXML
+    private Button btnActualizarUsuario1;
 
     @FXML
     private Button btnAgregarDinero;
@@ -29,10 +34,22 @@ public class DashboardUsuarioViewController {
     private Label lblBilleteraVirtual;
 
     @FXML
+    private Label lblBilleteraVirtual1;
+
+    @FXML
+    private Label lblBilleteraVirtual2;
+
+    @FXML
     private Label lblNumeroCuenta;
 
     @FXML
     private Label lblRegistroTl;
+
+    @FXML
+    private Label lblRegistroTl1;
+
+    @FXML
+    private Label lblRegistroTl2;
 
     @FXML
     private Label lblTelefonoUsuario;
@@ -53,6 +70,12 @@ public class DashboardUsuarioViewController {
     private Label lblnombreUsuario11;
 
     @FXML
+    private Label lblnombreUsuario2;
+
+    @FXML
+    private Label lblnombreUsuario21;
+
+    @FXML
     private Label lblnumeroDinero;
 
     @FXML
@@ -63,6 +86,12 @@ public class DashboardUsuarioViewController {
 
     @FXML
     private Tab tabTransacciones;
+
+    @FXML
+    private TextField txtnumeroCuenta;
+
+    @FXML
+    private TextField txtnumeroCuenta1;
 
     @FXML
     void Retirar(ActionEvent event) {

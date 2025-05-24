@@ -1,5 +1,8 @@
 package co.edu.uniquindio.proyecto.viewController;
 
+import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.patrones.proxy.LoginProxy;
+import co.edu.uniquindio.proyecto.services.IAutentificador;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,9 +54,35 @@ public class LoginViewController {
 
     @FXML
     private TextField txtIdentificacionLogin;
+    private IAutentificador loginProxy = new LoginProxy();
+
 
     @FXML
     void IngresarLogin(ActionEvent event) {
+            String identificacion = txtIdentificacionLogin.getText();
+            String contrasena = txtContraseniaLogin.getText();
+
+            Usuario usuario = loginProxy.iniciarSesion(identificacion, contrasena);
+
+            if (usuario != null) {
+                //if (usuario.isAdmin()) {
+                    // Redirigir a vista administrador
+                   // System.out.println("Redirigiendo a vista ADMIN...");
+                System.out.println("Redirigiendo a vista USUARIO...");
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setTitle("Inicio de Sesión Exitoso");
+                alerta.setHeaderText(null);
+                alerta.setContentText("¡Bienvenido, " + usuario.getIdUsuario() + "!");
+                alerta.showAndWait();
+
+            } else {
+                System.out.println(" Credenciales incorrectas");
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Error de Inicio de Sesión");
+                alerta.setHeaderText("Credenciales incorrectas");
+                alerta.setContentText("Por favor, verifica du identificacion y contraseña.");
+                alerta.showAndWait();
+            }
 
     }
 

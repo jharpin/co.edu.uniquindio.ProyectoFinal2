@@ -3,12 +3,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class DashboardUsuarioViewController {
+
     @FXML
     private ResourceBundle resources;
 
@@ -29,6 +27,21 @@ public class DashboardUsuarioViewController {
 
     @FXML
     private Button btnTranferir;
+
+    @FXML
+    private Button btnenviarDinero;
+
+    @FXML
+    private TableColumn<?, ?> colFechaTrans;
+
+    @FXML
+    private TableColumn<?, ?> colIdTrans;
+
+    @FXML
+    private TableColumn<?, ?> colValorTransferido;
+
+    @FXML
+    private TableColumn<?, ?> colnumeroCuenta;
 
     @FXML
     private Label lblBilleteraVirtual;
@@ -79,6 +92,12 @@ public class DashboardUsuarioViewController {
     private Label lblnumeroDinero;
 
     @FXML
+    private Label lblnumerocuenta;
+
+    @FXML
+    private Label lblvaloratrans;
+
+    @FXML
     private Tab tabCuenta;
 
     @FXML
@@ -88,10 +107,19 @@ public class DashboardUsuarioViewController {
     private Tab tabTransacciones;
 
     @FXML
+    private TableView<?> tableTransaccion;
+
+    @FXML
     private TextField txtnumeroCuenta;
 
     @FXML
     private TextField txtnumeroCuenta1;
+
+    @FXML
+    private TextField txtnumerocuenta;
+
+    @FXML
+    private TextField txtvaloraTransf;
 
     @FXML
     void Retirar(ActionEvent event) {
@@ -105,6 +133,11 @@ public class DashboardUsuarioViewController {
 
     @FXML
     void onAgregarDinero(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEnviar(ActionEvent event) {
 
     }
 

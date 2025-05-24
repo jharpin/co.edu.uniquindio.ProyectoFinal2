@@ -1,5 +1,7 @@
 package co.edu.uniquindio.proyecto.services;
 
+import co.edu.uniquindio.proyecto.model.Usuario;
+
 public interface IAutentificador {
-    boolean iniciarSesion(String correo, String contrasena);
+    Usuario iniciarSesion(String identificacion, String contrasena);
 }

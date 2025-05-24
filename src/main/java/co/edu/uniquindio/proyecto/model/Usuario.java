@@ -52,4 +52,8 @@ public class Usuario {
                 '}';
     }
 
+
+    public boolean iniciarSesion(String identificacion, String contrasena) {
+        return this.idUsuario.equals(identificacion) && this.contraseniaUsuario.equals(contrasena);
+    }
 }

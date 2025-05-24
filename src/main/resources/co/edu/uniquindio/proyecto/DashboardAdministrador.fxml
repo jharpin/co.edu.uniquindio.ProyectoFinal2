@@ -4,40 +4,50 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
-
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.skin.SplitPaneSkin.Content?>
-<AnchorPane prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
-   <children>
-      <TabPane prefHeight="563.0" prefWidth="709.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="seccionActualizar" text="Actualizar Datos " />
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <SplitPane layoutX="14.0" layoutY="7.0" orientation="Vertical">
-                     <items>
-                        <fx:include source="ActualizarDatosAdmi.fxml" />
-                     </items>
-                  </SplitPane>
-               </children>
-               </AnchorPane>
-          <Tab text="Gestionar Usuarios" />
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                <children>
-                    <SplitPane orientation="Vertical">>
-                        <items>
-                            <fx:include source="GestionarUsuariosAdmi.fxml" />
-                        </items>
-                    </SplitPane>
-                </children>
-            </AnchorPane>
 
-            <Tab text="Gestionar cuentas" />
-            <Tab text="Gestionar Transaciones" />
-            <Tab text="Estadisticas " />
-            <Tab text="Graficas " />
-        </tabs>
-      </TabPane>
-      <Label layoutX="61.0" layoutY="-37.0" text="Label" />
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardAdministradorViewController">
+    <children>
+        <TabPane prefHeight="563.0" prefWidth="709.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="seccionActualizar" text="Actualizar Datos ">
+                    <AnchorPane>
+                        <children>
+                            <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                                <items>
+                                    <fx:include source="ActualizarDatosAdmi.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
+                <Tab text="Gestionar Usuarios">
+                    <AnchorPane>
+                        <children>
+                            <SplitPane orientation="VERTICAL">
+                                <items>
+                                    <fx:include source="GestionarUsuariosAdmi.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
+                <Tab text="Gestionar cuentas" >
+                    <AnchorPane>
+                        <children>
+                            <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                                <items>
+                                    <fx:include source="GestionarCuentasAdmi.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
+                <Tab text="Gestionar Transaciones" />
+                <Tab text="Estadisticas " />
+                <Tab text="Graficas " />
+            </tabs>
+        </TabPane>
+        <Label layoutX="61.0" layoutY="-37.0" text="Label" />
+    </children>
 </AnchorPane>

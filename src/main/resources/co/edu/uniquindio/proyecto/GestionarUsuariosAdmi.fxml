@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.GestionUsuarioViewController">
    <children>
       <AnchorPane layoutX="-2.0" prefHeight="402.0" prefWidth="600.0">
@@ -25,9 +24,11 @@
             <Button fx:id="btnActualizarUsuario" layoutX="64.0" layoutY="102.0" mnemonicParsing="false" onAction="#ActualizarUsuario" prefHeight="35.0" prefWidth="122.0" text="Actualizar Usuario" />
             <Button fx:id="btnCrearUsuario" layoutX="228.0" layoutY="102.0" mnemonicParsing="false" onAction="#irCrearUsuario" prefHeight="35.0" prefWidth="122.0" text="Crear Usuario " />
             <Button fx:id="btnEliminarUsuario" layoutX="385.0" layoutY="102.0" mnemonicParsing="false" onAction="#Eliminarusuario" prefHeight="35.0" prefWidth="140.0" text="Eliminar Usuario " />
-            <TableView fx:id="tableUsuariosmostrar" layoutX="19.0" layoutY="163.0" onSort="#mostrarusuarios" prefHeight="200.0" prefWidth="562.0">
+            <TableView fx:id="tableUsuarios" layoutX="44.0" layoutY="165.0" prefHeight="200.0" prefWidth="497.0">
               <columns>
-                <TableColumn prefWidth="561.599987411499" text="Usuarios del sistema" />
+                <TableColumn fx:id="colIdUsuario" prefWidth="151.20001983642578" text=" ID Usuario" />
+                <TableColumn fx:id="colnombreUsuario" prefWidth="170.39996337890625" text="nombre" />
+                  <TableColumn fx:id="colCorreoUsuario" prefWidth="175.99996948242188" text="correo" />
               </columns>
             </TableView>
          </children>

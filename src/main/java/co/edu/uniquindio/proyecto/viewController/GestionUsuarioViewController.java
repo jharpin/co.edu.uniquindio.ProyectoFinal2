@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class GestionUsuarioViewController {
@@ -26,13 +27,22 @@ public class GestionUsuarioViewController {
     private Button btnEliminarUsuario;
 
     @FXML
+    private TableColumn<?, ?> colCorreoUsuario;
+
+    @FXML
+    private TableColumn<?, ?> colIdUsuario;
+
+    @FXML
+    private TableColumn<?, ?> colnombreUsuario;
+
+    @FXML
     private Label lblBilleteraVirtual;
 
     @FXML
     private Label lblLogintl;
 
     @FXML
-    private TableView<?> tableUsuariosmostrar;
+    private TableView<?> tableUsuarios;
 
     @FXML
     void ActualizarUsuario(ActionEvent event) {
@@ -46,11 +56,6 @@ public class GestionUsuarioViewController {
 
     @FXML
     void irCrearUsuario(ActionEvent event) {
-
-    }
-
-    @FXML
-    void mostrarusuarios(ActionEvent event) {
 
     }
 

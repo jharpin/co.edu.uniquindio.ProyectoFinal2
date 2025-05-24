@@ -119,6 +119,7 @@ public class RegistroUsuarioviewController {
                 .setTelefonoUsuario(telefonoUsuario)
                 .setContraseniaUsuario(contraseniaUsuario);
 
+        //modelfactory
         GestionBilletera gestion = usuarioController.getGestionBilletera();
         boolean creado = gestion.crearUsuario(builder);
 

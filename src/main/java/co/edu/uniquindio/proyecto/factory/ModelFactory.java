@@ -11,6 +11,7 @@ import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 import java.util.List;
 
 public class ModelFactory implements IModelFactoryServices {
+
     private static ModelFactory modelFactory;
     private GestionBilletera gestionBilletera;
     private IProyectoMapping mapper;
@@ -87,5 +88,11 @@ public class ModelFactory implements IModelFactoryServices {
     @Override
     public boolean actualizarUsuario(UsuarioDto usuariodto) {
         return false;
+    }
+    public List<Usuario> obtenerListaUsuarios() {
+        return gestionBilletera.getListaUsuarios();
+    }
+    public boolean verificarIdExistente(String id) {
+        return obtenerListaUsuarios().stream().anyMatch(u -> u.getIdUsuario().equals(id));
     }
 }

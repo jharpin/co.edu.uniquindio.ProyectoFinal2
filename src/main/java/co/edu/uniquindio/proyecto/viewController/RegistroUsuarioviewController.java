@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import co.edu.uniquindio.proyecto.factory.ModelFactory;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
@@ -16,10 +17,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import co.edu.uniquindio.proyecto.Controller.UsuarioController;
+import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.factory.ModelFactory;
+
 public class RegistroUsuarioviewController {
 
     UsuarioController usuarioController;
-
+    Usuario usuario;
     @FXML
     private ResourceBundle resources;
 
@@ -107,9 +111,12 @@ public class RegistroUsuarioviewController {
         // Validación básica
         if (idUsuario.isEmpty() || nombreUsuario.isEmpty() || emailUsuario.isEmpty()
                 || telefonoUsuario.isEmpty() || contraseniaUsuario.isEmpty()) {
-            mostrarAlerta("Campos incompletos", null, "Por favor complete todos los campos.");
+            mostrarAlerta(null, null,"Campos incompletos");
             return;
-        }
+
+
+    }
+
 
         // Crear el builder y construir el usuario
         UsuarioBuilder builder = new UsuarioBuilder()
@@ -141,6 +148,38 @@ public class RegistroUsuarioviewController {
         } else {
             mostrarAlerta("Error", null, "El usuario ya existe o ocurrió un error.");
         }
+    }
+    private boolean validarCampos(Usuario usuario) {
+        if (usuario.getEmailUsuario() == null || usuario.getEmailUsuario().isEmpty()) {
+            mostrarAlerta("no valido","","El correo es obligatorio.");
+            return false;
+        }
+        if (!usuario.getEmailUsuario().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            mostrarAlerta("no valido","","El correo no tiene un formato válido.");
+            return false;
+        }
+        if (usuario.getIdUsuario() == null || usuario.getIdUsuario().isEmpty()) {
+            mostrarAlerta("no valido","","El ID es obligatorio.");
+            return false;
+        }
+        ModelFactory modelFactory = null;
+        if (modelFactory.verificarIdExistente(usuario.getIdUsuario())) {
+            mostrarAlerta("no valido","","El ID ya existe. Debe ser único.");
+            return false;
+        }
+        if (usuario.getTelefonoUsuario() == null || !usuario.getTelefonoUsuario().matches("\\d+")) {
+            mostrarAlerta("no valido","","El teléfono debe contener solo números.");
+            return false;
+        }
+        if (usuario.getTelefonoUsuario().length() < 7 || usuario.getTelefonoUsuario().length() > 10) {
+            mostrarAlerta("no valido","","El teléfono debe tener entre 7 y 10 dígitos.");
+            return false;
+        }
+        if (usuario.getContraseniaUsuario() == null || usuario.getContraseniaUsuario().length() < 6) {
+            mostrarAlerta("no valido","","La contraseña debe tener al menos 6 caracteres.");
+            return false;
+        }
+        return true;
     }
 
 

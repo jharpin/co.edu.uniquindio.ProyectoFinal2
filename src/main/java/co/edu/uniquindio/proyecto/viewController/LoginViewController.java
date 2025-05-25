@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.patrones.proxy.LoginProxy;
+import co.edu.uniquindio.proyecto.patrones.proxy.LoginService;
 import co.edu.uniquindio.proyecto.services.IAutentificador;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginViewController {
+
+    IAutentificador loginProxy;
     @FXML
     private ResourceBundle resources;
 
@@ -54,7 +57,7 @@ public class LoginViewController {
 
     @FXML
     private TextField txtIdentificacionLogin;
-    private IAutentificador loginProxy = new LoginProxy();
+
 
 
     @FXML
@@ -129,7 +132,10 @@ public class LoginViewController {
     }
 
     @FXML
-    void initialize() {}
+    void initialize() {
+
+        loginProxy = new LoginProxy(new LoginService());
+    }
 
 }
 

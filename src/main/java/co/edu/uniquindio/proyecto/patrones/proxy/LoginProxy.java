@@ -4,13 +4,18 @@ import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IAutentificador;
 
 public class LoginProxy implements IAutentificador{
-    private LoginService loginService = new LoginService();
+
+    private IAutentificador autentificador;
+
+    public LoginProxy(IAutentificador autentificador) {
+        this.autentificador = autentificador;
+    }
 
     @Override
     public Usuario iniciarSesion(String identificacion, String contrasena){
         System.out.println("Intentando autenticación para: " + identificacion);
 
-        Usuario usuario = loginService.iniciarSesion(identificacion, contrasena);
+        Usuario usuario = autentificador.iniciarSesion(identificacion, contrasena);
 
         if (usuario == null) {
             System.out.println(" Acceso denegado: usuario no válido.");
@@ -25,6 +30,5 @@ public class LoginProxy implements IAutentificador{
 
         return usuario;
     }
-
 
 }

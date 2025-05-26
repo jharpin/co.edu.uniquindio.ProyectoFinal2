@@ -13,6 +13,10 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Billetera Virtual!");
         stage.setScene(scene);
+
+        // 👉 Ajustar la ventana al tamaño del contenido automáticamente
+        stage.sizeToScene();
+
         stage.show();
     }
 

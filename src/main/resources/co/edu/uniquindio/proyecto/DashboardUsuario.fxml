@@ -5,14 +5,14 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
+<AnchorPane prefHeight="734.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
    <children>
-      <TabPane prefHeight="503.0" prefWidth="670.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="20.0" prefHeight="709.0" prefWidth="893.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Actualizar datos">
                 <AnchorPane>
                     <children>
-                        <SplitPane layoutX="14.0" layoutY="9.0" orientation="VERTICAL" prefHeight="420.0" prefWidth="615.0">
+                        <SplitPane orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
                             <items>
                                 <fx:include source="ActualizarDatos.fxml" />
                             </items>
@@ -23,7 +23,7 @@
             <Tab text="Cuentas">
                 <AnchorPane>
                     <children>
-                        <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL" prefHeight="414.0" prefWidth="645.0">
+                        <SplitPane orientation="VERTICAL" prefHeight="589.0" prefWidth="779.0">
                             <items>
                                 <fx:include source="Cuenta.fxml" />
                             </items>
@@ -34,7 +34,7 @@
             <Tab text="Transaccion">
                 <AnchorPane>
                     <children>
-                        <SplitPane layoutX="16.0" layoutY="7.0" orientation="VERTICAL">
+                        <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
                             <items>
                                 <fx:include source="Transaccion.fxml" />
                             </items>

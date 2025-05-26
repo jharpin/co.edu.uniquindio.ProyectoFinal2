@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="392.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.RegistroUsuarioviewController">
+<AnchorPane prefHeight="392.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.RegistroUsuarioviewController">
    <children>
       <Label fx:id="lblBilleteraVirtual" layoutX="227.0" layoutY="6.0" text="Billetera Virtual ">
          <font>
@@ -52,11 +52,5 @@
       <TextField fx:id="txtTelefonoUsuario" layoutX="444.0" layoutY="144.0" />
       <Hyperlink fx:id="linkInicioSesion" layoutX="236.0" layoutY="258.0" onAction="#IrinicioSesion" text="¿Ya tiene Cuenta? Inicie Sesión " />
       <PasswordField fx:id="txtcontrasenia" layoutX="445.0" layoutY="194.0" />
-      <Label fx:id="lblnombreUsuario1" layoutX="324.0" layoutY="93.0" text="Dinero disponible">
-         <font>
-            <Font name="Dubai Regular" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtdinero" layoutX="444.0" layoutY="95.0" />
    </children>
 </AnchorPane>

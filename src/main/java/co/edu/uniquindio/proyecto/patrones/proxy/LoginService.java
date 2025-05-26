@@ -22,14 +22,19 @@ public class LoginService implements IAutentificador {
 
 
     @Override
-    public Usuario iniciarSesion(String identificacion, String contrasena) {
-        for (Usuario u : usuarios) {
-            if (u.getIdUsuario().equalsIgnoreCase(identificacion) || u.getContraseniaUsuario().equalsIgnoreCase(contrasena)) {
-                return u;
+    public Usuario iniciarSesionA(String idUsuario, String contraseniaUsuario) {
+        System.out.println("Intentando autenticación para: " + idUsuario);
+
+        for (Usuario usuario : usuarios) {
+            if (usuario.getIdUsuario().equals(idUsuario) && usuario.getContraseniaUsuario().equals(contraseniaUsuario)) {
+                return usuario;
             }
         }
+
+        System.out.println("Acceso denegado: usuario no válido.");
         return null;
     }
+
 
 
 

@@ -13,10 +13,10 @@ public class LoginProxy implements IAutentificador {
     }
 
     @Override
-    public Usuario iniciarSesion(String identificacion, String contrasena) {
+    public Usuario iniciarSesionA(String identificacion, String contrasena) {
         System.out.println("Intentando autenticación para: " + identificacion);
 
-        Usuario usuario = autentificador.iniciarSesion(identificacion, contrasena);
+        Usuario usuario = autentificador.iniciarSesionA(identificacion, contrasena);
 
         if (usuario == null) {
             System.out.println(" Acceso denegado: usuario no válido.");

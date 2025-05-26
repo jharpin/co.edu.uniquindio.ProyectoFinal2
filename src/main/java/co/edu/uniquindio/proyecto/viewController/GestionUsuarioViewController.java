@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyecto.Controller.GestionUsuarioController;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -75,6 +76,8 @@ public class GestionUsuarioViewController {
     @FXML
     void ActualizarUsuario(ActionEvent event) {
 
+        actualizarUsuario();
+
     }
 
     @FXML
@@ -86,7 +89,32 @@ public class GestionUsuarioViewController {
     void irCrearUsuario(ActionEvent event) {
 
     }
+    private void actualizarUsuario(){
+        if(){}
+    }
 
     @FXML
-    void initialize() {}
+    void initialize() {
+
+        gestionUsuarioController = new GestionUsuarioController();
+        initView();
+    }
+
+    private void initView(){
+        initDataBinding();
+        obtenerUsuarios();
+        tableUsuarios.getItems().clear();
+        tableUsuarios.getItems()(listaUsuarios);
+        listenerSelection();
+    }
+
+    private void obtenerUsuarios(){
+        listaUsuarios.addAll(gestionUsuarioController.obtnerUsuarios());
+    }
+
+    private void initDataBinding(){
+        colnombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
+        colIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idUsuario()));
+        colCorreoUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
+    }
 }

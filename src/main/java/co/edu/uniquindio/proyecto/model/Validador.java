@@ -10,9 +10,7 @@ public class Validador {
     }
 
     public boolean validarAdministrador(String idUsuario, String contraseniaUsuario) {
-        String ideAdmi = "admi";
-        String claveAdmin = "admin123";
+        return idUsuario.equals("admi") && contraseniaUsuario.equals("admi12345.");
 
-        return idUsuario.equals(ideAdmi) && contraseniaUsuario.equals(claveAdmin);
     }
 }

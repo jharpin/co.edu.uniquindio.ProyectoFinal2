@@ -11,18 +11,6 @@
     <children>
         <TabPane prefHeight="563.0" prefWidth="709.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab fx:id="seccionActualizar" text="Actualizar Datos ">
-                    <AnchorPane>
-                        <children>
-                            <SplitPane dividerPositions="0.5" layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
-                                <items>
-                                    <fx:include source="ActualizarDatosAdmi.fxml" />
-                           <Hyperlink text="Hyperlink" />
-                                </items>
-                            </SplitPane>
-                        </children>
-                    </AnchorPane>
-                </Tab>
                 <Tab text="Gestionar Usuarios">
                     <AnchorPane>
                         <children>

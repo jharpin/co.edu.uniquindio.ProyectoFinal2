@@ -1,13 +1,15 @@
 package co.edu.uniquindio.proyecto.viewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class GestionUsuarioViewController {
 
@@ -42,7 +44,24 @@ public class GestionUsuarioViewController {
     private Label lblLogintl;
 
     @FXML
+    private Hyperlink linkCerrar;
+
+    @FXML
     private TableView<?> tableUsuarios;
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/proyecto/Login.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) linkCerrar.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void ActualizarUsuario(ActionEvent event) {

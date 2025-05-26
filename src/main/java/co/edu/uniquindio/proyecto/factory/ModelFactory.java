@@ -112,8 +112,6 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
 
-
-
     public List<Usuario> obtenerListaUsuarios() {
         return gestionBilletera.getListaUsuarios();
     }
@@ -128,6 +126,6 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public List<CategoriaDto> obtenerCategoria() {
-        return List.of();
+        return mapper.categoriaDtoToCategoria(gestionBilletera.getListaCategoria());
     }
 }

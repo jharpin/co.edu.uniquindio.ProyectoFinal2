@@ -1,14 +1,16 @@
 package co.edu.uniquindio.proyecto.viewController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class ActualizarDatosAdmiviewController {
     @FXML
@@ -39,6 +41,9 @@ public class ActualizarDatosAdmiviewController {
     private Label lblnombreActualizar;
 
     @FXML
+    private Hyperlink linkCerrar;
+
+    @FXML
     private TableColumn<?, ?> tablaDatosAdmi;
 
     @FXML
@@ -52,7 +57,20 @@ public class ActualizarDatosAdmiviewController {
 
     @FXML
     private TextField txtTelefAdmAct;
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/proyecto/Login.fxml"));
+            Parent root = loader.load();
 
+            Stage stage = (Stage) linkCerrar.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     void ActualizarDatosAdmi(ActionEvent event) {
 

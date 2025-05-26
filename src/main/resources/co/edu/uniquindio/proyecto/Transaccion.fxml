@@ -10,21 +10,15 @@
             fx:controller="co.edu.uniquindio.proyecto.viewController.TransaccionViewController">
 
    <children>
-
-      <!-- TÍTULOS -->
       <Label fx:id="lblTitulo" layoutX="280.0" layoutY="20.0" text="Billetera Virtual">
-         <font>
-            <Font name="Dubai Bold" size="24"/>
-         </font>
+         <font><Font name="Dubai Bold" size="24"/></font>
       </Label>
 
       <Label fx:id="lblSubtitulo" layoutX="280.0" layoutY="60.0" text="Gestión de Transacciones">
-         <font>
-            <Font name="Dubai Regular" size="18"/>
-         </font>
+         <font><Font name="Dubai Regular" size="18"/></font>
       </Label>
 
-      <!-- CAMPOS -->
+      <!-- Formulario de ingreso -->
       <Label layoutX="50.0" layoutY="110.0" text="Cuenta Origen:"/>
       <TextField fx:id="cuentaOrigenField" layoutX="180.0" layoutY="105.0"/>
 
@@ -41,11 +35,11 @@
       <ComboBox fx:id="categoriaComboBox" layoutX="180.0" layoutY="265.0"/>
 
       <Label layoutX="50.0" layoutY="310.0" text="Descripción:"/>
-      <TextArea fx:id="descripcionArea" layoutX="180.0" layoutY="305.0" prefRowCount="3" prefColumnCount="20"/>
+      <TextArea fx:id="descripcionArea" layoutX="180.0" layoutY="305.0" prefColumnCount="20" prefRowCount="3"/>
+      <Button fx:id="limpiarFiltrosButton" layoutX="580.0" layoutY="265.0" onAction="#limpiarFiltros" text="Limpiar Filtros"/>
+      <Button fx:id="btnEnviar" layoutX="180.0" layoutY="380.0" onAction="#onEnviar" text="Enviar Dinero"/>
 
-      <Button fx:id="btnEnviar" layoutX="180.0" layoutY="380.0" text="Enviar Dinero" onAction="#onEnviar"/>
-
-      <!-- FILTROS -->
+      <!-- Filtros -->
       <Label layoutX="450.0" layoutY="110.0" text="Filtrar por Fecha:"/>
       <DatePicker fx:id="filtroFechaPicker" layoutX="580.0" layoutY="105.0"/>
 
@@ -53,11 +47,11 @@
       <ComboBox fx:id="filtroTipoComboBox" layoutX="580.0" layoutY="145.0"/>
 
       <Label layoutX="450.0" layoutY="190.0" text="Filtrar por Categoría:"/>
-      <TextField fx:id="filtroCategoriaField" layoutX="580.0" layoutY="185.0"/>
+      <ComboBox fx:id="filtroCategoriaComboBox" layoutX="580.0" layoutY="185.0"/>
 
-      <Button fx:id="filtrarButton" layoutX="580.0" layoutY="225.0" text="Aplicar Filtros"/>
+      <Button fx:id="filtrarButton" layoutX="580.0" layoutY="225.0" onAction="#filtrar" text="Aplicar Filtros"/>
 
-      <!-- TABLA -->
+      <!-- Tabla -->
       <TableView fx:id="tablaTransacciones" layoutX="50.0" layoutY="430.0" prefHeight="200.0" prefWidth="700.0">
          <columns>
             <TableColumn fx:id="colIdTrans" text="ID Transacción"/>
@@ -67,11 +61,14 @@
             <TableColumn fx:id="colFechaTrans" text="Fecha"/>
             <TableColumn fx:id="colTipo" text="Tipo"/>
             <TableColumn fx:id="colCategoria" text="Categoría"/>
+            <TableColumn fx:id="colDescripcion" text="Descripción"/>
          </columns>
       </TableView>
 
-      <!-- DETALLES -->
-      <Button fx:id="verDetallesButton" layoutX="300.0" layoutY="640.0" text="Ver Detalles de la Transacción Seleccionada"/>
-
+      <!-- Botón de ver detalles -->
+      <Button fx:id="verDetallesButton" layoutX="300.0" layoutY="650.0"
+              text="Ver Detalles de la Transacción Seleccionada"
+              onAction="#verDetalles"/>
    </children>
 </AnchorPane>
+

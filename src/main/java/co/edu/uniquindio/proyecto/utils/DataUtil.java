@@ -22,7 +22,6 @@ public class DataUtil {
                 .emailUsuario("admin@admin.com")
                 .telefonoUsuario("3113775851")
                 .contraseniaUsuario("11")
-                .dinero(12)
                 .build();
 
         gestionBilletera.getListaUsuarios().add(usuario2);

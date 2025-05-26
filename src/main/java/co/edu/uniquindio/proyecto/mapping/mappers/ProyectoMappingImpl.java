@@ -15,17 +15,7 @@ import java.util.List;
 public class ProyectoMappingImpl implements IProyectoMapping {
 
 
-    @Override
-    public List<CategoriaDto> getCategoriaDtos(List<Categoria> listaCategoria) {
-        if(listaCategoria==null){
-            return null;
-        }
-        List<CategoriaDto> CategoriaDto = new ArrayList<CategoriaDto>(listaCategoria.size());
-        for (Categoria categoria : listaCategoria) {
-            CategoriaDto.add(categoriaToCategoriaDto(categoria));
-        }
-        return CategoriaDto;
-    }
+
     @Override
     public List<TransaccionDto> getTransaccionDtos(List<Transaccion> listaTransacciones) {
         if(listaTransacciones==null){

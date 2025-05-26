@@ -1,5 +1,7 @@
 package co.edu.uniquindio.proyecto.factory;
 
+import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
+import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
@@ -79,6 +81,11 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
+    public List<TransaccionDto> obtenerTransacciones() {
+        return List.of();
+    }
+
+    @Override
     public boolean mostrarListaUsuarios() {
         return false;
     }
@@ -99,6 +106,11 @@ public class ModelFactory implements IModelFactoryServices {
         return gestionBilletera.actualizarUsuario(usuario);
     }
 
+    @Override
+    public boolean crearTransaccion(TransaccionDto transaccion) {
+        return false;
+    }
+
 
     public List<Usuario> obtenerListaUsuarios() {
         return gestionBilletera.getListaUsuarios();
@@ -107,4 +119,13 @@ public class ModelFactory implements IModelFactoryServices {
         return obtenerListaUsuarios().stream().anyMatch(u -> u.getIdUsuario().equals(id));
     }
 
+    @Override
+    public boolean crearCategoria(CategoriaDto categoria) {
+        return false;
+    }
+
+    @Override
+    public List<CategoriaDto> obtenerCategoria() {
+        return List.of();
+    }
 }

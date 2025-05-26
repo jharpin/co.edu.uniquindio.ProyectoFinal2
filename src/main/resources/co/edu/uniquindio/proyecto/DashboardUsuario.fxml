@@ -25,7 +25,7 @@
                     <children>
                         <SplitPane orientation="VERTICAL" prefHeight="589.0" prefWidth="779.0">
                             <items>
-                                <fx:include source="Cuenta.fxml" />
+                                <fx:include source="CuentaBancaria.fxml" />
                             </items>
                         </SplitPane>
                     </children>

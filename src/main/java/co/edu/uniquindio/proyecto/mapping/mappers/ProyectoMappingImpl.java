@@ -91,6 +91,16 @@ public class ProyectoMappingImpl implements IProyectoMapping {
     }
 
     @Override
+    public CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
+        return null;
+    }
+
+    @Override
+    public Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
+        return null;
+    }
+
+    @Override
     public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
         return Usuario.builder()
                 .nombreUsuario(usuarioDto.nombreUsuario())

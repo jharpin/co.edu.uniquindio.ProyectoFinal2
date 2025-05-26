@@ -14,6 +14,9 @@ public interface IProyectoMapping {
     List<UsuarioDto> getUsuarioDtos(List<Usuario> usuarios);
     UsuarioDto usuarioToUsuarioDto(Usuario usuario);
     Usuario usuarioDtoToUsuario(UsuarioDto usuario);
+
+    List<CategoriaDto> getCategoriaDtos(List<Categoria> listaCategoria);
+
     List<TransaccionDto>getTransaccionDtos(List<Transaccion> transacciones);
     TransaccionDto transaccionToTransaccionDto(Transaccion transaccion);
     Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto);

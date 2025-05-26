@@ -8,14 +8,24 @@ public class Usuario {
         private String emailUsuario;
         private String telefonoUsuario;
         private String contraseniaUsuario;
+        private double dinero;
 
-        public Usuario( String nombreUsuario,String idUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
+        public Usuario( String nombreUsuario,String idUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario, double dinero) {
 
             this.idUsuario = idUsuario;
             this.nombreUsuario = nombreUsuario;
             this.emailUsuario = emailUsuario;
             this.telefonoUsuario = telefonoUsuario;
             this.contraseniaUsuario = contraseniaUsuario;
+            this.dinero = dinero;
+        }
+
+        public double getDinero() {
+            return dinero;
+        }
+
+        public void setDinero(double dinero) {
+            this.dinero = dinero;
         }
 
     public String getIdUsuario() {return idUsuario;}

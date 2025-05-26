@@ -65,7 +65,7 @@ public class LoginViewController {
             String identificacion = txtIdentificacionLogin.getText();
             String contrasena = txtContraseniaLogin.getText();
 
-            Usuario usuario = loginProxy.iniciarSesion(identificacion, contrasena);
+            Usuario usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
 
             if (usuario != null) {
                 //if (usuario.isAdmin()) {

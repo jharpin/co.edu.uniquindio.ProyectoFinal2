@@ -43,6 +43,17 @@
                         </children>
                     </AnchorPane>
                 </Tab>
+                <Tab text="Gestionar Categorias">
+                    <AnchorPane prefHeight="728.0" prefWidth="955.0">
+                        <children>
+                            <SplitPane layoutX="14.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="776.0">
+                                <items>
+                                    <fx:include source="Categoria.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
                 <Tab text="Estadisticas " />
                 <Tab text="Graficas " />
             </tabs>

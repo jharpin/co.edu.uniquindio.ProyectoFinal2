@@ -42,6 +42,17 @@
                     </children>
                 </AnchorPane>
             </Tab>
+            <Tab text="Presupuesto">
+                <AnchorPane>
+                    <children>
+                        <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
+                            <items>
+                                <fx:include source="Presupuesto.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

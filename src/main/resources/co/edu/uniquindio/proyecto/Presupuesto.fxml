@@ -24,41 +24,41 @@
                   <Font name="Dubai Regular" size="18" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="78.0" text="Nombre Presupuesto:" />
-            <TextField fx:id="cuentaOrigenField" layoutX="184.0" layoutY="73.0" prefHeight="26.0" prefWidth="142.0" />
-            <Label layoutX="345.0" layoutY="78.0" text="Monto Asignado :" />
-            <TextField fx:id="montoField" layoutX="442.0" layoutY="74.0" />
-            <Label layoutX="345.0" layoutY="126.0" text="Categoría:" />
-            <ComboBox fx:id="categoriaComboBox" layoutX="442.0" layoutY="114.0" prefHeight="32.0" prefWidth="150.0" promptText="categoria " />
+            <Label fx:id="lblnombrePresupuesto" layoutX="64.0" layoutY="78.0" text="Nombre Presupuesto:" />
+            <TextField fx:id="txtnombrePresupuesto" layoutX="184.0" layoutY="73.0" prefHeight="26.0" prefWidth="142.0" />
+            <Label fx:id="lblmontoAsignado" layoutX="345.0" layoutY="78.0" text="Monto Asignado :" />
+            <TextField fx:id="txtMontoasignado" layoutX="442.0" layoutY="74.0" />
+            <Label fx:id="lblCategoria" layoutX="345.0" layoutY="126.0" text="Categoría:" />
+            <ComboBox fx:id="comboCategoria" layoutX="442.0" layoutY="114.0" prefHeight="32.0" prefWidth="150.0" promptText="categoria " />
             <Label layoutX="184.0" layoutY="130.0" prefHeight="26.0" prefWidth="150.0" text="0,0" />
-            <TableView fx:id="tablaTransacciones" layoutX="28.0" layoutY="276.0" prefHeight="159.0" prefWidth="633.0">
+            <TableView fx:id="tablaPresupuesto" layoutX="28.0" layoutY="276.0" prefHeight="159.0" prefWidth="633.0">
                <columns>
-                  <TableColumn fx:id="colIdTrans" prefWidth="100.80001068115234" text="ID Presupuesto" />
-                  <TableColumn fx:id="colCuentaOrigen" prefWidth="132.0" text="nombre Presupuesto " />
-                  <TableColumn fx:id="colCuentaDestino" minWidth="0.0" prefWidth="120.0" text="Monto Asignado " />
-                  <TableColumn fx:id="colValorTransferido" prefWidth="73.5999755859375" text="Estado " />
-                  <TableColumn fx:id="colFechaTrans" minWidth="0.0" prefWidth="100.00009155273438" text="Monto Gastado " />
+                  <TableColumn fx:id="colIde" prefWidth="100.80001068115234" text="ID Presupuesto" />
+                  <TableColumn fx:id="colnombreP" prefWidth="132.0" text="nombre Presupuesto " />
+                  <TableColumn fx:id="colMontoAsig" minWidth="0.0" prefWidth="120.0" text="Monto Asignado " />
+                  <TableColumn fx:id="colEstadoP" prefWidth="73.5999755859375" text="Estado " />
+                  <TableColumn fx:id="colMontoGas" minWidth="0.0" prefWidth="100.00009155273438" text="Monto Gastado " />
                   <TableColumn fx:id="colCategoria" minWidth="0.0" prefWidth="82.4000244140625" text="Categoría" />
                </columns>
             </TableView>
-            <Label layoutX="64.0" layoutY="135.0" text="Monto Gastado:" />
-            <Button layoutX="164.0" layoutY="213.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="126.0" text="Agregar Presupuesto" textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
+            <Label fx:id="lblMontoasignado" layoutX="64.0" layoutY="135.0" text="Monto Gastado:" />
+            <Button fx:id="bntAgregarPresupuesto" layoutX="164.0" layoutY="213.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="44.0" prefWidth="126.0" text="Agregar Presupuesto" textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Book Antiqua Bold" size="11.0" />
                </font>
             </Button>
-            <Button layoutX="316.0" layoutY="213.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="126.0" text="Actualizar" textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
+            <Button fx:id="btnActualizar" layoutX="316.0" layoutY="213.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="44.0" prefWidth="126.0" text="Actualizar" textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Book Antiqua Bold" size="11.0" />
                </font>
             </Button>
-            <Button layoutX="465.0" layoutY="213.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="126.0" text="eliminar " textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
+            <Button fx:id="btnEliminarPresupuesto" layoutX="465.0" layoutY="213.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="44.0" prefWidth="126.0" text="eliminar " textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Book Antiqua Bold" size="11.0" />
                </font>
             </Button>
-            <Label layoutX="64.0" layoutY="172.0" text="Estado: " />
-            <ComboBox fx:id="categoriaComboBox1" layoutX="180.0" layoutY="168.0" prefHeight="18.0" prefWidth="95.0" promptText="Activo " />
+            <Label fx:id="lblEsatdoPresupuesto" layoutX="64.0" layoutY="172.0" text="Estado: " />
+            <ComboBox fx:id="comboEstadoPresupuesto" layoutX="180.0" layoutY="168.0" prefHeight="18.0" prefWidth="95.0" promptText="Activo " />
          </children>
       </AnchorPane>
    </children>

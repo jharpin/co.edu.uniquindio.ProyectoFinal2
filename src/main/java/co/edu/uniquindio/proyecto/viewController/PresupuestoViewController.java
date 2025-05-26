@@ -2,12 +2,11 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
 public class PresupuestoViewController {
 
     @FXML
@@ -17,31 +16,46 @@ public class PresupuestoViewController {
     private URL location;
 
     @FXML
-    private ComboBox<?> categoriaComboBox;
+    private Button bntAgregarPresupuesto;
 
     @FXML
-    private ComboBox<?> categoriaComboBox1;
+    private Button btnActualizar;
+
+    @FXML
+    private Button btnEliminarPresupuesto;
 
     @FXML
     private TableColumn<?, ?> colCategoria;
 
     @FXML
-    private TableColumn<?, ?> colCuentaDestino;
+    private TableColumn<?, ?> colEstadoP;
 
     @FXML
-    private TableColumn<?, ?> colCuentaOrigen;
+    private TableColumn<?, ?> colIde;
 
     @FXML
-    private TableColumn<?, ?> colFechaTrans;
+    private TableColumn<?, ?> colMontoAsig;
 
     @FXML
-    private TableColumn<?, ?> colIdTrans;
+    private TableColumn<?, ?> colMontoGas;
 
     @FXML
-    private TableColumn<?, ?> colValorTransferido;
+    private TableColumn<?, ?> colnombreP;
 
     @FXML
-    private TextField cuentaOrigenField;
+    private ComboBox<?> comboCategoria;
+
+    @FXML
+    private ComboBox<?> comboEstadoPresupuesto;
+
+    @FXML
+    private Label lblCategoria;
+
+    @FXML
+    private Label lblEsatdoPresupuesto;
+
+    @FXML
+    private Label lblMontoasignado;
 
     @FXML
     private Label lblSubtitulo;
@@ -50,10 +64,34 @@ public class PresupuestoViewController {
     private Label lblTitulo;
 
     @FXML
-    private TextField montoField;
+    private Label lblmontoAsignado;
 
     @FXML
-    private TableView<?> tablaTransacciones;
+    private Label lblnombrePresupuesto;
+
+    @FXML
+    private TableView<?> tablaPresupuesto;
+
+    @FXML
+    private TextField txtMontoasignado;
+
+    @FXML
+    private TextField txtnombrePresupuesto;
+
+    @FXML
+    void onActualizar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onAgregar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEliminar(ActionEvent event) {
+
+    }
 
     @FXML
     void initialize() {}

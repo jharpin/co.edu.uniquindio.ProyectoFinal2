@@ -8,4 +8,11 @@ public class Validador {
                 &&!telefonoUsuario.isEmpty()
                 && contraseniaUsuario.length() >= 6;
     }
+
+    public boolean validarAdministrador(String idUsuario, String contraseniaUsuario) {
+        String ideAdmi = "admi";
+        String claveAdmin = "admin123";
+
+        return idUsuario.equals(ideAdmi) && contraseniaUsuario.equals(claveAdmin);
+    }
 }

@@ -51,4 +51,6 @@ public class Usuario {
                 ", contraseniaUsuario='" + contraseniaUsuario + '\'' +
                 '}';
     }
+
+
 }

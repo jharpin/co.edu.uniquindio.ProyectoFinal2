@@ -1,9 +1,5 @@
 package co.edu.uniquindio.proyecto.model;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
-import co.edu.uniquindio.proyecto.services.IAdministradorCrud;
-import co.edu.uniquindio.proyecto.services.ICuentaCrud;
-import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
-import co.edu.uniquindio.proyecto.services.IUsuarioCrud;
 
 import java.util.ArrayList;
 
@@ -66,4 +62,5 @@ public class GestionBilletera  {
         }
         return null;
     }
+
 }

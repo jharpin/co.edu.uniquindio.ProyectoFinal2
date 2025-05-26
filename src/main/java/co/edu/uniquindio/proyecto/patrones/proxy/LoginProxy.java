@@ -1,9 +1,10 @@
 package co.edu.uniquindio.proyecto.patrones.proxy;
 
 import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.Validador;
 import co.edu.uniquindio.proyecto.services.IAutentificador;
 
-public class LoginProxy implements IAutentificador{
+public class LoginProxy implements IAutentificador {
 
     private IAutentificador autentificador;
 
@@ -12,7 +13,7 @@ public class LoginProxy implements IAutentificador{
     }
 
     @Override
-    public Usuario iniciarSesion(String identificacion, String contrasena){
+    public Usuario iniciarSesion(String identificacion, String contrasena) {
         System.out.println("Intentando autenticación para: " + identificacion);
 
         Usuario usuario = autentificador.iniciarSesion(identificacion, contrasena);
@@ -20,10 +21,7 @@ public class LoginProxy implements IAutentificador{
         if (usuario == null) {
             System.out.println(" Acceso denegado: usuario no válido.");
             return null;
-        //}
 
-        //if (usuario.isAdmin()) {
-            //System.out.println(" Acceso concedido como ADMIN.");
         } else {
             System.out.println(" Acceso concedido como USUARIO.");
         }
@@ -31,4 +29,22 @@ public class LoginProxy implements IAutentificador{
         return usuario;
     }
 
+    public boolean autenticar(String idUsuario, String contraseniaUsuario) {
+        Validador validador = new Validador();
+
+        // Validación estricta del administrador
+        if (validador.validarAdministrador(idUsuario, contraseniaUsuario)) {
+            System.out.println("Administrador autenticado.");
+            return true;
+        }
+
+        // Rechazar si alguien intenta usar la clave del admin con otro correo
+        if (contraseniaUsuario.equals("admin123")) {
+            System.out.println("Clave del administrador usada por un usuario no autorizado.");
+            return false;
+        }
+
+
+        return false;
+    }
 }

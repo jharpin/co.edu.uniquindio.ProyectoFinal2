@@ -47,10 +47,13 @@ public class GestionCuentasViewController {
     @FXML
     void ActualizarUsuario(ActionEvent event) {
 
+        System.out.println("funciona");
+
     }
 
     @FXML
     void Eliminarusuario(ActionEvent event) {
+        System.out.println("funciona");
 
     }
 

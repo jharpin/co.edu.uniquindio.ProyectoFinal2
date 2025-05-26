@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.viewController;
 
 import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.Validador;
 import co.edu.uniquindio.proyecto.patrones.proxy.LoginProxy;
 import co.edu.uniquindio.proyecto.patrones.proxy.LoginService;
 import co.edu.uniquindio.proyecto.services.IAutentificador;
@@ -62,54 +63,48 @@ public class LoginViewController {
 
     @FXML
     void IngresarLogin(ActionEvent event) {
-            String identificacion = txtIdentificacionLogin.getText();
-            String contrasena = txtContraseniaLogin.getText();
+        String identificacion = txtIdentificacionLogin.getText();
+        String contrasena = txtContraseniaLogin.getText();
 
-            Usuario usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
+        Usuario usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
 
-            if (usuario != null) {
-                //if (usuario.isAdmin()) {
-                    // Redirigir a vista administrador
-                   // System.out.println("Redirigiendo a vista ADMIN...");
-                System.out.println("Redirigiendo a vista USUARIO...");
-                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                alerta.setTitle("Inicio de Sesión Exitoso");
-                alerta.setHeaderText(null);
-                alerta.setContentText("¡Bienvenido, " + usuario.getIdUsuario() + "!");
-                alerta.showAndWait();
+        if (usuario != null) {
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Inicio de Sesión Exitoso");
+            alerta.setHeaderText(null);
+            alerta.setContentText("¡Bienvenido, " + usuario.getIdUsuario() + "!");
+            alerta.showAndWait();
 
-            } else {
-                System.out.println(" Credenciales incorrectas");
-                Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setTitle("Error de Inicio de Sesión");
-                alerta.setHeaderText("Credenciales incorrectas");
-                alerta.setContentText("Por favor, verifica du identificacion y contraseña.");
-                alerta.showAndWait();
+            // Verifica si es administrador
+            boolean esAdmin = new Validador().validarAdministrador(identificacion, contrasena);
+
+            String vistaFXML = esAdmin
+                    ? "/co/edu/uniquindio/proyecto/DashboardAdministrador.fxml"
+                    : "/co/edu/uniquindio/proyecto/DashboardUsuario.fxml";
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(vistaFXML));
+                Parent root = loader.load();
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-    }
-
-    @FXML
-    void irAOlvidoContrasenia(ActionEvent event) {
-        try {
-            // Cargar el archivo FXML de registro
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/proyecto/OlvidoContrasenia.fxml"));
-            Parent root = loader.load();
-
-            // Obtener la escena actual desde el hyperlink
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Cambiar la escena
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("Credenciales incorrectas");
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Error de Inicio de Sesión");
+            alerta.setHeaderText("Credenciales incorrectas");
+            alerta.setContentText("Por favor, verifica tu identificación y contraseña.");
+            alerta.showAndWait();
         }
-
-
     }
+
+
+
 
     @FXML
     private void irARegistroUsuario(ActionEvent event) {

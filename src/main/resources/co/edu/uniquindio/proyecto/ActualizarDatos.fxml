@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.ActualizarDatosViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.ActualizarDatosViewController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="7.0" minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="630.0">
          <children>
@@ -22,7 +22,7 @@
                </font>
             </Label>
             <Button fx:id="btnActualizarUsuario" layoutX="256.0" layoutY="292.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="38.0" prefWidth="120.0" text="Actualizar Datos" />
-            <Hyperlink fx:id="linkCerrar" onAction="#cerrarSesion" text="Cerrar sesión" />
+            <Hyperlink fx:id="linkCerrar" layoutX="277.0" layoutY="360.0" onAction="#cerrarSesion" text="Cerrar sesión" />
             <Label fx:id="lblRegistroTl1" layoutX="245.0" layoutY="63.0" text="Actualizar Datos ">
                <font>
                   <Font name="Dubai Regular" size="20.0" />

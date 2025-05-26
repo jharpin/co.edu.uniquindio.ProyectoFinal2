@@ -1,7 +1,5 @@
 package co.edu.uniquindio.proyecto.model;
-import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.proyecto.model.builder.TransaccionBuilder;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ public class GestionBilletera  {
     private ArrayList<Cuenta> listaCuentas;
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Banco> listaBancos;
-    private ArrayList<Transaccion>listaTransacciones;
 
 
     public GestionBilletera() {
@@ -18,11 +15,7 @@ public class GestionBilletera  {
         this.listaCuentas = new ArrayList<>();
         this.listaUsuarios = new ArrayList<>();
         this.listaBancos = new ArrayList<>();
-        this.listaTransacciones = new ArrayList<>();
           }
-
-    public ArrayList<Transaccion>getListaTransacciones() {return listaTransacciones;}
-
 
     public ArrayList<Cuenta> getListaCuentas() {return listaCuentas;}
     public void setListaCuentas(ArrayList<Cuenta> listaCuentas) {this.listaCuentas = listaCuentas;}
@@ -42,15 +35,7 @@ public class GestionBilletera  {
     public boolean mostrarListaBanco() {return false;}
 
 
-    public boolean crearTransaccion(Transaccion transaccion){
-        Transaccion Encontrada=obtenerTransaccion(transaccion.getId());
-        if(Encontrada==null){
-            getListaTransacciones().add(transaccion);
-            return true;
-        }else{
-            return false;
-        }
-    }
+
     public boolean crearUsuario(Usuario usuario){
        Usuario Encontrado = obtenerUsuario(usuario.getIdUsuario());
 
@@ -67,14 +52,6 @@ public class GestionBilletera  {
         return false;
     }
 
-    public Transaccion obtenerTransaccion(String idTransaccion) {
-        for (Transaccion transaccion : listaTransacciones) {
-            if (transaccion != null && transaccion.getId().equals(idTransaccion)) {
-                return transaccion;
-            }
-        }
-        return null;
-    }
 
     public Usuario obtenerUsuario(String idUsuario) {
         Usuario usuario = null;

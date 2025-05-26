@@ -6,14 +6,14 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="670.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardAdministradorViewController">
+<AnchorPane prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardAdministradorViewController">
     <children>
-        <TabPane prefHeight="773.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="3.0" prefHeight="639.0" prefWidth="810.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Gestionar Usuarios">
-                    <AnchorPane>
+                    <AnchorPane prefHeight="563.0" prefWidth="738.0">
                         <children>
-                            <SplitPane orientation="VERTICAL">
+                            <SplitPane layoutX="13.0" layoutY="7.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="684.0">
                                 <items>
                                     <fx:include source="GestionarUsuariosAdmi.fxml" />
                                 </items>
@@ -21,31 +21,28 @@
                         </children>
                     </AnchorPane>
                 </Tab>
-
-            <Tab text="Gestionar Categoria">
-                <AnchorPane>
-                    <children>
-                        <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
-                            <items>
-                                <fx:include source="Categoria.fxml" />
-                            </items>
-                        </SplitPane>
-                    </children>
-                </AnchorPane>
-            </Tab>
-            <Tab text=" Gestionar Transaccion">
-               <content>
-                  <AnchorPane>
-                     <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
-                           <items>
-                              <fx:include source="Transaccion.fxml" />
-                           </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
+                <Tab text="Gestionar cuentas">
+                    <AnchorPane>
+                        <children>
+                            <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                                <items>
+                                    <fx:include source="GestionarCuentasAdmi.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
+                <Tab text="Gestionar Transacciones">
+                    <AnchorPane prefHeight="728.0" prefWidth="955.0">
+                        <children>
+                            <SplitPane layoutX="14.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="776.0">
+                                <items>
+                                    <fx:include source="Transaccion.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
                 <Tab text="Estadisticas " />
                 <Tab text="Graficas " />
             </tabs>

@@ -9,11 +9,11 @@ public class DataUtil {
         GestionBilletera gestionBilletera = new GestionBilletera();
 
         Usuario usuario1 = Usuario.builder()
-                .idUsuario("1")
+                .idUsuario("12345")
                 .nombreUsuario("jhonatan")
                 .emailUsuario("jhonatan@gmail.com")
                 .telefonoUsuario("123456789")
-                .contraseniaUsuario("1")
+                .contraseniaUsuario("Minecraft")
                 .build();
 
         Usuario usuario2 = Usuario.builder()

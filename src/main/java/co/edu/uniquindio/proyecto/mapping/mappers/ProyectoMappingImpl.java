@@ -1,7 +1,11 @@
 package co.edu.uniquindio.proyecto.mapping.mappers;
 
+import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
+import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 
+import co.edu.uniquindio.proyecto.model.Categoria;
+import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 
@@ -9,6 +13,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProyectoMappingImpl implements IProyectoMapping {
+
+
+    @Override
+    public List<CategoriaDto> getCategoriaDtos(List<Categoria> listaCategoria) {
+        if(listaCategoria==null){
+            return null;
+        }
+        List<CategoriaDto> CategoriaDto = new ArrayList<CategoriaDto>(listaCategoria.size());
+        for (Categoria categoria : listaCategoria) {
+            CategoriaDto.add(categoriaToCategoriaDto(categoria));
+        }
+        return CategoriaDto;
+    }
+    @Override
+    public List<TransaccionDto> getTransaccionDtos(List<Transaccion> listaTransacciones) {
+        if(listaTransacciones==null){
+            return null;
+        }
+        List<TransaccionDto> transaccionesDto = new ArrayList<TransaccionDto>(listaTransacciones.size());
+        for (Transaccion transaccion : listaTransacciones) {
+            transaccionesDto.add(transaccionToTransaccionDto(transaccion));
+        }
+        return transaccionesDto;
+    }
+
+
 
     @Override
     public List<UsuarioDto> getUsuarioDtos(List<Usuario> listaUsuarios) {
@@ -21,6 +51,19 @@ public class ProyectoMappingImpl implements IProyectoMapping {
         }
         return listaUsuariosDto;
     }
+    @Override
+    public TransaccionDto transaccionToTransaccionDto(Transaccion transaccion) {
+        return new TransaccionDto(
+                transaccion.getId()
+                ,transaccion.getCuentaOrigen()
+                ,transaccion.getCuentaDestino()
+                ,transaccion.getMonto()
+                ,transaccion.getFecha()
+                ,transaccion.getTipo()
+                ,transaccion.getCategoria()
+                ,transaccion.getDescripcion()
+        );
+    }
 
     @Override
     public UsuarioDto usuarioToUsuarioDto(Usuario usuario) {
@@ -30,9 +73,21 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 , usuario.getEmailUsuario()
                 , usuario.getTelefonoUsuario()
                 , usuario.getContraseniaUsuario()
-                ,usuario.getDinero()
         );
 
+    }
+    @Override
+    public Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto) {
+        return Transaccion.builder()
+                .id(transaccionDto.id())
+                .categoria(transaccionDto.categoria())
+                .descripcion(transaccionDto.descripcion())
+                .monto(transaccionDto.monto())
+                .fecha(transaccionDto.fecha())
+                .tipo(transaccionDto.tipo())
+                .cuentaOrigen(transaccionDto.cuentaOrigen())
+                .cuentaDestino(transaccionDto.cuentaDestino())
+                .build();
     }
 
     @Override
@@ -43,9 +98,9 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .emailUsuario(usuarioDto.emailUsuario())
                 .telefonoUsuario(usuarioDto.telefonoUsuario())
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
-                .dinero(usuarioDto.dinero())
                 .build();
     }
+
 
 
 

@@ -12,31 +12,9 @@
             <Tab text="Actualizar datos">
                 <AnchorPane>
                     <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
+                        <SplitPane layoutX="24.0" layoutY="14.0" orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
                             <items>
                                 <fx:include source="ActualizarDatos.fxml" />
-                            </items>
-                        </SplitPane>
-                    </children>
-                </AnchorPane>
-            </Tab>
-            <Tab text="Cuentas">
-                <AnchorPane>
-                    <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="589.0" prefWidth="779.0">
-                            <items>
-                                <fx:include source="Cuenta.fxml" />
-                            </items>
-                        </SplitPane>
-                    </children>
-                </AnchorPane>
-            </Tab>
-            <Tab text="Consulta Transaccion">
-                <AnchorPane>
-                    <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
-                            <items>
-                                <fx:include source="ConsultarTransaccion.fxml" />
                             </items>
                         </SplitPane>
                     </children>

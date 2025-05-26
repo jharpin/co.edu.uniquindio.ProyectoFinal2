@@ -27,7 +27,6 @@ public class LoginViewController {
     UsuarioController usuarioController;
 
     IAutentificador loginProxy;
-
     @FXML
     private ResourceBundle resources;
 

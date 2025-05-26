@@ -29,6 +29,7 @@ public class UsuarioBuilder {
         this.contraseniaUsuario = contraseniaUsuario;
         return this;
     }
+
     public Usuario build() {
 return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
     }

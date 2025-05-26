@@ -3,6 +3,11 @@ package co.edu.uniquindio.proyecto.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.proyecto.Controller.GestionUsuarioController;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +17,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class GestionUsuarioViewController {
+
+    GestionUsuarioController gestionUsuarioController;
+    ObservableList<UsuarioDto> listaUsuarios = FXCollections.observableArrayList();
+    UsuarioDto usuarioSeleccionado;
 
     @FXML
     private ResourceBundle resources;
@@ -29,13 +38,13 @@ public class GestionUsuarioViewController {
     private Button btnEliminarUsuario;
 
     @FXML
-    private TableColumn<?, ?> colCorreoUsuario;
+    private TableColumn<UsuarioDto, String> colCorreoUsuario;
 
     @FXML
-    private TableColumn<?, ?> colIdUsuario;
+    private TableColumn<UsuarioDto, String> colIdUsuario;
 
     @FXML
-    private TableColumn<?, ?> colnombreUsuario;
+    private TableColumn<UsuarioDto, String> colnombreUsuario;
 
     @FXML
     private Label lblBilleteraVirtual;
@@ -47,7 +56,7 @@ public class GestionUsuarioViewController {
     private Hyperlink linkCerrar;
 
     @FXML
-    private TableView<?> tableUsuarios;
+    private TableView<UsuarioDto> tableUsuarios;
     @FXML
     void cerrarSesion(ActionEvent event) {
         try {

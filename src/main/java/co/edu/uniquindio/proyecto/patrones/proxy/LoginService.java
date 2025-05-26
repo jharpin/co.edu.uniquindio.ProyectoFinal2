@@ -14,12 +14,12 @@ public class LoginService implements IAutentificador {
     private List<Usuario> usuarios;
 
     public LoginService() {
+
         modelfactory = ModelFactory.getInstance();
         usuarios = modelfactory.obtenerListaUsuarios();
         usuarios.add(new Usuario("admin123","admi","admin@admin.com",null,"admi12345."));
 
     }
-
 
 
     @Override

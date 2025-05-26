@@ -46,13 +46,14 @@ public class ModelFactory implements IModelFactoryServices {
     public Usuario getUsuarioActivo() {
         return usuarioActivo;
     }
+
     public void setUsuarioActivo(Usuario usuarioActivo) {
         this.usuarioActivo = usuarioActivo;
     }
 
     @Override
     public boolean eliminarUsuario(String idUsuario) {
-        return false;
+        return gestionBilletera.eliminarUsuario(idUsuario);
     }
 
     @Override
@@ -102,7 +103,8 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public boolean agregarUsuario(UsuarioDto usuariodto) {
-        return false;
+        Usuario usuario = mapper.usuarioDtoToUsuario(usuariodto);
+        return gestionBilletera.crearUsuario(usuario);
     }
 
     @Override
@@ -124,8 +126,9 @@ public class ModelFactory implements IModelFactoryServices {
         return false;
     }
 
-    @Override
-    public List<CategoriaDto> obtenerCategoria() {
-        return mapper.categoriaDtoToCategoria(gestionBilletera.getListaCategoria());
-    }
+        @Override
+        public List<CategoriaDto> obtenerCategoria() {
+
+        return null;//return mapper.categoriaDtoToCategoria(gestionBilletera.getListaCategoria());
+        }
 }

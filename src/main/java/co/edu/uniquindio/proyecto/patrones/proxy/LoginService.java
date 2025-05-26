@@ -25,22 +25,14 @@ public class LoginService implements IAutentificador {
     public Usuario iniciarSesionA(String idUsuario, String contraseniaUsuario) {
         System.out.println("Intentando autenticación para: " + idUsuario);
 
-        IAutentificador login = new LoginProxy(new LoginService());
-        Usuario usuario = login.iniciarSesionA(idUsuario, contraseniaUsuario);
-        if (usuario == null) {
-            System.out.println("Acceso denegado: usuario no válido.");
-            return null;
-        }
-
-        // Verifica si es administrador y si tiene la contraseña correcta
-        if ("admini".equals(usuario.getIdUsuario())) {
-            if (!"admin123".equals(contraseniaUsuario)) {
-                System.out.println("Contraseña incorrecta para el administrador.");
-                return null;
+        for (Usuario usuario : usuarios) {
+            if (usuario.getIdUsuario().equals(idUsuario) && usuario.getContraseniaUsuario().equals(contraseniaUsuario)) {
+                return usuario;
             }
         }
 
-        return usuario;
+        System.out.println("Acceso denegado: usuario no válido.");
+        return null;
     }
 
 

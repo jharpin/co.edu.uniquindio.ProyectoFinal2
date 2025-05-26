@@ -25,29 +25,18 @@
                     <children>
                         <SplitPane orientation="VERTICAL" prefHeight="589.0" prefWidth="779.0">
                             <items>
-                                <fx:include source="CuentaBancaria.fxml" />
+                                <fx:include source="Cuenta.fxml" />
                             </items>
                         </SplitPane>
                     </children>
                 </AnchorPane>
             </Tab>
-            <Tab text="Consulta Transaccion">
+            <Tab text="Transaccion">
                 <AnchorPane>
                     <children>
                         <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
                             <items>
-                                <fx:include source="ConsultarTransaccion.fxml" />
-                            </items>
-                        </SplitPane>
-                    </children>
-                </AnchorPane>
-            </Tab>
-            <Tab text="Presupuesto">
-                <AnchorPane>
-                    <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
-                            <items>
-                                <fx:include source="Presupuesto.fxml" />
+                                <fx:include source="Transaccion.fxml" />
                             </items>
                         </SplitPane>
                     </children>

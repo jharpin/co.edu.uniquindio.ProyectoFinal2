@@ -1,18 +1,13 @@
 package co.edu.uniquindio.proyecto.viewController;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class GestionCuentasViewController {
-
     @FXML
     private ResourceBundle resources;
 
@@ -20,71 +15,49 @@ public class GestionCuentasViewController {
     private URL location;
 
     @FXML
-    private Button btnActualizarCuenta;
-
-    @FXML
-    private Button btnAgregarCuenta;
+    private Button btnBuscarcuenta;
 
     @FXML
     private Button btnEliminarCuenta;
 
     @FXML
-    private TableColumn<?, ?> colIde;
+    private TableColumn<?, ?> colIdcuenta;
 
     @FXML
-    private TableColumn<?, ?> colNombreCuenta;
+    private TableColumn<?, ?> coldineroCuentaTotal;
 
     @FXML
-    private TableColumn<?, ?> colNumerocuenta;
+    private TableColumn<?, ?> colusuarioAsociado;
 
     @FXML
-    private TableColumn<?, ?> colTipoCuenta;
+    private Label lblBilleteraVirtual;
 
     @FXML
-    private ComboBox<?> combotTipoCuenta;
+    private Label lblLogintl;
 
     @FXML
-    private Label lblBilleteraVirtual1;
-
-    @FXML
-    private Label lblIdeCuenta;
-
-    @FXML
-    private Label lblIdeCuenta1;
-
-    @FXML
-    private Label lblIdeCuenta11;
-
-    @FXML
-    private Label lblRegistroTl1;
+    private Label lblnumerocuenta;
 
     @FXML
     private TableView<?> tableCuentas;
 
     @FXML
-    private TextField txtIdeCuenta;
-
-    @FXML
-    private TextField txtNombreCuenta;
-
-    @FXML
     private TextField txtNumeroCuenta;
 
     @FXML
-    void onActualizar(ActionEvent event) {
+    void ActualizarUsuario(ActionEvent event) {
+
+        System.out.println("funciona");
 
     }
 
     @FXML
-    void onAgregar(ActionEvent event) {
+    void Eliminarusuario(ActionEvent event) {
+        System.out.println("funciona");
 
     }
 
     @FXML
-    void onEliminar(ActionEvent event) {
-
+    void initialize() {
     }
-
-    @FXML
-    void initialize() {}
 }

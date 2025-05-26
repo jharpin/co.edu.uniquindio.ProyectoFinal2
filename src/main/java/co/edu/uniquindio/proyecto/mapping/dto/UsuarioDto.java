@@ -5,7 +5,6 @@ public record UsuarioDto(
         String idUsuario,
         String emailUsuario,
         String telefonoUsuario,
-        String contraseniaUsuario,
-        double dinero
+        String contraseniaUsuario
         ) {
 }

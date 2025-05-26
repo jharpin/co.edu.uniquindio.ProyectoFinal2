@@ -8,7 +8,6 @@ public class UsuarioBuilder {
     private String emailUsuario;
     private String telefonoUsuario;
     private String contraseniaUsuario;
-    private double dinero;
 
     public UsuarioBuilder nombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
@@ -26,19 +25,35 @@ public class UsuarioBuilder {
         this.telefonoUsuario = telefonoUsuario;
         return this;
     }
-
     public UsuarioBuilder contraseniaUsuario(String contraseniaUsuario) {
         this.contraseniaUsuario = contraseniaUsuario;
         return this;
     }
-    public UsuarioBuilder dinero(double dinero) {
-        this.dinero = dinero;
+    public Usuario build() {
+return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
+    }
+    public UsuarioBuilder setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
         return this;
     }
 
-    public Usuario build() {
-        return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario,dinero);
-
+    public UsuarioBuilder setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+        return this;
     }
 
+    public UsuarioBuilder setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+        return this;
+    }
+
+    public UsuarioBuilder setTelefonoUsuario(String telefonoUsuario) {
+        this.telefonoUsuario = telefonoUsuario;
+        return this;
+    }
+
+    public UsuarioBuilder setContraseniaUsuario(String contraseniaUsuario) {
+        this.contraseniaUsuario = contraseniaUsuario;
+        return this;
+    }
 }

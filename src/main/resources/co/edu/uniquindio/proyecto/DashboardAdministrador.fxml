@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -9,12 +8,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardAdministradorViewController">
     <children>
-        <TabPane prefHeight="563.0" prefWidth="709.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="3.0" prefHeight="639.0" prefWidth="810.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Gestionar Usuarios">
-                    <AnchorPane>
+                    <AnchorPane prefHeight="563.0" prefWidth="738.0">
                         <children>
-                            <SplitPane orientation="VERTICAL">
+                            <SplitPane layoutX="13.0" layoutY="7.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="684.0">
                                 <items>
                                     <fx:include source="GestionarUsuariosAdmi.fxml" />
                                 </items>
@@ -34,11 +33,11 @@
                     </AnchorPane>
                 </Tab>
                 <Tab text="Gestionar Transacciones">
-                    <AnchorPane>
+                    <AnchorPane prefHeight="728.0" prefWidth="955.0">
                         <children>
-                            <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                            <SplitPane layoutX="14.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="776.0">
                                 <items>
-                                    <fx:include source="GestionarTransaccion.fxml" />
+                                    <fx:include source="Transaccion.fxml" />
                                 </items>
                             </SplitPane>
                         </children>

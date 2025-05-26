@@ -31,12 +31,12 @@
                     </children>
                 </AnchorPane>
             </Tab>
-            <Tab text="Transaccion">
+            <Tab text="Consulta Transaccion">
                 <AnchorPane>
                     <children>
                         <SplitPane orientation="VERTICAL" prefHeight="703.0" prefWidth="790.0">
                             <items>
-                                <fx:include source="Transaccion.fxml" />
+                                <fx:include source="ConsultarTransaccion.fxml" />
                             </items>
                         </SplitPane>
                     </children>

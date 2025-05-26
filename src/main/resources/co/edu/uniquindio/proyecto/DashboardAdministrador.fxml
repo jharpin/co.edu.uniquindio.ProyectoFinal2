@@ -33,7 +33,17 @@
                         </children>
                     </AnchorPane>
                 </Tab>
-                <Tab text="Gestionar Transaciones" />
+                <Tab text="Gestionar Transacciones">
+                    <AnchorPane>
+                        <children>
+                            <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                                <items>
+                                    <fx:include source="GestionarTransaccion.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </Tab>
                 <Tab text="Estadisticas " />
                 <Tab text="Graficas " />
             </tabs>

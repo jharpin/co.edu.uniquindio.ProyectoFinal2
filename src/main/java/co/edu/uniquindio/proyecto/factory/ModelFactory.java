@@ -5,6 +5,7 @@ import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
+import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
@@ -31,7 +32,11 @@ public class ModelFactory implements IModelFactoryServices {
         mapper=new ProyectoMappingImpl();
         gestionBilletera = DataUtil.inicializarDatos();
     }
-
+    @Override
+    public boolean crearTransaccion(TransaccionDto transaccion) {
+        Transaccion transaccion1 = mapper.transaccionDtoToTransaccion(transaccion);
+        return gestionBilletera.crearTransaccion(transaccion1);
+    }
     @Override
     public boolean crearUsuario(UsuarioDto usuario) {
         Usuario usuario1 = mapper.usuarioDtoToUsuario(usuario);
@@ -69,6 +74,10 @@ public class ModelFactory implements IModelFactoryServices {
     public List<UsuarioDto> obtenerUsuario() {
         return mapper.getUsuarioDtos(gestionBilletera.getListaUsuarios());
     }
+    @Override
+    public List<TransaccionDto> obtenerTransacciones() {
+        return mapper.getTransaccionDtos(gestionBilletera.getListaTransacciones());
+    }
 
     @Override
     public void mostrarInfoBilletera() {
@@ -80,10 +89,6 @@ public class ModelFactory implements IModelFactoryServices {
         return List.of();
     }
 
-    @Override
-    public List<TransaccionDto> obtenerTransacciones() {
-        return List.of();
-    }
 
     @Override
     public boolean mostrarListaUsuarios() {
@@ -106,10 +111,7 @@ public class ModelFactory implements IModelFactoryServices {
         return gestionBilletera.actualizarUsuario(usuario);
     }
 
-    @Override
-    public boolean crearTransaccion(TransaccionDto transaccion) {
-        return false;
-    }
+
 
 
     public List<Usuario> obtenerListaUsuarios() {

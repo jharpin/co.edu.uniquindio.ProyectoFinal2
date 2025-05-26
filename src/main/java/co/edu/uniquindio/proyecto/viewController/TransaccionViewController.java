@@ -57,10 +57,10 @@ public class TransaccionViewController {
         listaOriginal.setAll(transacciones);
         tablaTransacciones.setItems(listaTransacciones);
     }
-    private static int contadorTransacciones = 1;
+
     @FXML
     private void onEnviar() {
-        String id = String.format("T%03d", contadorTransacciones++);
+        String id = UUID.randomUUID().toString();
         String origen = cuentaOrigenField.getText();
         String destino = cuentaDestinoField.getText();
         String tipo = tipoComboBox.getValue();

@@ -16,6 +16,7 @@ public class LoginService implements IAutentificador {
     public LoginService() {
         modelfactory = ModelFactory.getInstance();
         usuarios = modelfactory.obtenerListaUsuarios();
+        usuarios.add(new Usuario("admin123","admi","admin@admin.com",null,"admi12345."));
 
     }
 

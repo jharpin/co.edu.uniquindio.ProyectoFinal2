@@ -18,6 +18,6 @@ public interface IProyectoMapping {
     TransaccionDto transaccionToTransaccionDto(Transaccion transaccion);
     Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto);
     CategoriaDto categoriaToCategoriaDto(Categoria categoria);
-    Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto);
+    Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto);
 
 }

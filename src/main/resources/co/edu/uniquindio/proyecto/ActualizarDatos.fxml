@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.ActualizarDatosViewController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="7.0" minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="630.0">
@@ -17,50 +16,34 @@
                   <Font name="Dubai Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lblnombreUsuario" layoutX="52.0" layoutY="77.0" text="¡Hola!">
+            <Label fx:id="lblnombreInfo" layoutX="106.0" layoutY="80.0" prefHeight="26.0" prefWidth="130.0" />
+            <Label fx:id="lblTelefonoUsuario" layoutX="21.0" layoutY="78.0" text="telefono Usuario:">
                <font>
                   <Font name="Dubai Regular" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblnombreInfo" layoutX="99.0" layoutY="79.0" prefHeight="26.0" prefWidth="130.0" />
-            <Label fx:id="lblTelefonoUsuario" layoutX="246.0" layoutY="78.0" text="telefono Usuario:">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnActualizarUsuario" layoutX="233.0" layoutY="162.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="38.0" prefWidth="120.0" text="Actualizar Datos" />
-            <Label fx:id="lblRegistroTl" layoutX="236.0" layoutY="217.0" text="Datos cuenta ">
-               <font>
-                  <Font name="Dubai Regular" size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblnombreUsuario1" layoutX="37.0" layoutY="265.0" text="numero de cuenta: ">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
+            <Button fx:id="btnActualizarUsuario" layoutX="230.0" layoutY="249.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="38.0" prefWidth="120.0" text="Actualizar Datos" />
             <Label fx:id="lblNumeroCuenta" layoutX="171.0" layoutY="268.0" prefHeight="26.0" prefWidth="130.0" />
-            <Label fx:id="lblnombreUsuario11" layoutX="324.0" layoutY="266.0" text="Dinero en Cuenta: ">
-               <font>
-                  <Font name="Dubai Regular" size="16.0" />
-               </font>
-            </Label>
             <Label fx:id="lblnumeroDinero" layoutX="461.0" layoutY="266.0" prefHeight="26.0" prefWidth="130.0" />
-            <Button fx:id="btnRetirarDinero" layoutX="147.0" layoutY="314.0" mnemonicParsing="false" onAction="#Retirar" prefHeight="38.0" prefWidth="120.0" text="Retirar Dinero" />
-            <Button fx:id="btnTranferir" layoutX="310.0" layoutY="313.0" mnemonicParsing="false" onAction="#onTransferir" prefHeight="38.0" prefWidth="120.0" text="Transferir Dinero" />
             <Hyperlink fx:id="linkCerrar" onAction="#cerrarSesion" text="Cerrar sesión" />
             <Label fx:id="lblRegistroTl1" layoutX="230.0" layoutY="28.0" text="Actualizar Datos ">
                <font>
                   <Font name="Dubai Regular" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTelefonoUsuario" layoutX="360.0" layoutY="80.0" />
-            <Label fx:id="lblTelefonoUsuario1" layoutX="246.0" layoutY="108.0" text="Email Usuario:">
+            <TextField fx:id="txtTelefonoUsuario" layoutX="171.0" layoutY="79.0" />
+            <Label fx:id="lblTelefonoUsuario1" layoutX="30.0" layoutY="108.0" text="Email Usuario:">
                <font>
                   <Font name="Dubai Regular" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmailUsuario" layoutX="360.0" layoutY="110.0" />
+            <TextField fx:id="txtEmailUsuario" layoutX="171.0" layoutY="110.0" />
+            <Label fx:id="lblTelefonoUsuario2" layoutX="21.0" layoutY="135.0" text="Nombre ">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre" layoutX="171.0" layoutY="150.0" />
          </children>
       </AnchorPane>
    </children>

@@ -2,42 +2,31 @@ package co.edu.uniquindio.proyecto.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.proyecto.Controller.UsuarioController;
+import co.edu.uniquindio.proyecto.factory.ModelFactory;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class ActualizarDatosViewController {
 
-    @FXML
-    private ResourceBundle resources;
+    UsuarioController usuarioController;
+    
+    private Usuario usuario;
 
-    @FXML
-    private URL location;
 
     @FXML
     private Button btnActualizarUsuario;
 
     @FXML
-    private Button btnRetirarDinero;
-
-    @FXML
-    private Button btnTranferir;
-
-    @FXML
     private Label lblBilleteraVirtual;
-
-    @FXML
-    private Label lblNumeroCuenta;
-
-    @FXML
-    private Label lblRegistroTl;
 
     @FXML
     private Label lblRegistroTl1;
@@ -49,19 +38,7 @@ public class ActualizarDatosViewController {
     private Label lblTelefonoUsuario1;
 
     @FXML
-    private Label lblnombreInfo;
-
-    @FXML
-    private Label lblnombreUsuario;
-
-    @FXML
-    private Label lblnombreUsuario1;
-
-    @FXML
-    private Label lblnombreUsuario11;
-
-    @FXML
-    private Label lblnumeroDinero;
+    private Label lblTelefonoUsuario2;
 
     @FXML
     private Hyperlink linkCerrar;
@@ -70,7 +47,10 @@ public class ActualizarDatosViewController {
     private TextField txtEmailUsuario;
 
     @FXML
-    private TextField txtTelefonoUsuario;
+    private TextField txtNombreUsuario;
+
+    @FXML
+    private TextField txtNumerotelefono;
 
 
 
@@ -99,7 +79,28 @@ public class ActualizarDatosViewController {
     @FXML
     void onActualizar(ActionEvent event) {
 
+        actualizarUsuario();
+
     }
+
+    private void actualizarUsuario() {
+        usuario.setNombreUsuario(txtNombreUsuario.getText());
+        usuario.setTelefonoUsuario(txtNumerotelefono.getText());
+
+        usuarioController.actualizarUsuario(usuario);
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Usuario actualizado");
+        alerta.show();
+
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+       
+        txtNombreUsuario.setText(usuario.getNombreUsuario());
+        txtNumerotelefono.setText(usuario.getTelefonoUsuario());
+
+    }
+
 
     @FXML
     void onAgregarDinero(ActionEvent event) {
@@ -111,6 +112,15 @@ public class ActualizarDatosViewController {
 
     }
 
+
     @FXML
-    void initialize() {}
+    void initialize() {
+        usuarioController = new UsuarioController();
+
+        usuario = ModelFactory.getInstance().getUsuarioActivo();
+        if (usuario != null) {
+            txtNombreUsuario.setText(usuario.getNombreUsuario());
+            txtNumerotelefono.setText(usuario.getTelefonoUsuario());
+        }
+    }
 }

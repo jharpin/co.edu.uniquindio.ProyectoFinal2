@@ -3,6 +3,7 @@ package co.edu.uniquindio.proyecto.Controller;
 import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
+import co.edu.uniquindio.proyecto.model.Usuario;
 
 import java.util.List;
 
@@ -15,4 +16,8 @@ public class UsuarioController {
         return modelFactory.crearUsuario(usuario);
     }
 
+
+    public boolean actualizarUsuario(Usuario usuario) {
+        return modelFactory.actualizarUsuario(usuario);
+    }
 }

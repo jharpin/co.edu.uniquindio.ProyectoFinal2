@@ -21,11 +21,9 @@ public class LoginProxy implements IAutentificador {
         if (usuario == null) {
             System.out.println(" Acceso denegado: usuario no válido.");
             return null;
-
         } else {
             System.out.println(" Acceso concedido como USUARIO.");
         }
-
         return usuario;
     }
 

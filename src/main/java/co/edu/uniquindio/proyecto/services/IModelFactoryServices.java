@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.services;
 
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.model.Usuario;
 
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
     boolean mostrarListaUsuarios();
     boolean mostrarListaBanco();
     boolean agregarUsuario(UsuarioDto usuariodto);
-    boolean actualizarUsuario(UsuarioDto usuariodto);
+    boolean actualizarUsuario(Usuario usuariod);
 
     boolean crearUsuario(UsuarioDto usuario);
 
@@ -20,6 +21,6 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
     boolean agregarCuenta();
     boolean eliminarCuenta();
     boolean actualizarCuenta();
-    ;
+
 
 }

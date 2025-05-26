@@ -1,6 +1,9 @@
 package co.edu.uniquindio.proyecto.viewController;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,6 +12,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 public class DashboardAdministradorViewController {
+
+    private UsuarioDto usuario;
     @FXML
     private ResourceBundle resources;
 

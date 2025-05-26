@@ -2,6 +2,9 @@ package co.edu.uniquindio.proyecto.viewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.proyecto.Controller.UsuarioController;
+import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +14,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class DashboardUsuarioViewController {
+
+    private Usuario usuario;
+
+    private UsuarioController usuarioController;
 
     @FXML
     private ResourceBundle resources;
@@ -143,6 +150,13 @@ public class DashboardUsuarioViewController {
         }
     }
 
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
+
+    }
+
+
+
     @FXML
     void Retirar(ActionEvent event) {
 
@@ -170,4 +184,6 @@ public class DashboardUsuarioViewController {
 
     @FXML
     void initialize() {
-}}
+        usuarioController = new UsuarioController();
+    }
+}

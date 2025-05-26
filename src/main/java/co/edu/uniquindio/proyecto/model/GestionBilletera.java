@@ -48,7 +48,7 @@ public class GestionBilletera  {
     }
 
 
-    public boolean eliminarUsuario(String idUsuario) {
+    public boolean eliminarUsuario(String idUsuario){
         return false;
     }
 
@@ -69,16 +69,21 @@ public class GestionBilletera  {
                 .findFirst()
                 .orElse(null);
     }
-    public boolean actualizarUsuario(UsuarioDto usuarioDto) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getIdUsuario().equals(usuarioDto.idUsuario())) {
-                usuario.setNombreUsuario(usuarioDto.nombreUsuario());
-                usuario.setEmailUsuario(usuarioDto.emailUsuario());
-                usuario.setContraseniaUsuario(usuarioDto.contraseniaUsuario());
-                usuario.setTelefonoUsuario(usuarioDto.telefonoUsuario());
+
+    public boolean actualizarUsuario(Usuario usuario) {
+
+        Usuario usuarioActual = obtenerUsuario(usuario.getIdUsuario());
+
+        if(usuarioActual != null){
+
+                usuarioActual.setNombreUsuario(usuario.getNombreUsuario());
+                usuario.setEmailUsuario(usuario.getEmailUsuario());
+                usuario.setTelefonoUsuario(usuario.getTelefonoUsuario());
+
                 return true;
-            }
+
+        }else {
+            return false;
         }
-        return false;
     }
 }

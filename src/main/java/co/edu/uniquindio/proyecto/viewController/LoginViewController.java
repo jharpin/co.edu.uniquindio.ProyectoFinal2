@@ -1,5 +1,7 @@
 package co.edu.uniquindio.proyecto.viewController;
 
+import co.edu.uniquindio.proyecto.Controller.UsuarioController;
+import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.Validador;
 import co.edu.uniquindio.proyecto.patrones.proxy.LoginProxy;
@@ -22,7 +24,10 @@ import java.util.ResourceBundle;
 
 public class LoginViewController {
 
+    UsuarioController usuarioController;
+
     IAutentificador loginProxy;
+
     @FXML
     private ResourceBundle resources;
 
@@ -68,6 +73,8 @@ public class LoginViewController {
 
         Usuario usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
 
+        ModelFactory.getInstance().setUsuarioActivo(usuario);
+
         if (usuario != null) {
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Inicio de Sesión Exitoso");
@@ -85,6 +92,13 @@ public class LoginViewController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(vistaFXML));
                 Parent root = loader.load();
+
+
+                Object controller = loader.getController();
+                if (controller instanceof DashboardUsuarioViewController) {
+                    ((DashboardUsuarioViewController) controller).setUsuario(usuario);
+                }
+                // Haz similar para el admin si quieres
 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
@@ -128,7 +142,7 @@ public class LoginViewController {
 //
     @FXML
     void initialize() {
-
+        usuarioController = new UsuarioController();
         loginProxy = new LoginProxy(new LoginService());
     }
 

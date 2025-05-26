@@ -16,7 +16,16 @@ public class DataUtil {
                 .contraseniaUsuario("Minecraft")
                 .build();
 
+        Usuario usuario2 = Usuario.builder()
+                .idUsuario("11")
+                .nombreUsuario("admi")
+                .emailUsuario("admin@admin.com")
+                .telefonoUsuario("3113775851")
+                .contraseniaUsuario("11")
+                .dinero(12)
+                .build();
 
+        gestionBilletera.getListaUsuarios().add(usuario2);
         gestionBilletera.getListaUsuarios().add(usuario1);
 
         return gestionBilletera;

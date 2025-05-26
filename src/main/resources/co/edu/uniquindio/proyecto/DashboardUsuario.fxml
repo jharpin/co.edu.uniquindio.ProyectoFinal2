@@ -11,126 +11,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.SplitPane?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
    <children>
       <TabPane prefHeight="436.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="tabPerfil" text="Perfil ">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="620.0">
-                     <children>
-                        <Label fx:id="lblBilleteraVirtual" layoutX="216.0" layoutY="14.0" text="Billetera Virtual ">
-                           <font>
-                              <Font name="Dubai Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblnombreUsuario" layoutX="37.0" layoutY="78.0" text="nombreUsuario:">
-                           <font>
-                              <Font name="Dubai Regular" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblnombreInfo" layoutX="156.0" layoutY="84.0" prefHeight="26.0" prefWidth="130.0" />
-                        <Label fx:id="lblTelefonoUsuario" layoutX="331.0" layoutY="78.0" text="telefonoUsuario:">
-                           <font>
-                              <Font name="Dubai Regular" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblinfoTelefono" layoutX="447.0" layoutY="79.0" prefHeight="30.0" prefWidth="124.0" />
-                        <Button fx:id="btnActualizarUsuario" layoutX="240.0" layoutY="138.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="38.0" prefWidth="120.0" text="Actualizar Datos" />
-                        <Label fx:id="lblRegistroTl" layoutX="244.0" layoutY="186.0" text="Datos cuenta ">
-                           <font>
-                              <Font name="Dubai Regular" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblnombreUsuario1" layoutX="52.0" layoutY="221.0" text="numero de cuenta: ">
-                           <font>
-                              <Font name="Dubai Regular" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblNumeroCuenta" layoutX="190.0" layoutY="222.0" prefHeight="26.0" prefWidth="130.0" />
-                        <Label fx:id="lblnombreUsuario11" layoutX="52.0" layoutY="251.0" text="Dinero en Cuenta: ">
-                           <font>
-                              <Font name="Dubai Regular" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblnumeroDinero" layoutX="200.0" layoutY="252.0" prefHeight="26.0" prefWidth="130.0" />
-                        <Button fx:id="btnAgregarDinero" layoutX="130.0" layoutY="314.0" mnemonicParsing="false" onAction="#onAgregarDinero" prefHeight="38.0" prefWidth="120.0" text="Agregar Dinero" />
-                        <Button fx:id="btnRetirarDinero" layoutX="270.0" layoutY="314.0" mnemonicParsing="false" onAction="#Retirar" prefHeight="38.0" prefWidth="120.0" text="Retirar Dinero" />
-                        <Button fx:id="btnTranferir" layoutX="406.0" layoutY="314.0" mnemonicParsing="false" onAction="#onTransferir" prefHeight="38.0" prefWidth="120.0" text="Transferir Dinero" />
-                         <Hyperlink fx:id="linkCerrar" onAction="#cerrarSesion" text="Cerrar sesión" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="tabCuenta" text="Cuentas">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="lblBilleteraVirtual1" layoutX="202.0" layoutY="14.0" text="Billetera Virtual ">
-                           <font>
-                              <Font name="Dubai Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblRegistroTl1" layoutX="218.0" layoutY="58.0" text="Registro cuentas">
-                           <font>
-                              <Font name="Dubai Regular" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblnombreUsuario2" layoutX="42.0" layoutY="103.0" text="numero cuenta:">
-                           <font>
-                              <Font name="Dubai Regular" size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtnumeroCuenta" layoutX="160.0" layoutY="105.0" />
-                        <Label fx:id="lblnombreUsuario21" layoutX="333.0" layoutY="103.0" text="idUsuario">
-                           <font>
-                              <Font name="Dubai Regular" size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtnumeroCuenta1" layoutX="404.0" layoutY="105.0" />
-                        <Button fx:id="btnActualizarUsuario1" layoutX="250.0" layoutY="158.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="38.0" prefWidth="120.0" text="Agregar cuenta " />
-                        <TableView layoutX="45.0" layoutY="219.0" prefHeight="159.0" prefWidth="530.0">
-                          <columns>
-                            <TableColumn prefWidth="116.00006103515625" text="numero cuenta" />
-                            <TableColumn prefWidth="117.5999755859375" text="idUsuario " />
-                              <TableColumn prefWidth="157.5999755859375" text="nombre Usuario" />
-                              <TableColumn prefWidth="140.0" text="Dinero en cuenta" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab fx:id="tabTransacciones" text="Transacciones">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="lblBilleteraVirtual2" layoutX="193.0" layoutY="14.0" text="Billetera Virtual ">
-                           <font>
-                              <Font name="Dubai Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblRegistroTl2" layoutX="221.0" layoutY="58.0" text="Transacciones">
-                           <font>
-                              <Font name="Dubai Regular" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblnumerocuenta" layoutX="38.0" layoutY="102.0" text="numero de cuenta: " />
-                        <TextField fx:id="txtnumerocuenta" layoutX="152.0" layoutY="98.0" />
-                        <Label fx:id="lblvaloratrans" layoutX="323.0" layoutY="102.0" text="numero de cuenta: " />
-                        <TextField fx:id="txtvaloraTransf" layoutX="437.0" layoutY="98.0" />
-                        <Button fx:id="btnenviarDinero" layoutX="253.0" layoutY="153.0" mnemonicParsing="false" onAction="#onEnviar" text="enviar dinero " />
-                        <TableView fx:id="tableTransaccion" layoutX="65.0" layoutY="201.0" prefHeight="146.0" prefWidth="469.0">
-                          <columns>
-                            <TableColumn fx:id="colIdTrans" prefWidth="117.60003662109375" text="idTransaccion" />
-                            <TableColumn fx:id="colnumeroCuenta" prefWidth="109.5999755859375" text="numeroCuenta" />
-                              <TableColumn fx:id="colValorTransferido" prefWidth="109.5999755859375" text="valor Transferido" />
-                              <TableColumn fx:id="colFechaTrans" prefWidth="134.39996337890625" text="fecha de transaccion" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
+            <Tab text="Gestionar cuentas">
+                <AnchorPane>
+                    <children>
+                        <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                            <items>
+                                <fx:include source="ActualizarDatos.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </Tab>
+            <Tab text="Gestionar cuentas">
+                <AnchorPane>
+                    <children>
+                        <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                            <items>
+                                <fx:include source="Cuenta.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </Tab>
+            <Tab text="Gestionar cuentas">
+                <AnchorPane>
+                    <children>
+                        <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
+                            <items>
+                                <fx:include source="Transaccion.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
             </Tab>
         </tabs>
       </TabPane>

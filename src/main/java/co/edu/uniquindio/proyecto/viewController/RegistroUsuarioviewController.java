@@ -7,6 +7,7 @@ import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.Validador;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,8 +100,11 @@ public class RegistroUsuarioviewController {
 
     }
 
+
     @FXML
     void onRegistrar(ActionEvent event) {
+
+
         // Obtener datos del formulario
         String idUsuario = txtIdeusuario.getText();
         String nombreUsuario = txtNombreUsuario.getText();
@@ -115,7 +119,7 @@ public class RegistroUsuarioviewController {
             return;
 
 
-    }
+        }
 
         //modelfactory
         boolean creado = usuarioController.crearUsuario(crearUsuarioDto());
@@ -139,38 +143,7 @@ public class RegistroUsuarioviewController {
             mostrarAlerta("Error", null, "El usuario ya existe o ocurrió un error.");
         }
     }
-    private boolean validarCampos(Usuario usuario) {
-        if (usuario.getEmailUsuario() == null || usuario.getEmailUsuario().isEmpty()) {
-            mostrarAlerta("no valido","","El correo es obligatorio.");
-            return false;
-        }
-        if (!usuario.getEmailUsuario().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            mostrarAlerta("no valido","","El correo no tiene un formato válido.");
-            return false;
-        }
-        if (usuario.getIdUsuario() == null || usuario.getIdUsuario().isEmpty()) {
-            mostrarAlerta("no valido","","El ID es obligatorio.");
-            return false;
-        }
-        ModelFactory modelFactory = null;
-        if (modelFactory.verificarIdExistente(usuario.getIdUsuario())) {
-            mostrarAlerta("no valido","","El ID ya existe. Debe ser único.");
-            return false;
-        }
-        if (usuario.getTelefonoUsuario() == null || !usuario.getTelefonoUsuario().matches("\\d+")) {
-            mostrarAlerta("no valido","","El teléfono debe contener solo números.");
-            return false;
-        }
-        if (usuario.getTelefonoUsuario().length() < 7 || usuario.getTelefonoUsuario().length() > 10) {
-            mostrarAlerta("no valido","","El teléfono debe tener entre 7 y 10 dígitos.");
-            return false;
-        }
-        if (usuario.getContraseniaUsuario() == null || usuario.getContraseniaUsuario().length() < 6) {
-            mostrarAlerta("no valido","","La contraseña debe tener al menos 6 caracteres.");
-            return false;
-        }
-        return true;
-    }
+
 
 
     private void mostrarAlerta(String titulo, String encabezado, String contenido) {

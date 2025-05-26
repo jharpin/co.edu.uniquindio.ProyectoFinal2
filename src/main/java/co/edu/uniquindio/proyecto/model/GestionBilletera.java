@@ -1,4 +1,5 @@
 package co.edu.uniquindio.proyecto.model;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
 import java.util.ArrayList;
@@ -62,5 +63,22 @@ public class GestionBilletera  {
         }
         return null;
     }
-
+    public Usuario buscarUsuarioPorId(String idUsuario) {
+        return listaUsuarios.stream()
+                .filter(u -> u.getIdUsuario().equals(idUsuario))
+                .findFirst()
+                .orElse(null);
+    }
+    public boolean actualizarUsuario(UsuarioDto usuarioDto) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getIdUsuario().equals(usuarioDto.idUsuario())) {
+                usuario.setNombreUsuario(usuarioDto.nombreUsuario());
+                usuario.setEmailUsuario(usuarioDto.emailUsuario());
+                usuario.setContraseniaUsuario(usuarioDto.contraseniaUsuario());
+                usuario.setTelefonoUsuario(usuarioDto.telefonoUsuario());
+                return true;
+            }
+        }
+        return false;
+    }
 }

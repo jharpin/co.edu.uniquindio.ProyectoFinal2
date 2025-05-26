@@ -1,9 +1,14 @@
 package co.edu.uniquindio.proyecto.viewController;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class DashboardUsuarioViewController {
 
@@ -98,6 +103,9 @@ public class DashboardUsuarioViewController {
     private Label lblvaloratrans;
 
     @FXML
+    private Hyperlink linkCerrar;
+
+    @FXML
     private Tab tabCuenta;
 
     @FXML
@@ -120,6 +128,20 @@ public class DashboardUsuarioViewController {
 
     @FXML
     private TextField txtvaloraTransf;
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/proyecto/Login.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) linkCerrar.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void Retirar(ActionEvent event) {

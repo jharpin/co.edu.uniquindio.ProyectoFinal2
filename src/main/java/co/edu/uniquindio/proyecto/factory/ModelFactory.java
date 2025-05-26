@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyecto.factory;
 
+import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
@@ -27,7 +28,7 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     private ModelFactory() {
-        mapper=new ProyectoMappingImpl();
+        mapper = new ProyectoMappingImpl();
         gestionBilletera = DataUtil.inicializarDatos();
     }
 
@@ -36,11 +37,14 @@ public class ModelFactory implements IModelFactoryServices {
         Usuario usuario1 = mapper.usuarioDtoToUsuario(usuario);
         return gestionBilletera.crearUsuario(usuario1);
     }
-@Override
-public boolean crearTransaccion(TransaccionDto transaccion){
-    Transaccion transaccion1=mapper.transaccionDtoToTransaccion(transaccion);
-    return gestionBilletera.crearTransaccion(transaccion1);
-};
+
+    @Override
+    public boolean crearTransaccion(TransaccionDto transaccion) {
+        Transaccion transaccion1 = mapper.transaccionDtoToTransaccion(transaccion);
+        return gestionBilletera.crearTransaccion(transaccion1);
+    }
+
+    ;
 
     @Override
     public boolean eliminarUsuario(String idUsuario) {
@@ -66,13 +70,14 @@ public boolean crearTransaccion(TransaccionDto transaccion){
     public List<UsuarioDto> obtenerUsuario() {
         return mapper.getUsuarioDtos(gestionBilletera.getListaUsuarios());
     }
-@Override
-public List<TransaccionDto>obtenerTransacciones(){
+
+    @Override
+    public List<TransaccionDto> obtenerTransacciones() {
         return mapper.getTransaccionDtos(gestionBilletera.getListaTransacciones());
-}
+    }
+
     @Override
     public void mostrarInfoBilletera() {
-
     }
 
     @Override
@@ -99,11 +104,22 @@ public List<TransaccionDto>obtenerTransacciones(){
     public boolean actualizarUsuario(UsuarioDto usuariodto) {
         return false;
     }
+
     public List<Usuario> obtenerListaUsuarios() {
         return gestionBilletera.getListaUsuarios();
     }
+
     public boolean verificarIdExistente(String id) {
         return obtenerListaUsuarios().stream().anyMatch(u -> u.getIdUsuario().equals(id));
     }
 
+    @Override
+    public boolean crearCategoria(CategoriaDto categoria) {
+        return false;
+    }
+
+    @Override
+    public List<CategoriaDto> obtenerCategoria() {
+        return mapper.getCategoriasDtos(gestionBilletera.getListaCategoria());
+    }
 }

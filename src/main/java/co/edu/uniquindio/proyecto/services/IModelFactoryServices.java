@@ -6,7 +6,7 @@ import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 
 import java.util.List;
 
-public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGestionBilleteraCrud, ITransaccionCrud {
+public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGestionBilleteraCrud, ITransaccionCrud, ICategoria {
 
     void mostrarInfoBilletera();
     List<UsuarioDto> obtenerUsuarios();

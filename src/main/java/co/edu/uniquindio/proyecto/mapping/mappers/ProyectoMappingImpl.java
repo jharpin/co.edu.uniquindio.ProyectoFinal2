@@ -1,8 +1,10 @@
 package co.edu.uniquindio.proyecto.mapping.mappers;
 
+import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 
+import co.edu.uniquindio.proyecto.model.Categoria;
 import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
@@ -11,6 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProyectoMappingImpl implements IProyectoMapping {
+
+
+    @Override
+    public List<CategoriaDto> getCategoriaDtos(List<Categoria> listaCategoria) {
+        if(listaCategoria==null){
+            return null;
+        }
+        List<CategoriaDto> CategoriaDto = new ArrayList<CategoriaDto>(listaCategoria.size());
+        for (Categoria categoria : listaCategoria) {
+            CategoriaDto.add(categoriaToCategoriaDto(categoria));
+        }
+        return CategoriaDto;
+    }
     @Override
     public List<TransaccionDto> getTransaccionDtos(List<Transaccion> listaTransacciones) {
         if(listaTransacciones==null){

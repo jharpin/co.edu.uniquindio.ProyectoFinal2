@@ -21,17 +21,7 @@
                         </children>
                     </AnchorPane>
                 </Tab>
-                <Tab text="Gestionar cuentas">
-                    <AnchorPane>
-                        <children>
-                            <SplitPane layoutX="14.0" layoutY="7.0" orientation="VERTICAL">
-                                <items>
-                                    <fx:include source="GestionarCuentasAdmi.fxml" />
-                                </items>
-                            </SplitPane>
-                        </children>
-                    </AnchorPane>
-                </Tab>
+
             <Tab text="Gestionar Categoria">
                 <AnchorPane>
                     <children>
@@ -43,10 +33,7 @@
                     </children>
                 </AnchorPane>
             </Tab>
-                <Tab text="Gestionar Transaciones" />
-                <Tab text="Estadisticas " />
-                <Tab text="Graficas " />
-            <Tab text="Transaccion">
+            <Tab text=" Gestionar Transaccion">
                <content>
                   <AnchorPane>
                      <children>
@@ -59,6 +46,8 @@
                   </AnchorPane>
                </content>
             </Tab>
+                <Tab text="Estadisticas " />
+                <Tab text="Graficas " />
             </tabs>
         </TabPane>
         <Label layoutX="61.0" layoutY="-37.0" text="Label" />

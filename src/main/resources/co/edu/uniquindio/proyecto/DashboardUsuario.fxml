@@ -20,17 +20,6 @@
                     </children>
                 </AnchorPane>
             </Tab>
-            <Tab text="Cuentas">
-                <AnchorPane>
-                    <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="589.0" prefWidth="779.0">
-                            <items>
-                                <fx:include source="Cuenta.fxml" />
-                            </items>
-                        </SplitPane>
-                    </children>
-                </AnchorPane>
-            </Tab>
         </tabs>
       </TabPane>
    </children>

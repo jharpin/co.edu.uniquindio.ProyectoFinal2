@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ActualizarDatosViewController {
@@ -22,9 +23,6 @@ public class ActualizarDatosViewController {
 
     @FXML
     private Button btnActualizarUsuario;
-
-    @FXML
-    private Button btnAgregarDinero;
 
     @FXML
     private Button btnRetirarDinero;
@@ -42,10 +40,13 @@ public class ActualizarDatosViewController {
     private Label lblRegistroTl;
 
     @FXML
+    private Label lblRegistroTl1;
+
+    @FXML
     private Label lblTelefonoUsuario;
 
     @FXML
-    private Label lblinfoTelefono;
+    private Label lblTelefonoUsuario1;
 
     @FXML
     private Label lblnombreInfo;
@@ -64,6 +65,15 @@ public class ActualizarDatosViewController {
 
     @FXML
     private Hyperlink linkCerrar;
+
+    @FXML
+    private TextField txtEmailUsuario;
+
+    @FXML
+    private TextField txtTelefonoUsuario;
+
+
+
     @FXML
     void cerrarSesion(ActionEvent event) {
         try {

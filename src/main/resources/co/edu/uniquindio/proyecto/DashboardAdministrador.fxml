@@ -55,17 +55,6 @@
                     </AnchorPane>
                 </Tab>
                 <Tab text="Estadisticas " />
-                <Tab text="Gestionar Cuentas Bancarias">
-                    <AnchorPane prefHeight="728.0" prefWidth="955.0">
-                        <children>
-                            <SplitPane layoutX="14.0" layoutY="3.0" orientation="VERTICAL" prefHeight="646.0" prefWidth="776.0">
-                                <items>
-                                    <fx:include source="CuentaBancaria.fxml" />
-                                </items>
-                            </SplitPane>
-                        </children>
-                    </AnchorPane>
-                </Tab>
                 <Tab text="Graficas " />
             </tabs>
         </TabPane>

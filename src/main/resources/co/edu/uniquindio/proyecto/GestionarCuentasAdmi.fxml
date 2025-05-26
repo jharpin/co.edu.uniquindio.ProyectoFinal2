@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,31 +9,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.GestionCuentasViewController">
+<AnchorPane prefHeight="412.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.GestionCuentasViewController">
    <children>
-      <AnchorPane layoutX="8.0" layoutY="10.0" prefHeight="434.0" prefWidth="621.0">
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="443.0" prefWidth="647.0">
          <children>
-            <Label fx:id="lblBilleteraVirtual" layoutX="219.0" text="Billetera Virtual ">
+            <TableView fx:id="tableCuentas" layoutX="58.0" layoutY="254.0" prefHeight="159.0" prefWidth="530.0">
+               <columns>
+                  <TableColumn fx:id="colIde" prefWidth="116.00006103515625" text="ide cuenta " />
+                  <TableColumn fx:id="colNumerocuenta" prefWidth="117.5999755859375" text="numero de cuenta" />
+                  <TableColumn fx:id="colNombreCuenta" prefWidth="157.5999755859375" text="nombre de Cuenta" />
+                  <TableColumn fx:id="colTipoCuenta" prefWidth="140.0" text="tipo de cuenta " />
+               </columns>
+            </TableView>
+            <Label fx:id="lblBilleteraVirtual1" layoutX="232.0" layoutY="10.0" text="Billetera Virtual ">
                <font>
                   <Font name="Dubai Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lblLogintl" layoutX="236.0" layoutY="44.0" text="Gestion Cuentas">
+            <Label fx:id="lblRegistroTl1" layoutX="248.0" layoutY="44.0" text="Registro cuentas">
                <font>
                   <Font name="Dubai Regular" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnBuscarcuenta" layoutX="158.0" layoutY="136.0" mnemonicParsing="false" onAction="#ActualizarUsuario" prefHeight="35.0" prefWidth="122.0" text="Buscar Cuenta" />
-            <Button fx:id="btnEliminarCuenta" layoutX="318.0" layoutY="136.0" mnemonicParsing="false" onAction="#Eliminarusuario" prefHeight="35.0" prefWidth="140.0" text="Eliminar Cuenta" />
-            <TableView fx:id="tableCuentas" layoutX="70.0" layoutY="185.0" prefHeight="174.0" prefWidth="495.0">
-               <columns>
-                  <TableColumn fx:id="colIdcuenta" prefWidth="151.20001983642578" text=" ID Cuenta" />
-                  <TableColumn fx:id="colusuarioAsociado" prefWidth="170.39996337890625" text="Usuario asociado" />
-                  <TableColumn fx:id="coldineroCuentaTotal" prefWidth="175.99996948242188" text="dinero en total" />
-               </columns>
-            </TableView>
-            <Label fx:id="lblnumerocuenta" layoutX="135.0" layoutY="94.0" text="numero cuenta " />
-            <TextField fx:id="txtNumeroCuenta" layoutX="243.0" layoutY="90.0" />
+            <TextField fx:id="txtIdeCuenta" layoutX="135.0" layoutY="88.0" />
+            <Label fx:id="lblIdeCuenta" layoutX="56.0" layoutY="86.0" text="Ide Cuenta:">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIdeCuenta1" layoutX="299.0" layoutY="86.0" text="Nombre Cuenta: ">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombreCuenta" layoutX="429.0" layoutY="88.0" />
+            <ComboBox fx:id="combotTipoCuenta" layoutX="134.0" layoutY="133.0" prefWidth="150.0" promptText="Tipo de Cuenta " />
+            <Label fx:id="lblIdeCuenta11" layoutX="299.0" layoutY="131.0" text="Numero de Cuenta: ">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNumeroCuenta" layoutX="429.0" layoutY="133.0" />
+            <Button fx:id="btnAgregarCuenta" layoutX="130.0" layoutY="185.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="35.0" prefWidth="110.0" text="Agregar Cuenta " />
+            <Button fx:id="btnActualizarCuenta" layoutX="274.0" layoutY="185.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="35.0" prefWidth="117.0" text="Actualizar Cuenta " />
+            <Button fx:id="btnEliminarCuenta" layoutX="409.0" layoutY="186.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="35.0" prefWidth="117.0" text="Eliminar Cuenta " />
          </children>
       </AnchorPane>
    </children>

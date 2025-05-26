@@ -13,9 +13,13 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
     boolean mostrarListaBanco();
     boolean agregarUsuario(UsuarioDto usuariodto);
     boolean actualizarUsuario(UsuarioDto usuariodto);
+
+    boolean crearUsuario(UsuarioDto usuario);
+
     boolean eliminarUsuario(String cedula);
     boolean agregarCuenta();
     boolean eliminarCuenta();
     boolean actualizarCuenta();
+    ;
 
 }

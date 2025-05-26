@@ -7,6 +7,7 @@ import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
+import co.edu.uniquindio.proyecto.utils.DataUtil;
 
 import java.util.List;
 
@@ -22,18 +23,18 @@ public class ModelFactory implements IModelFactoryServices {
         }
         return modelFactory;
     }
-    public GestionBilletera getGestionBilletera() {
-        return gestionBilletera;
-    }
+
     private ModelFactory() {
-       mapper=new ProyectoMappingImpl();
-        gestionBilletera = new GestionBilletera();
+        mapper=new ProyectoMappingImpl();
+        gestionBilletera = DataUtil.inicializarDatos();
     }
 
     @Override
-    public boolean crearUsuario(UsuarioBuilder NuevoUsuario) {
-        return false;
+    public boolean crearUsuario(UsuarioDto usuario) {
+        Usuario usuario1 = mapper.usuarioDtoToUsuario(usuario);
+        return gestionBilletera.crearUsuario(usuario1);
     }
+
 
     @Override
     public boolean eliminarUsuario(String idUsuario) {

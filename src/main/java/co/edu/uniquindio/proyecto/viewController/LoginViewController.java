@@ -78,6 +78,9 @@ public class LoginViewController {
                 alerta.setContentText("¡Bienvenido, " + usuario.getIdUsuario() + "!");
                 alerta.showAndWait();
 
+
+
+
             } else {
                 System.out.println(" Credenciales incorrectas");
                 Alert alerta = new Alert(Alert.AlertType.ERROR);

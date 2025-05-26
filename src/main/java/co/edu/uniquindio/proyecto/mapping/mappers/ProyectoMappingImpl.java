@@ -24,18 +24,27 @@ public class ProyectoMappingImpl implements IProyectoMapping {
 
     @Override
     public UsuarioDto usuarioToUsuarioDto(Usuario usuario) {
-        return null;
+        return new UsuarioDto(
+                usuario.getNombreUsuario()
+                ,usuario.getIdUsuario()
+                , usuario.getEmailUsuario()
+                , usuario.getTelefonoUsuario()
+                , usuario.getContraseniaUsuario()
+        );
+
     }
 
     @Override
-    public Usuario usuarioDtoToUsuario(UsuarioDto usuario) {
-        return null;
+    public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
+        return Usuario.builder()
+                .nombreUsuario(usuarioDto.nombreUsuario())
+                .idUsuario(usuarioDto.idUsuario())
+                .emailUsuario(usuarioDto.emailUsuario())
+                .telefonoUsuario(usuarioDto.telefonoUsuario())
+                .contraseniaUsuario(usuarioDto.contraseniaUsuario())
+                .build();
     }
 
-    @Override
-    public Usuario usuariodtoToUsuario(UsuarioDto usuario) {
-        return null;
-    }
 
 
 }

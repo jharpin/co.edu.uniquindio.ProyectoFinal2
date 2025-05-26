@@ -35,15 +35,15 @@ public class GestionBilletera  {
 
 
 
-    public boolean crearUsuario(UsuarioBuilder NuevoUsuarioBuilder){
-       Usuario  nuevoUsuario = NuevoUsuarioBuilder.build();
-       for(Usuario usuario : listaUsuarios){
-           if(usuario.getIdUsuario().equals(nuevoUsuario.getIdUsuario())){
+    public boolean crearUsuario(Usuario usuario){
+       Usuario Encontrado = obtenerUsuario(usuario.getIdUsuario());
+
+           if(Encontrado == null){
+               getListaUsuarios().add(usuario);
+               return true;
+           }else {
                return false;
            }
-       }
-        listaUsuarios.add(nuevoUsuario);
-        return true;
     }
 
 

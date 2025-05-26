@@ -7,7 +7,7 @@ import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import java.util.List;
 
 public interface IUsuarioCrud {
-    boolean crearUsuario(UsuarioBuilder NuevoUsuario);
+    boolean crearUsuario(UsuarioDto Usuario);
     boolean eliminarUsuario(String idUsuario);
     List<UsuarioDto> obtenerUsuario();
 }

@@ -117,18 +117,8 @@ public class RegistroUsuarioviewController {
 
     }
 
-
-        // Crear el builder y construir el usuario
-        UsuarioBuilder builder = new UsuarioBuilder()
-                .setNombreUsuario(nombreUsuario)
-                .setIdUsuario(idUsuario)
-                .setEmailUsuario(emailUsuario)
-                .setTelefonoUsuario(telefonoUsuario)
-                .setContraseniaUsuario(contraseniaUsuario);
-
         //modelfactory
-        GestionBilletera gestion = usuarioController.getGestionBilletera();
-        boolean creado = gestion.crearUsuario(builder);
+        boolean creado = usuarioController.crearUsuario(crearUsuarioDto());
 
         if (creado) {
             mostrarAlerta("Éxito", null, "Usuario registrado exitosamente.");
@@ -140,8 +130,8 @@ public class RegistroUsuarioviewController {
 
             // Mostrar la lista actual de usuarios
             String listaUsuarios = "Usuarios registrados:\n";
-            for (Usuario u : gestion.getListaUsuarios()) {
-                listaUsuarios += "- " + u.getNombreUsuario() + " (ID: " + u.getIdUsuario() + ")\n";
+            for (UsuarioDto u : usuarioController.obtenerUsuarios()) {
+                listaUsuarios += "- " + u.nombreUsuario() + " (ID: " + u.idUsuario() + ")\n";
             }
             mostrarAlerta("Lista de Usuarios", null, listaUsuarios);
 
@@ -189,6 +179,14 @@ public class RegistroUsuarioviewController {
         alert.setHeaderText(encabezado);
         alert.setContentText(contenido);
         alert.showAndWait();
+    }
+
+    private UsuarioDto crearUsuarioDto(){
+        return new UsuarioDto(txtNombreUsuario.getText()
+                            ,txtIdeusuario.getText()
+                            , txtEmailUsuario.getText()
+                            ,txtTelefonoUsuario.getText()
+                            ,txtcontrasenia.getText());
     }
 
 

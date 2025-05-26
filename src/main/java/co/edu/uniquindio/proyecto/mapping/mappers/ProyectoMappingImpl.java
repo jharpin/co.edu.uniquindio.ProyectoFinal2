@@ -58,6 +58,7 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 , usuario.getEmailUsuario()
                 , usuario.getTelefonoUsuario()
                 , usuario.getContraseniaUsuario()
+                ,usuario.getDinero()
         );
 
     }
@@ -83,6 +84,7 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .emailUsuario(usuarioDto.emailUsuario())
                 .telefonoUsuario(usuarioDto.telefonoUsuario())
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
+                .dinero(usuarioDto.dinero())
                 .build();
     }
 

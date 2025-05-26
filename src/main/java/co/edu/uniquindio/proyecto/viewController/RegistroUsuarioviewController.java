@@ -38,6 +38,9 @@ public class RegistroUsuarioviewController {
     private Label lblBilleteraVirtual;
 
     @FXML
+    private TextField txtdinero;
+
+    @FXML
     private Label lblContrasenia;
 
     @FXML
@@ -111,10 +114,11 @@ public class RegistroUsuarioviewController {
         String emailUsuario = txtEmailUsuario.getText();
         String telefonoUsuario = txtTelefonoUsuario.getText();
         String contraseniaUsuario = txtcontrasenia.getText();
+        double dinero = Double.parseDouble(txtdinero.getText());
 
         // Validación básica
         if (idUsuario.isEmpty() || nombreUsuario.isEmpty() || emailUsuario.isEmpty()
-                || telefonoUsuario.isEmpty() || contraseniaUsuario.isEmpty()) {
+                || telefonoUsuario.isEmpty() || contraseniaUsuario.isEmpty() || dinero == 0) {
             mostrarAlerta(null, null,"Campos incompletos");
             return;
 
@@ -131,6 +135,7 @@ public class RegistroUsuarioviewController {
             txtEmailUsuario.clear();
             txtTelefonoUsuario.clear();
             txtcontrasenia.clear();
+
 
             // Mostrar la lista actual de usuarios
             String listaUsuarios = "Usuarios registrados:\n";
@@ -159,7 +164,8 @@ public class RegistroUsuarioviewController {
                             ,txtIdeusuario.getText()
                             , txtEmailUsuario.getText()
                             ,txtTelefonoUsuario.getText()
-                            ,txtcontrasenia.getText());
+                            ,txtcontrasenia.getText()
+                            ,Double.parseDouble(txtdinero.getText()));
     }
 
 

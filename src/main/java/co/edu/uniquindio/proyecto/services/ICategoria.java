@@ -1,12 +1,11 @@
 package co.edu.uniquindio.proyecto.services;
 
 import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
-import co.edu.uniquindio.proyecto.model.Categoria;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ICategoria {
     boolean crearCategoria(CategoriaDto categoria);
-    ArrayList<Categoria> obtenerCategoria();
+    List<CategoriaDto> obtenerCategoria();
 
 }

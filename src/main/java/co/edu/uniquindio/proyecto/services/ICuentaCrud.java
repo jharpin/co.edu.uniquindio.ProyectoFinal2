@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ICuentaCrud {
     boolean crearCuenta(CuentaDto cuenta);
+    boolean eliminarCuenta(String idCuenta);
     List<CuentaDto> obtenerCuenta();
 
 }

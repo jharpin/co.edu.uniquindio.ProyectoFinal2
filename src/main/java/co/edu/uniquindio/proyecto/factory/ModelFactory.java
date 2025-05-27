@@ -52,13 +52,8 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public boolean eliminarUsuario(String idUsuario) {
-        return false;
+        return gestionBilletera.eliminarUsuario(idUsuario);
     }
-
-
-
-
-
 
     @Override
     public boolean actualizarCuenta(Cuenta cuenta) {
@@ -98,7 +93,8 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public boolean agregarUsuario(UsuarioDto usuariodto) {
-        return false;
+        Usuario usuario = mapper.usuarioDtoToUsuario(usuariodto);
+        return  gestionBilletera.crearUsuario(usuario);
     }
 
     @Override

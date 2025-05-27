@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyecto.Controller;
 
 import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
+import co.edu.uniquindio.proyecto.model.Categoria;
 
 import java.util.List;
 
@@ -11,8 +12,8 @@ public class CategoriaController {
     public List<CategoriaDto> obtenerCategoria(){
         return modelFactory.obtenerCategoria();
     }
-    public boolean CrearCategoria(CategoriaDto categoriaDto){
-        return modelFactory.crearCategoria(categoriaDto);
+    public boolean CrearCategoria(CategoriaDto categoria){
+        return modelFactory.crearCategoria(categoria);
     }
 
     }

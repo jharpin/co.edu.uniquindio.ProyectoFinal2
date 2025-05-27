@@ -1,8 +1,4 @@
 package co.edu.uniquindio.proyecto.model;
-import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
-import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.proyecto.model.builder.TransaccionBuilder;
-import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
 import java.util.ArrayList;
 
@@ -12,6 +8,7 @@ public class GestionBilletera  {
     private ArrayList<Banco> listaBancos;
     private ArrayList<Transaccion>listaTransacciones;
     private ArrayList<Categoria>listaCategoria;
+
 
 
     public GestionBilletera() {
@@ -123,6 +120,41 @@ public class GestionBilletera  {
             }
         }
         return null;
+    }
+
+    // cuentas por si se borra copiar desde aca
+    public boolean crearCuenta(Cuenta cuenta){
+        Cuenta Encontrada=obtenerCuenta(cuenta.getIdCuenta());
+        if(Encontrada==null){
+            getListaCuentas().add(cuenta);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public Cuenta obtenerCuenta(String idCuenta) {
+        for (Cuenta cuenta : listaCuentas) {
+            if (cuenta!= null && cuenta.getIdCuenta().equals(idCuenta)) {
+                return cuenta;
+            }
+        }
+        return null;
+    }
+    public boolean actualizarCuenta(Cuenta cuenta) {
+
+        Cuenta cuentaActual = obtenerCuenta(cuenta.getIdCuenta());
+
+        if(cuentaActual != null){
+
+            cuentaActual.setNombreCuenta(cuenta.getNombreCuenta());
+            cuentaActual.setNumeroCuenta(cuenta.getNumeroCuenta());
+            cuentaActual.setTipoCuenta(cuenta.getTipoCuenta());
+
+            return true;
+
+        }else {
+            return false;
+        }
     }
 
     //crear un crud de usuarios en administrador

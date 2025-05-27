@@ -1,10 +1,9 @@
 package co.edu.uniquindio.proyecto.services;
 
-import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
-import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
-import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.mapping.dto.*;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Categoria;
+import co.edu.uniquindio.proyecto.model.Cuenta;
 import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
 
@@ -22,5 +21,8 @@ public interface IProyectoMapping {
     Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto);
     CategoriaDto categoriaToCategoriaDto(Categoria categoria);
     Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto);
+    List<CuentaDto> getCuentaDtos(List<Cuenta> listaCuenta);
+    CuentaDto cuentaToCuentaDto(Cuenta cuenta);
+    Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto);
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,27 +13,38 @@
    <children>
       <AnchorPane layoutX="8.0" layoutY="10.0" prefHeight="434.0" prefWidth="621.0">
          <children>
-            <Label fx:id="lblBilleteraVirtual" layoutX="219.0" text="Billetera Virtual ">
+            <Label fx:id="lblBilleteraVirtual" layoutX="219.0" layoutY="-8.0" text="Billetera Virtual ">
                <font>
                   <Font name="Dubai Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lblLogintl" layoutX="236.0" layoutY="44.0" text="Gestion Cuentas">
+            <Label fx:id="lblLogintl" layoutX="230.0" layoutY="28.0" text="Gestion Cuentas">
                <font>
                   <Font name="Dubai Regular" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnBuscarcuenta" layoutX="158.0" layoutY="136.0" mnemonicParsing="false" onAction="#ActualizarUsuario" prefHeight="35.0" prefWidth="122.0" text="Buscar Cuenta" />
-            <Button fx:id="btnEliminarCuenta" layoutX="318.0" layoutY="136.0" mnemonicParsing="false" onAction="#Eliminarusuario" prefHeight="35.0" prefWidth="140.0" text="Eliminar Cuenta" />
-            <TableView fx:id="tableCuentas" layoutX="70.0" layoutY="185.0" prefHeight="174.0" prefWidth="495.0">
+            <Button fx:id="btnActualizar" layoutX="399.0" layoutY="171.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="35.0" prefWidth="140.0" text="Actualizar Cuenta" />
+            <Button fx:id="btnEliminarCuenta" layoutX="241.0" layoutY="171.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="35.0" prefWidth="140.0" text="Eliminar Cuenta" />
+            <TableView fx:id="tableCuentas" layoutX="63.0" layoutY="227.0" prefHeight="174.0" prefWidth="495.0">
                <columns>
-                  <TableColumn fx:id="colIdcuenta" prefWidth="151.20001983642578" text=" ID Cuenta" />
-                  <TableColumn fx:id="colusuarioAsociado" prefWidth="170.39996337890625" text="Usuario asociado" />
-                  <TableColumn fx:id="coldineroCuentaTotal" prefWidth="175.99996948242188" text="dinero en total" />
+                  <TableColumn fx:id="colidecuenta" prefWidth="88.79998016357422" text=" ID Cuenta" />
+                  <TableColumn fx:id="colnumerocuenta" prefWidth="130.39996337890625" text="numero Cuenta" />
+                  <TableColumn fx:id="colnombrecuenta" prefWidth="123.199951171875" text="nombre cuenta " />
+                  <TableColumn fx:id="coltipocuenta" prefWidth="152.00001831054686" text="tipo cuenta" />
                </columns>
             </TableView>
-            <Label fx:id="lblnumerocuenta" layoutX="135.0" layoutY="94.0" text="numero cuenta " />
-            <TextField fx:id="txtNumeroCuenta" layoutX="243.0" layoutY="90.0" />
+            <Label fx:id="lblnumerocuenta" layoutX="55.0" layoutY="81.0" text="ide cuenta: ">
+               <font>
+                  <Font name="Dubai Regular" size="12.0" />
+               </font></Label>
+            <TextField fx:id="txtideCuenta" layoutX="141.0" layoutY="77.0" prefHeight="26.0" prefWidth="140.0" />
+            <Button fx:id="btnAgregar" layoutX="83.0" layoutY="171.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="35.0" prefWidth="140.0" text="Agregar Cuenta " />
+            <Label fx:id="lblnumerocuenta1" layoutX="303.0" layoutY="81.0" text="numero cuenta: " />
+            <TextField fx:id="txtnumerocuenta" layoutX="400.0" layoutY="77.0" />
+            <Label fx:id="lblnumerocuenta11" layoutX="53.0" layoutY="118.0" text="numero cuenta: " />
+            <TextField fx:id="txtnombreCuenta" layoutX="141.0" layoutY="113.0" prefHeight="26.0" prefWidth="140.0" />
+            <Label fx:id="lblnumerocuenta12" layoutX="303.0" layoutY="117.0" text="tipo Cuenta:" />
+            <ComboBox fx:id="comboTipo" layoutX="399.0" layoutY="113.0" prefWidth="150.0" promptText="Ahorros" />
          </children>
       </AnchorPane>
    </children>

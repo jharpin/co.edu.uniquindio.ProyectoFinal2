@@ -1,10 +1,12 @@
 package co.edu.uniquindio.proyecto.mapping.mappers;
 
 import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
+import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 
 import co.edu.uniquindio.proyecto.model.Categoria;
+import co.edu.uniquindio.proyecto.model.Cuenta;
 import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
@@ -121,7 +123,37 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
                 .build();
     }
+    //cuenta desde aca por si se borra
+    @Override
+    public CuentaDto cuentaToCuentaDto(Cuenta cuenta) {
+        return new CuentaDto(
+                cuenta.getIdCuenta(),
+                cuenta.getNombreCuenta(),
+                cuenta.getNumeroCuenta(),
+                cuenta.getTipoCuenta()
+        );
+    }
 
+    @Override
+    public Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto) {
+        return Cuenta.builder()
+                .idCuenta(cuentaDto.idCuenta())
+                .nombreCuenta(cuentaDto.nombreCuenta())
+                .numeroCuenta(cuentaDto.numeroCuenta())
+                .tipoCuenta(cuentaDto.tipoCuenta())
+                .build();
+    }
+    @Override
+    public List<CuentaDto> getCuentaDtos(List<Cuenta> listaCuenta) {
+        if(listaCuenta==null){
+            return null;
+        }
+        List<CuentaDto> cuentasDto = new ArrayList<CuentaDto>(listaCuenta.size());
+        for (Cuenta cuenta : listaCuenta) {
+            cuentasDto.add(cuentaToCuentaDto(cuenta));
+        }
+        return cuentasDto;
+    }
 
 
 

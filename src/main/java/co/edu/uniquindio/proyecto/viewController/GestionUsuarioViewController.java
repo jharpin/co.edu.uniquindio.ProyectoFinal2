@@ -48,6 +48,15 @@ public class GestionUsuarioViewController {
     private TableColumn<UsuarioDto, String> colnombreUsuario;
 
     @FXML
+    private TextField txtCorreo;
+
+    @FXML
+    private TextField txtIdentificacion;
+
+    @FXML
+    private TextField txtNombreUsuario;
+
+    @FXML
     private Label lblBilleteraVirtual;
 
     @FXML
@@ -104,17 +113,31 @@ public class GestionUsuarioViewController {
         initDataBinding();
         obtenerUsuarios();
         tableUsuarios.getItems().clear();
-        tableUsuarios.getItems();
-        //listenerSelection();
+        tableUsuarios.setItems(listaUsuarios);
+        listenerSelection();
     }
 
     private void obtenerUsuarios(){
-        listaUsuarios.addAll(gestionUsuarioController.obtnerUsuarios());
+        listaUsuarios.addAll(gestionUsuarioController.obtnerUsuario());
     }
 
     private void initDataBinding(){
         colnombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
         colIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idUsuario()));
         colCorreoUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
+    }
+
+    private void listenerSelection(){
+        tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
+            usuarioSeleccionado = newSelection;
+            mostrarInformacionUsuario(usuarioSeleccionado);
+        });
+    }
+    private void mostrarInformacionUsuario(UsuarioDto usuarioSeleccionado){
+        if(usuarioSeleccionado != null){
+            txtNombreUsuario.setText(usuarioSeleccionado.nombreUsuario());
+            txtIdentificacion.setText(usuarioSeleccionado.idUsuario());
+            txtCorreo.setText(usuarioSeleccionado.emailUsuario());
+        }
     }
 }

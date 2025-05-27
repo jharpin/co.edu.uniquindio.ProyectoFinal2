@@ -11,7 +11,7 @@ public class GestionUsuarioController {
 
     public GestionUsuarioController(){modelFactory= ModelFactory.getInstance();}
 
-    public List<UsuarioDto> obtnerUsuarios(){return modelFactory.obtenerUsuarios();}
+    public List<UsuarioDto> obtnerUsuario(){return modelFactory.obtenerUsuario();}
 
     public boolean agregarUsuario(UsuarioDto usuario){
         return modelFactory.agregarUsuario(usuario);

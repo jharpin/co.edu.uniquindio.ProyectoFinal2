@@ -112,6 +112,7 @@ public class GestionCuentasViewContoller {
 
     @FXML
     void onAgregar(ActionEvent event) {
+
         String id = txtideCuenta.getText();
         String numerocuenta = txtnumerocuenta.getText();
         String nombrecuenta = txtnombreCuenta.getText();
@@ -193,6 +194,7 @@ public class GestionCuentasViewContoller {
 
         confirmacion.showAndWait().ifPresent(respuesta -> {
             if (respuesta == ButtonType.OK) {
+                
                 boolean eliminada = cuentaController.eliminarCuenta(seleccionada.idCuenta());
 
                 if (eliminada) {

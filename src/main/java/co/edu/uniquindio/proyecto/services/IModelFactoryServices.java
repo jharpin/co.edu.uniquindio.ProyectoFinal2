@@ -25,7 +25,9 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
 
 
     boolean actualizarCuenta(Cuenta cuenta);
+
     boolean eliminarCuenta(String idCuenta);
+
 
 
     List<Usuario> obtenerListaUsuarios();

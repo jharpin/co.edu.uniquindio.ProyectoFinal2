@@ -182,32 +182,14 @@ public class GestionCuentasViewContoller {
     void onEliminar(ActionEvent event) {
         CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
 
-        if (seleccionada == null) {
-            mostrarAlerta("Error", "Debes seleccionar una cuenta para eliminar.");
-            return;
+        if (seleccionada != null) {
+            cuentaController.eliminarCuenta(seleccionada.idCuenta());
+            listaCuenta.removeIf(c -> c.idCuenta().equals(seleccionada.idCuenta()));
+            tableCuentas.refresh();
         }
-
-        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmacion.setTitle("Confirmación");
-        confirmacion.setHeaderText("¿Eliminar cuenta?");
-        confirmacion.setContentText("Cuenta: " + seleccionada.nombreCuenta());
-
-        confirmacion.showAndWait().ifPresent(respuesta -> {
-            if (respuesta == ButtonType.OK) {
-                
-                boolean eliminada = cuentaController.eliminarCuenta(seleccionada.idCuenta());
-
-                if (eliminada) {
-                    listaCuenta.remove(seleccionada); // actualiza vista
-                    tableCuentas.refresh();
-                    limpiarCampos();
-                    mostrarAlerta("Éxito", "Cuenta eliminada correctamente.");
-                } else {
-                    mostrarAlerta("Error", "No se pudo eliminar la cuenta.");
-                }
-            }
-        });
     }
+
+
 
 
 

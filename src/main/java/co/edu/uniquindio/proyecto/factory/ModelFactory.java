@@ -121,7 +121,8 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public boolean crearCategoria(CategoriaDto categoria) {
-        return false;
+        Categoria categoria1 = mapper.categoriaDtoToCategoria(categoria);
+        return gestionBilletera.crearCategoria(categoria1);
     }
 
     public List<CategoriaDto> obtenerCategoria() {

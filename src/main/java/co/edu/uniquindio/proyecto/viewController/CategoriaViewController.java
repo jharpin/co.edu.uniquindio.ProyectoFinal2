@@ -57,7 +57,15 @@ public class CategoriaViewController {
 
     @FXML
     private TextField txtnombreCategoria;
+    public void initialize() {
+        categoriaController = new CategoriaController();
 
+        cargarCategorias();
+
+        colidCategoria.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().idCategoria()));
+        colNombreCategoria.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().nombreCategoria()));
+        colDescripcion.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().descripcionCategoria()));
+    }
     @FXML
     void onActualizar(ActionEvent event) {
 
@@ -67,7 +75,12 @@ public class CategoriaViewController {
         txtnombreCategoria.clear();
         txtDescripcionCateg.clear();
     }
-
+    private void cargarCategorias() {
+        List<CategoriaDto> categorias = categoriaController.obtenerCategoria();
+        listaCategorias.setAll(categorias);
+        listaOriginal.setAll(categorias);
+        tablaCategorias.setItems(listaOriginal);
+    }
     @FXML
     void onCrear(ActionEvent event) {
             String id = txtIdeCategoria.getText();
@@ -91,21 +104,8 @@ public class CategoriaViewController {
 
     }
 
-    public void initialize() {
-            categoriaController = new CategoriaController();
 
-            cargarCategorias();
 
-            colidCategoria.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().idCategoria()));
-            colNombreCategoria.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().nombreCategoria()));
-            colDescripcion.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().descripcionCategoria()));
-        }
-    private void cargarCategorias() {
-        List<CategoriaDto> categorias = categoriaController.obtenerCategoria();
-        listaCategorias.setAll(categorias);
-        listaOriginal.setAll(categorias);
-        tablaCategorias.setItems(listaOriginal);
-    }
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle(titulo);

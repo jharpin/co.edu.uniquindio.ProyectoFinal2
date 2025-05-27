@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.viewController;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyecto.Controller.CuentaController;
@@ -9,16 +10,12 @@ import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.model.Cuenta;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class GestionCuentasViewContoller {
     CuentaController cuentaController;
@@ -83,6 +80,16 @@ public class GestionCuentasViewContoller {
 
     @FXML
     private TextField txtnumerocuenta;
+    @FXML
+    void initialize() {
+        cuentaController = new CuentaController();
+        comboTipo.getItems().addAll("Ahorro", "Gastos", "Servicios", "Otros");
+        colidecuenta.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().idCuenta()));
+        colnombrecuenta.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().nombreCuenta()));
+        colnumerocuenta.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().numeroCuenta()));
+        coltipocuenta.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().tipoCuenta())));
+        tableCuentas.setItems(listaCuenta);
+    }
 
     @FXML
     void onActualizar(ActionEvent event) {
@@ -92,19 +99,27 @@ public class GestionCuentasViewContoller {
     @FXML
     void onAgregar(ActionEvent event) {
         String id = txtideCuenta.getText();
-        String numerocuenta= txtnumerocuenta.getText();
-        String nombrecuenta= txtnombreCuenta.getText();
+        String numerocuenta = txtnumerocuenta.getText();
+        String nombrecuenta = txtnombreCuenta.getText();
         String tipo = comboTipo.getValue();
 
-        if (id.isEmpty() ||numerocuenta.isEmpty() ||nombrecuenta.isEmpty()|| tipo == null) {
-            mostrarMensaje("Error", "Campos vacíos", "Debes llenar todos los campos");
-            return;
+        CuentaDto nueva = new CuentaDto(id, numerocuenta, nombrecuenta,tipo);
+        if (cuentaController.CrearCuenta(nueva)) {
+            listaCuenta.add(nueva);
+            listaOriginal.add(nueva);
+            tableCuentas.setItems(listaCuenta);
+            limpiarCampos();
+            mostrarAlerta("Éxito", "Transacción registrada correctamente.");
+        } else {
+            mostrarAlerta("Error", "No se pudo registrar la transacción.");
         }
+    }
+    private void limpiarCampos() {
+        txtideCuenta.clear();
+        txtnumerocuenta.clear();
+        txtnombreCuenta.clear();
+        comboTipo.setValue(null);
 
-        CuentaDto cuentaDto = new CuentaDto(id, Double.parseDouble(saldo), tipo);
-        modelFactoryController.crearCuenta(cuentaDto);
-        cargarDatosTabla(); // actualiza tabla
-        limpiarCampos();
     }
 
 
@@ -114,14 +129,12 @@ public class GestionCuentasViewContoller {
 
     }
 
-    @FXML
-    void initialize() {
-        cuentaController = new CuentaController();
 
-        colIdCuenta.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIdCuenta()));
-        colTipoCuenta.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTipoCuenta()));
-        colSaldoCuenta.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getSaldoCuenta())));
-        tablaCuentas.setItems(listaCuentasDto);
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 }
 

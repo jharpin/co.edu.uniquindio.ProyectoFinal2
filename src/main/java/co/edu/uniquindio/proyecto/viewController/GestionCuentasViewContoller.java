@@ -20,55 +20,58 @@ public class GestionCuentasViewContoller {
     private URL location;
 
     @FXML
-    private Button btnActualizarCuenta;
+    private Button btnActualizar;
 
     @FXML
-    private Button btnAgregarCuenta;
+    private Button btnAgregar;
 
     @FXML
     private Button btnEliminarCuenta;
 
     @FXML
-    private TableColumn<?, ?> colIde;
+    private TableColumn<?, ?> colidecuenta;
 
     @FXML
-    private TableColumn<?, ?> colNombreCuenta;
+    private TableColumn<?, ?> colnombrecuenta;
 
     @FXML
-    private TableColumn<?, ?> colNumerocuenta;
+    private TableColumn<?, ?> colnumerocuenta;
 
     @FXML
-    private TableColumn<?, ?> colTipoCuenta;
+    private TableColumn<?, ?> coltipocuenta;
 
     @FXML
-    private ComboBox<?> combotTipoCuenta;
+    private ComboBox<?> comboTipo;
 
     @FXML
-    private Label lblBilleteraVirtual1;
+    private Label lblBilleteraVirtual;
 
     @FXML
-    private Label lblIdeCuenta;
+    private Label lblLogintl;
 
     @FXML
-    private Label lblIdeCuenta1;
+    private Label lblnumerocuenta;
 
     @FXML
-    private Label lblIdeCuenta11;
+    private Label lblnumerocuenta1;
 
     @FXML
-    private Label lblRegistroTl1;
+    private Label lblnumerocuenta11;
+
+    @FXML
+    private Label lblnumerocuenta12;
 
     @FXML
     private TableView<?> tableCuentas;
 
     @FXML
-    private TextField txtIdeCuenta;
+    private TextField txtCuenta;
 
     @FXML
-    private TextField txtNombreCuenta;
+    private TextField txtideCuenta;
 
     @FXML
-    private TextField txtNumeroCuenta;
+    private TextField txtnumerocuenta;
 
     @FXML
     void onActualizar(ActionEvent event) {

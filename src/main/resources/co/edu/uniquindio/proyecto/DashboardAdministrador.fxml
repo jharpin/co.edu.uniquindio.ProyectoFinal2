@@ -69,7 +69,19 @@
                     </AnchorPane>
                 </content>
             </Tab>
-                <Tab text="Estadisticas " />
+                <Tab text=" Estadisticas transacciones">
+                    <content>
+                        <AnchorPane prefHeight="603.0" prefWidth="780.0">
+                            <children>
+                                <SplitPane layoutX="13.0" layoutY="7.0" orientation="VERTICAL" prefHeight="572.0" prefWidth="746.0">
+                                    <items>
+                                        <fx:include source="EstadisticasAdmi.fxml" />
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
 
             </tabs>
         </TabPane>

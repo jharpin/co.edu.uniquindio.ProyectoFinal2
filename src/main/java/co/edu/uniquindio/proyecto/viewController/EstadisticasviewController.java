@@ -41,15 +41,15 @@ public class EstadisticasviewController implements Initializable {
     }
 
     private void cargarEstadisticasSaldos() {
-        List<Usuario> usuarios = ModelFactory.getInstance().obtenerListaUsuarios();
+        List<UsuarioDto> usuarios = ModelFactory.getInstance().obtenerUsuario();
 
         int rango1 = 0;
         int rango2 = 0;
         int rango3 = 0;
         int rango4 = 0;
 
-        for (Usuario usuario : usuarios) {
-            double saldo = usuario.getSaldo();
+        for (UsuarioDto usuario : usuarios) {
+            double saldo = usuario.saldo();
             if (saldo <= 1000) {
                 rango1++;
             } else if (saldo <= 50000) {

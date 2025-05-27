@@ -192,8 +192,8 @@ public class GestionUsuarioViewController {
                                 ,usuarioSeleccionado.idUsuario()
                                 ,txtCorreo.getText()
                                 ,txtTelefono.getText()
-                                ,txtDireccion.getText()
                                 ,usuarioSeleccionado.contraseniaUsuario()
+                                ,txtDireccion.getText()
                                 ,Double.parseDouble(txtSaldo.getText()));
     }
     private boolean datosValidos(UsuarioDto usuarioDto) {

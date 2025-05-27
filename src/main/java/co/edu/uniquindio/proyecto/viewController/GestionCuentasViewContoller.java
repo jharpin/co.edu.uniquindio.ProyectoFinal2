@@ -180,34 +180,37 @@ public class GestionCuentasViewContoller {
 
     @FXML
     void onEliminar(ActionEvent event) {
-        CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
 
-        if (seleccionada == null) {
-            mostrarAlerta("Error", "Debes seleccionar una cuenta para eliminar.");
-            return;
-        }
+            CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
 
-        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmacion.setTitle("Confirmación");
-        confirmacion.setHeaderText("¿Eliminar cuenta?");
-        confirmacion.setContentText("Cuenta: " + seleccionada.nombreCuenta());
-
-        confirmacion.showAndWait().ifPresent(respuesta -> {
-            if (respuesta == ButtonType.OK) {
-                
-                boolean eliminada = cuentaController.eliminarCuenta(seleccionada.idCuenta());
-
-                if (eliminada) {
-                    listaCuenta.remove(seleccionada); // actualiza vista
-                    tableCuentas.refresh();
-                    limpiarCampos();
-                    mostrarAlerta("Éxito", "Cuenta eliminada correctamente.");
-                } else {
-                    mostrarAlerta("Error", "No se pudo eliminar la cuenta.");
-                }
+            if (seleccionada == null) {
+                mostrarAlerta("Error", "Debes seleccionar una cuenta para eliminar.");
+                return;
             }
-        });
-    }
+
+            Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmacion.setTitle("Confirmación");
+            confirmacion.setHeaderText("¿Eliminar cuenta?");
+            confirmacion.setContentText("Cuenta: " + seleccionada.nombreCuenta());
+
+            confirmacion.showAndWait().ifPresent(respuesta -> {
+                if (respuesta == ButtonType.OK) {
+                    // Usamos solo el ID
+                    String idAEliminar = seleccionada.idCuenta();
+
+                    boolean eliminada = cuentaController.eliminarCuenta(idAEliminar);
+
+                    if (eliminada) {
+                        listaCuenta.remove(seleccionada); // elimina visual
+                        tableCuentas.refresh();
+                        limpiarCampos();
+                        mostrarAlerta("Éxito", "Cuenta eliminada correctamente.");
+                    } else {
+                        mostrarAlerta("Error", "No se pudo eliminar. Verifica el ID.");
+                    }
+                }
+            });
+        }
 
 
 

@@ -36,21 +36,21 @@ public class EstadisticasviewController  {
         estadisticasController = new EstadisticasController();
         assert lblBilleteraVirtual != null : "fx:id=\"lblBilleteraVirtual\" was not injected: check your FXML file 'EstadisticasGraficasAdmi.fxml'.";
         assert lblLogintl != null : "fx:id=\"lblLogintl\" was not injected: check your FXML file 'EstadisticasGraficasAdmi.fxml'.";
-
+        cargarEstadisticasSaldos();
     }
 
 
     private void cargarEstadisticasSaldos() {
-        List<UsuarioDto> usuarios = estadisticasController.obtenerListaUsuarios();
+        List<Usuario> usuarios = ModelFactory.getInstance().getGestionBilletera().getListaUsuarios();
 
         int rango1 = 0;
         int rango2 = 0;
         int rango3 = 0;
         int rango4 = 0;
 
-        for (UsuarioDto usuario : usuarios) {
-            double saldo = usuario.saldo();
-            if (saldo <= 1000) {
+        for (Usuario usuario : usuarios) {
+            double saldo = usuario.getSaldo();
+            if (saldo <= 900) {
                 rango1++;
             } else if (saldo <= 5000) {
                 rango2++;
@@ -64,9 +64,9 @@ public class EstadisticasviewController  {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Usuarios por Rango de Saldo");
 
-        series.getData().add(new XYChart.Data<>("0 - 100", rango1));
-        series.getData().add(new XYChart.Data<>("101 - 500", rango2));
-        series.getData().add(new XYChart.Data<>("501 - 1000", rango3));
+        series.getData().add(new XYChart.Data<>("0 - 1000", rango1));
+        series.getData().add(new XYChart.Data<>("1001 - 5000", rango2));
+        series.getData().add(new XYChart.Data<>("5001 - 10000", rango3));
         series.getData().add(new XYChart.Data<>("> 1000", rango4));
 
         barChart.getData().add(series);

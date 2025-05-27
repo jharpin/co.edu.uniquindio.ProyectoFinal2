@@ -56,9 +56,21 @@
                      </children>
                   </AnchorPane>
                </content>
+            </Tab><Tab text=" Graficas">
+                <content>
+                    <AnchorPane prefHeight="603.0" prefWidth="780.0">
+                        <children>
+                            <SplitPane layoutX="13.0" layoutY="7.0" orientation="VERTICAL" prefHeight="572.0" prefWidth="746.0">
+                                <items>
+                                    <fx:include source="EstadisticasGraficasAdmi.fxml" />
+                                </items>
+                            </SplitPane>
+                        </children>
+                    </AnchorPane>
+                </content>
             </Tab>
                 <Tab text="Estadisticas " />
-                <Tab text="Graficas " />
+
             </tabs>
         </TabPane>
         <Label layoutX="61.0" layoutY="-37.0" text="Label" />

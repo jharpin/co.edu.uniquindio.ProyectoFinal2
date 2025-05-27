@@ -1,8 +1,13 @@
 package co.edu.uniquindio.proyecto.model;
 
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
+import co.edu.uniquindio.proyecto.patrones.observer.interfaces.Observable;
+import co.edu.uniquindio.proyecto.patrones.observer.interfaces.Observer;
 
-public class Usuario {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Usuario implements Observable {
         private String idUsuario;
         private String nombreUsuario;
         private String emailUsuario;
@@ -72,4 +77,28 @@ public class Usuario {
     public void setSaldo(double saldo) {
             this.saldo = saldo;
     }
+
+    private List<Observer> observadores = new ArrayList<>();
+
+    @Override
+    public void agregarObservador(Observer o) {
+        observadores.add(o);
+    }
+
+    @Override
+    public void eliminarObservador(Observer o) {
+        observadores.remove(o);
+    }
+
+    @Override
+    public void notificarObservadores(String mensaje) {
+        for (Observer o : observadores) {
+            o.update(mensaje);
+        }
+    }
+
+    public void notificarCambio(String cambio) {
+        notificarObservadores("Usuario " + nombreUsuario + " realizó: " + cambio);
+    }
 }
+

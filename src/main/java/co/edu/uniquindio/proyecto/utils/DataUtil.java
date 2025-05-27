@@ -15,7 +15,7 @@ public class DataUtil {
                 .telefonoUsuario("123456789")
                 .contraseniaUsuario("1")
                 .direccion("av colon")
-                .saldo(2)
+                .saldo(50000)
                 .build();
 
         Usuario usuario2 = Usuario.builder()
@@ -24,6 +24,7 @@ public class DataUtil {
                 .emailUsuario("jhonatan@gmail.com")
                 .telefonoUsuario("123456789")
                 .contraseniaUsuario("14")
+                .saldo(20000)
                 .build();
 
         Usuario usuario3 = Usuario.builder()
@@ -32,6 +33,15 @@ public class DataUtil {
                 .emailUsuario("admin@admin.com")
                 .telefonoUsuario(null)
                 .contraseniaUsuario("admi12345.")
+                .saldo(35000)
+                .build();
+        Usuario usuario4 = Usuario.builder()
+                .idUsuario("1006")
+                .nombreUsuario("lola")
+                .emailUsuario("lolitan@uq.com")
+                .telefonoUsuario(null)
+                .contraseniaUsuario("lolita12")
+                .saldo(100)
                 .build();
         gestionBilletera.getListaUsuarios().add(usuario3);
         gestionBilletera.getListaUsuarios().add(usuario2);

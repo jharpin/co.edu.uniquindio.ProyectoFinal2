@@ -2,6 +2,10 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.patrones.observer.clases.AlertaObserver;
+import co.edu.uniquindio.proyecto.patrones.observer.clases.UsuarioObservable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -74,6 +78,16 @@ public class GestionCuentaUsuarioViewController {
     @FXML
     private TextField txtmontoaEnviar;
 
+    private UsuarioObservable usuarioObservable;
+
+    public void inicializarUsuario(Usuario usuario) {
+        usuarioObservable = new UsuarioObservable(usuario);
+        usuarioObservable.agregarObservador(new AlertaObserver());
+    }
+
+    public void ejemploDeUso() {
+        usuarioObservable.notificarCambio("realizó una transferencia");
+    }
     @FXML
     void initialize() {
         assert btnEnviarDinero != null : "fx:id=\"btnEnviarDinero\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";

@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestionBilletera  {
     private ArrayList<Cuenta> listaCuentas;
@@ -168,7 +169,6 @@ public class GestionBilletera  {
     public boolean eliminarCuenta(String idCuenta) {
         return listaCuentas.removeIf(cuenta -> cuenta.getIdCuenta().equals(idCuenta));
     }
-
 
 
     //crear un crud de usuarios en administrador

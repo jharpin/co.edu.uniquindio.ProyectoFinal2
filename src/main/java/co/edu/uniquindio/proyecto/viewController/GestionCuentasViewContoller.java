@@ -120,9 +120,9 @@ public class GestionCuentasViewContoller {
             listaOriginal.add(nueva);
             tableCuentas.setItems(listaCuenta);
             limpiarCampos();
-            mostrarAlerta("Éxito", "Transacción registrada correctamente.");
+            mostrarAlerta("Éxito", "Cuenta registrada correctamente.");
         } else {
-            mostrarAlerta("Error", "No se pudo registrar la transacción.");
+            mostrarAlerta("Error", "No se pudo registrar la Cuenta.");
         }
     }
     private void limpiarCampos() {
@@ -133,6 +133,35 @@ public class GestionCuentasViewContoller {
 
     }
     private void actualizarCuenta() {
+        CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
+        if (seleccionada == null) {
+            mostrarAlerta("Error Selección requerida", "Selecciona una cuenta para actualizar.");
+            return;
+        }
+
+
+        String numerocuenta = txtnumerocuenta.getText();
+        String nombrecuenta = txtnombreCuenta.getText();
+        String tipo = comboTipo.getValue();
+
+        if ( numerocuenta.isEmpty() || nombrecuenta.isEmpty() || tipo == null) {
+            mostrarAlerta("Error Campos vacíos", "Debes llenar todos los campos");
+            return;
+        }
+
+
+        for (Cuenta cuenta : listaCuenta()) {
+            if (cuenta.getIdCuenta().equals(seleccionada.idCuenta())) {
+                cuenta.setNumeroCuenta(numerocuenta);
+                cuenta.setNombreCuenta(nombrecuenta);
+                cuenta.setTipoCuenta(tipo);
+                break;
+            }
+        }
+
+        cargarDatosTabla();
+        limpiarCampos();
+    }
 
 
     }

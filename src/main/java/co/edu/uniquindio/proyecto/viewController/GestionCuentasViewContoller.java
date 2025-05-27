@@ -10,6 +10,7 @@ import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.model.Cuenta;
+import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -89,12 +90,22 @@ public class GestionCuentasViewContoller {
         colnumerocuenta.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().numeroCuenta()));
         coltipocuenta.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().tipoCuenta())));
         tableCuentas.setItems(listaCuenta);
+        tableCuentas.setOnMouseClicked(event -> {
+            CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
+            if (seleccionada != null) {
+                txtideCuenta.setText(seleccionada.idCuenta());
+                txtnumerocuenta.setText(String.valueOf(seleccionada.numeroCuenta()));
+                txtnombreCuenta.setText(String.valueOf(seleccionada.nombreCuenta()));
+                comboTipo.setValue(seleccionada.tipoCuenta());
+            }
+        });
     }
 
     @FXML
     void onActualizar(ActionEvent event) {
-
+        actualizarCuenta();
     }
+
 
     @FXML
     void onAgregar(ActionEvent event) {
@@ -121,6 +132,11 @@ public class GestionCuentasViewContoller {
         comboTipo.setValue(null);
 
     }
+    private void actualizarCuenta() {
+
+
+    }
+
 
 
 

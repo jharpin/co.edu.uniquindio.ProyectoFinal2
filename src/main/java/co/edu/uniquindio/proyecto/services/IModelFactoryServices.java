@@ -22,9 +22,10 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
     boolean crearUsuario(UsuarioDto usuario);
 
     boolean eliminarUsuario(String cedula);
-    boolean agregarCuenta();
-    boolean eliminarCuenta();
+
+
     boolean actualizarCuenta(Cuenta cuenta);
+    boolean eliminarCuenta(String idCuenta);
 
 
     List<Usuario> obtenerListaUsuarios();

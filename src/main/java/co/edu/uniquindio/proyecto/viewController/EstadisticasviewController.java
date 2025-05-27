@@ -52,9 +52,9 @@ public class EstadisticasviewController  {
             double saldo = usuario.saldo();
             if (saldo <= 1000) {
                 rango1++;
-            } else if (saldo <= 50000) {
+            } else if (saldo <= 5000) {
                 rango2++;
-            } else if (saldo <= 100000) {
+            } else if (saldo <= 10000) {
                 rango3++;
             } else {
                 rango4++;

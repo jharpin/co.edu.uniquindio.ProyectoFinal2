@@ -41,7 +41,7 @@
             <Button fx:id="btnAgregar" layoutX="83.0" layoutY="171.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="35.0" prefWidth="140.0" text="Agregar Cuenta " />
             <Label fx:id="lblnumerocuenta1" layoutX="303.0" layoutY="81.0" text="numero cuenta: " />
             <TextField fx:id="txtnumerocuenta" layoutX="400.0" layoutY="77.0" />
-            <Label fx:id="lblnumerocuenta11" layoutX="53.0" layoutY="118.0" text="numero cuenta: " />
+            <Label fx:id="lblnumerocuenta11" layoutX="53.0" layoutY="118.0" text="nombre cuenta: " />
             <TextField fx:id="txtnombreCuenta" layoutX="141.0" layoutY="113.0" prefHeight="26.0" prefWidth="140.0" />
             <Label fx:id="lblnumerocuenta12" layoutX="303.0" layoutY="117.0" text="tipo Cuenta:" />
             <ComboBox fx:id="comboTipo" layoutX="399.0" layoutY="113.0" prefWidth="150.0" promptText="Ahorros" />

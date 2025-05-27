@@ -174,7 +174,48 @@ public class GestionCuentasViewContoller {
     private void cargarDatosTabla() {
         tableCuentas.setItems(listaCuenta);
     }
+<<<<<<< HEAD
     
+=======
+
+
+
+
+    @FXML
+    void onEliminar(ActionEvent event) {
+
+            CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
+
+            if (seleccionada == null) {
+                mostrarAlerta("Error", "Debes seleccionar una cuenta para eliminar.");
+                return;
+            }
+
+            Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmacion.setTitle("Confirmación");
+            confirmacion.setHeaderText("¿Eliminar cuenta?");
+            confirmacion.setContentText("Cuenta: " + seleccionada.nombreCuenta());
+
+            confirmacion.showAndWait().ifPresent(respuesta -> {
+                if (respuesta == ButtonType.OK) {
+                    // Usamos solo el ID
+                    String idAEliminar = seleccionada.idCuenta();
+
+                    boolean eliminada = cuentaController.eliminarCuenta(idAEliminar);
+
+                    if (eliminada) {
+                        listaCuenta.remove(seleccionada); // elimina visual
+                        tableCuentas.refresh();
+                        limpiarCampos();
+                        mostrarAlerta("Éxito", "Cuenta eliminada correctamente.");
+                    } else {
+                        mostrarAlerta("Error", "No se pudo eliminar. Verifica el ID.");
+                    }
+                }
+            });
+        }
+
+>>>>>>> 9ebb10a163773e53259d62d026e0dc4a9b64c836
 
 
     private void mostrarAlerta(String titulo, String mensaje) {

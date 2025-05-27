@@ -1,7 +1,8 @@
 package co.edu.uniquindio.proyecto.viewController;
 
-import co.edu.uniquindio.proyecto.Controller.TransaccionController;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
+import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.utils.DataUtil;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,15 +14,15 @@ import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
-public class
-TransaccionViewController {
+public class TransaccionViewController {
 
-    TransaccionController transaccionController;
     ObservableList<TransaccionDto> listaTransacciones = FXCollections.observableArrayList();
     ObservableList<TransaccionDto> listaOriginal = FXCollections.observableArrayList();
 
-    @FXML private TextField cuentaOrigenField, cuentaDestinoField, montoField;
+    @FXML private ComboBox<String> cuentaOrigenField, cuentaDestinoField;
+    @FXML private TextField montoField;
     @FXML private TextArea descripcionArea;
     @FXML private ComboBox<String> tipoComboBox, categoriaComboBox, filtroTipoComboBox, filtroCategoriaComboBox;
     @FXML private DatePicker filtroFechaPicker;
@@ -29,18 +30,16 @@ TransaccionViewController {
     @FXML private TableColumn<TransaccionDto, String> colIdTrans, colCuentaOrigen, colCuentaDestino, colTipo, colCategoria, colDescripcion;
     @FXML private TableColumn<TransaccionDto, Double> colValorTransferido;
     @FXML private TableColumn<TransaccionDto, LocalDate> colFechaTrans;
-    @FXML private Label lblFiltro;
-    @FXML private Separator separador;
 
     @FXML
     public void initialize() {
-        transaccionController = new TransaccionController();
-
         tipoComboBox.getItems().addAll("Depósito", "Retiro", "Transferencia");
         filtroTipoComboBox.getItems().addAll("Depósito", "Retiro", "Transferencia");
 
         categoriaComboBox.getItems().addAll("Ahorro", "Gastos", "Servicios", "Otros");
         filtroCategoriaComboBox.getItems().addAll("Ahorro", "Gastos", "Servicios", "Otros");
+
+        cargarUsuarios();
 
         colIdTrans.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().id()));
         colCuentaOrigen.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().cuentaOrigen()));
@@ -54,40 +53,49 @@ TransaccionViewController {
         cargarTransacciones();
     }
 
+    private void cargarUsuarios() {
+        List<Usuario> usuarios = DataUtil.inicializarDatos()
+                .getListaUsuarios()
+                .stream()
+                .filter(u -> !u.getIdUsuario().equalsIgnoreCase("admi"))
+                .collect(Collectors.toList());
+
+        List<String> nombres = usuarios.stream().map(Usuario::getNombreUsuario).toList();
+        cuentaOrigenField.getItems().addAll(nombres);
+        cuentaDestinoField.getItems().addAll(nombres);
+    }
+
     private void cargarTransacciones() {
-        List<TransaccionDto> transacciones = transaccionController.obtenerTransacciones();
-        listaTransacciones.setAll(transacciones);
-        listaOriginal.setAll(transacciones);
+        listaTransacciones.clear();
+        listaOriginal.clear();
+
+        // Datos de ejemplo
+        listaTransacciones.add(new TransaccionDto(UUID.randomUUID().toString(), "Usuario1", "Usuario2", 5000, LocalDate.now(), "Depósito", "Ahorro", "Ejemplo"));
+        listaOriginal.addAll(listaTransacciones);
         tablaTransacciones.setItems(listaTransacciones);
     }
 
     @FXML
     private void onEnviar() {
-        String id = UUID.randomUUID().toString();
-        String origen = cuentaOrigenField.getText();
-        String destino = cuentaDestinoField.getText();
-        String tipo = tipoComboBox.getValue();
-        String categoria = categoriaComboBox.getValue();
-        String descripcion = descripcionArea.getText();
-
-        double monto;
         try {
-            monto = Double.parseDouble(montoField.getText());
-        } catch (NumberFormatException e) {
-            mostrarAlerta("Error", "El monto debe ser un número válido.");
-            return;
-        }
+            TransaccionDto nueva = new TransaccionDto(
+                    UUID.randomUUID().toString(),
+                    cuentaOrigenField.getValue(),
+                    cuentaDestinoField.getValue(),
+                    Double.parseDouble(montoField.getText()),
+                    LocalDate.now(),
+                    tipoComboBox.getValue(),
+                    categoriaComboBox.getValue(),
+                    descripcionArea.getText()
+            );
 
-        TransaccionDto nueva = new TransaccionDto(id, origen, destino, monto, LocalDate.now(), tipo, categoria, descripcion);
-
-        if (transaccionController.CrearTransaccion(nueva)) {
             listaTransacciones.add(nueva);
             listaOriginal.add(nueva);
             tablaTransacciones.setItems(listaTransacciones);
             limpiarCampos();
             mostrarAlerta("Éxito", "Transacción registrada correctamente.");
-        } else {
-            mostrarAlerta("Error", "No se pudo registrar la transacción.");
+        } catch (Exception e) {
+            mostrarAlerta("Error", "Datos inválidos. Revisa los campos.");
         }
     }
 
@@ -99,19 +107,24 @@ TransaccionViewController {
         String tipoFiltro = filtroTipoComboBox.getValue();
         String categoriaFiltro = filtroCategoriaComboBox.getValue();
 
-        if (fechaFiltro != null) {
+        if (fechaFiltro != null)
             filtradas.removeIf(t -> !t.fecha().equals(fechaFiltro));
-        }
-
-        if (tipoFiltro != null && !tipoFiltro.isEmpty()) {
+        if (tipoFiltro != null && !tipoFiltro.isEmpty())
             filtradas.removeIf(t -> !t.tipo().equalsIgnoreCase(tipoFiltro));
-        }
-
-        if (categoriaFiltro != null && !categoriaFiltro.isEmpty()) {
+        if (categoriaFiltro != null && !categoriaFiltro.isEmpty())
             filtradas.removeIf(t -> !t.categoria().equalsIgnoreCase(categoriaFiltro));
-        }
 
         listaTransacciones.setAll(filtradas);
+        tablaTransacciones.setItems(listaTransacciones);
+    }
+
+    @FXML
+    private void limpiarFiltros() {
+        filtroFechaPicker.setValue(null);
+        filtroTipoComboBox.setValue(null);
+        filtroCategoriaComboBox.setValue(null);
+
+        listaTransacciones.setAll(listaOriginal);
         tablaTransacciones.setItems(listaTransacciones);
     }
 
@@ -132,26 +145,18 @@ TransaccionViewController {
                 "\nCategoría: " + seleccionada.categoria() +
                 "\nDescripción: " + seleccionada.descripcion();
 
-        mostrarAlerta("Detalles de Transacción", detalles);
+        mostrarAlerta("Detalles", detalles);
     }
 
     private void limpiarCampos() {
-        cuentaOrigenField.clear();
-        cuentaDestinoField.clear();
+        cuentaOrigenField.setValue(null);
+        cuentaDestinoField.setValue(null);
         montoField.clear();
         tipoComboBox.setValue(null);
         categoriaComboBox.setValue(null);
         descripcionArea.clear();
     }
-    @FXML
-    private void limpiarFiltros() {
-        filtroFechaPicker.setValue(null);
-        filtroTipoComboBox.setValue(null);
-        filtroCategoriaComboBox.setValue(null);
 
-        listaTransacciones.setAll(listaOriginal);
-        tablaTransacciones.setItems(listaTransacciones);
-    }
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle(titulo);

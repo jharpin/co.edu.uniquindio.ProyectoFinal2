@@ -20,9 +20,9 @@ public class DataUtil {
 
         Usuario usuario2 = Usuario.builder()
                 .idUsuario("2")
-                .nombreUsuario("jhonatan")
-                .emailUsuario("jhonatan@gmail.com")
-                .telefonoUsuario("123456789")
+                .nombreUsuario("maria")
+                .emailUsuario("maria@gmail.com")
+                .telefonoUsuario("123789")
                 .contraseniaUsuario("14")
                 .saldo(20000)
                 .build();

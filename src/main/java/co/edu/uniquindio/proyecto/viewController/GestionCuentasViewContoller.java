@@ -113,10 +113,20 @@ public class GestionCuentasViewContoller {
     @FXML
     void onAgregar(ActionEvent event) {
 
+
         String id = txtideCuenta.getText();
         String numerocuenta = txtnumerocuenta.getText();
         String nombrecuenta = txtnombreCuenta.getText();
         String tipo = comboTipo.getValue();
+
+        // Verificar si el ID ya existe en la lista
+        boolean idExiste = listaCuenta.stream()
+                .anyMatch(c -> c.idCuenta().equals(id));
+
+        if (idExiste) {
+            mostrarAlerta("Error", "Ya existe una cuenta con ese ID.");
+            return; // No continúa si el ID está repetido
+        }
 
         CuentaDto nueva = new CuentaDto(id, numerocuenta, nombrecuenta, tipo);
         if (cuentaController.CrearCuenta(nueva)) {
@@ -185,7 +195,10 @@ public class GestionCuentasViewContoller {
             cuentaController.eliminarCuenta(seleccionada.idCuenta());
             listaCuenta.removeIf(c -> c.idCuenta().equals(seleccionada.idCuenta()));
             tableCuentas.refresh();
+            mostrarAlerta("cuenta eliminada", "eliminado");
+
         }
+
     }
 
 

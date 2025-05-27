@@ -12,7 +12,6 @@ import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 import co.edu.uniquindio.proyecto.utils.DataUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ModelFactory implements IModelFactoryServices {
@@ -125,8 +124,9 @@ public class ModelFactory implements IModelFactoryServices {
         return false;
     }
 
-    @Override
-    public ArrayList<Categoria> obtenerCategoria() {
-        return gestionBilletera.getListaCategoria();
+    public List<CategoriaDto> obtenerCategoria() {
+        List<Categoria> lista = gestionBilletera.getListaCategoria();
+        return mapper.getCategoriaDtos(lista);
     }
+
 }

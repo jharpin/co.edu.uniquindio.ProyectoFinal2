@@ -4,14 +4,15 @@ import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
+import co.edu.uniquindio.proyecto.model.Categoria;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
-import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 import co.edu.uniquindio.proyecto.utils.DataUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModelFactory implements IModelFactoryServices {
@@ -125,7 +126,7 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public List<CategoriaDto> obtenerCategoria() {
-        return List.of(); ///mapper.categoriaDtoToCategoria(gestionBilletera.getListaCategoria());
+    public ArrayList<Categoria> obtenerCategoria() {
+        return gestionBilletera.getListaCategoria();
     }
 }

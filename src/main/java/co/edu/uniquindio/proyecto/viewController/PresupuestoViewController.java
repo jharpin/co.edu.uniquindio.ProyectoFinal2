@@ -1,6 +1,8 @@
 package co.edu.uniquindio.proyecto.viewController;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.proyecto.Controller.TransaccionController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class PresupuestoViewController {
+
 
     @FXML
     private ResourceBundle resources;

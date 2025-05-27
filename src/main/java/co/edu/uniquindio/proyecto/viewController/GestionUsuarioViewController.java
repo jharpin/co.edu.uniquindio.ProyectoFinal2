@@ -2,13 +2,10 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyecto.Controller.GestionUsuarioController;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -109,6 +106,7 @@ public class GestionUsuarioViewController {
 
     @FXML
     void Eliminarusuario(ActionEvent event) {
+        eliminarUsuario();
     }
 
     @FXML
@@ -118,13 +116,36 @@ public class GestionUsuarioViewController {
 
     private void agregarUsuario() {
 
+        UsuarioDto usuarioDto = crearUsuarioDto();
+
+        if(datosValidos(usuarioDto)) {
+            if(gestionUsuarioController.agregarUsuario(usuarioDto)) {
+                listaUsuarios.add(usuarioDto);
+                mostrarMensaje("usuario creado", "usuario","usuario creado",Alert.AlertType.INFORMATION);
+            }else{
+                mostrarMensaje("usuario no creado","usuario","usuario no creado",Alert.AlertType.ERROR);
+            }
+        }else{
+            mostrarMensaje("titulo incompleto","usuario","titulo incompleto",Alert.AlertType.ERROR);
+        }
+
+    }
+
+    private UsuarioDto crearUsuarioDto() {
+        return new UsuarioDto(txtNombreUsuario.getText()
+                                ,"123"
+                                , txtCorreo.getText(),
+                                txtTelefono.getText(),
+                                "345"
+                                ,txtDireccion.getText()
+                                ,Double.parseDouble(txtSaldo.getText()));
 
     }
 
     private void actualizarUsuario(){
 
             if (usuarioSeleccionado != null) {
-                UsuarioDto usuarioActualizado = crearUsuarioDto();
+                UsuarioDto usuarioActualizado = ActualizarUsuarioDto();
                 if (datosValidos(usuarioActualizado)){
                     if (gestionUsuarioController.actualizarUsuario(usuarioActualizado)) {
                         for (UsuarioDto usuario1 : listaUsuarios) {
@@ -142,7 +163,23 @@ public class GestionUsuarioViewController {
                     mostrarMensaje("Campos incompletos", null, "Por favor, llena todos los campos.", Alert.AlertType.WARNING);
                 }
             }
-
+    }
+    private void eliminarUsuario() {
+        if(usuarioSeleccionado != null){
+            if(gestionUsuarioController.eliminarUsuario(usuarioSeleccionado.idUsuario())){
+                listaUsuarios.remove(usuarioSeleccionado);
+                limpiarCampos();
+                mostrarMensaje("cliente eliminado", "cliente", "cliente eliminado",Alert.AlertType.INFORMATION);
+            }else{
+                mostrarMensaje("cliente no eliminado", "cliente", "cliente no eliminado",Alert.AlertType.ERROR);
+            }
+        }
+    }
+    private void limpiarCampos() {
+        txtNombreUsuario.setText("");
+        txtCorreo.setText("");
+        txtDireccion.setText("");
+        txtSaldo.setText("");
     }
 
     @FXML
@@ -187,7 +224,7 @@ public class GestionUsuarioViewController {
             txtSaldo.setText(String.valueOf(usuarioSeleccionado.saldo()));
         }
     }
-    private UsuarioDto crearUsuarioDto(){
+    private UsuarioDto ActualizarUsuarioDto(){
         return new UsuarioDto(txtNombreUsuario.getText()
                                 ,usuarioSeleccionado.idUsuario()
                                 ,txtCorreo.getText()

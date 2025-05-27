@@ -64,7 +64,13 @@ public class GestionBilletera  {
 
 
     public boolean eliminarUsuario(String idUsuario){
-        return false;
+        Usuario Encontrado = obtenerUsuario(idUsuario);
+        if(Encontrado != null){
+            getListaUsuarios().remove(Encontrado);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public Transaccion obtenerTransaccion(String idTransaccion) {

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="582.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardUsuarioViewController">
+   <children>
+      <TabPane layoutX="8.0" layoutY="14.0" prefHeight="583.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Actualizar datos">
+                <AnchorPane prefHeight="493.0" prefWidth="754.0">
+                    <children>
+                        <SplitPane layoutX="24.0" layoutY="14.0" orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
+                            <items>
+                                <fx:include source="ActualizarDatos.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </Tab>
+            <Tab text="Gestionar Presupuesto">
+                <AnchorPane>
+                    <children>
+                        <SplitPane layoutX="24.0" layoutY="14.0" orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
+                            <items>
+                                <fx:include source="Presupuesto.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </Tab>
+            <Tab text="Gestionar mi cuenta bancaria">
+                <AnchorPane>
+                    <children>
+                        <SplitPane layoutX="24.0" layoutY="14.0" orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
+                            <items>
+                                <fx:include source="GestionCuentasUsuario.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

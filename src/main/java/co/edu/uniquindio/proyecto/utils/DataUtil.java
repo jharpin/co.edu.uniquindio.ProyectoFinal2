@@ -1,0 +1,63 @@
+package co.edu.uniquindio.proyecto.utils;
+
+import co.edu.uniquindio.proyecto.model.GestionBilletera;
+import co.edu.uniquindio.proyecto.model.Usuario;
+
+public class DataUtil {
+    public static GestionBilletera inicializarDatos(){
+        GestionBilletera gestionBilletera = GestionBilletera.getInstance();
+
+        // Verifica que solo se inicialice una vez
+        if (!gestionBilletera.getListaUsuarios().isEmpty()) return gestionBilletera;
+
+        Usuario usuario1 = Usuario.builder()
+                .idUsuario("1")
+                .nombreUsuario("jhonatan")
+                .emailUsuario("jhonatan@gmail.com")
+                .telefonoUsuario("123456789")
+                .contraseniaUsuario("1")
+                .direccion("av colon")
+                .saldo(200)
+                .build();
+
+        Usuario usuario2 = Usuario.builder()
+                .idUsuario("2")
+                .nombreUsuario("Laura")
+                .emailUsuario("laura@gmail.com")
+                .telefonoUsuario("987654321")
+                .contraseniaUsuario("1234")
+                .saldo(1200)
+                .build();
+
+        Usuario usuario3 = Usuario.builder()
+                .idUsuario("admi")
+                .nombreUsuario("admin123")
+                .emailUsuario("admin@admin.com")
+                .telefonoUsuario(null)
+                .contraseniaUsuario("admi12345.")
+                .build();
+        Usuario usuario4 = Usuario.builder()
+                .idUsuario("123")
+                .nombreUsuario("leon")
+                .emailUsuario("leo@up.com")
+                .telefonoUsuario(null)
+                .contraseniaUsuario("leon.")
+                .saldo(5700)
+                .build();
+        Usuario usuario5 = Usuario.builder()
+                .idUsuario("3")
+                .nombreUsuario("luisa")
+                .emailUsuario("lulu@up.com")
+                .telefonoUsuario(null)
+                .contraseniaUsuario("123.")
+                .saldo(11300)
+                .build();
+
+        gestionBilletera.getListaUsuarios().add(usuario1);
+        gestionBilletera.getListaUsuarios().add(usuario2);
+        gestionBilletera.getListaUsuarios().add(usuario3);
+        return gestionBilletera;
+    }
+}
+
+

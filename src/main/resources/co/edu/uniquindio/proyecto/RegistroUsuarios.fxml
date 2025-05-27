@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="473.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.RegistroUsuarioviewController">
+   <children>
+      <Label fx:id="lblBilleteraVirtual" layoutX="228.0" layoutY="32.0" text="Billetera Virtual ">
+         <font>
+            <Font name="Dubai Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRegistroTl" layoutX="236.0" layoutY="76.0" text="Registro Usuarios ">
+         <font>
+            <Font name="Dubai Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblnombreUsuario" layoutX="51.0" layoutY="135.0" text="nombreUsuario:">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblIdUsuario" layoutX="51.0" layoutY="194.0" text="IdUsuario:">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmailUsuario" layoutX="51.0" layoutY="250.0" text="EmailUsuario:">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNombreUsuario" layoutX="163.0" layoutY="137.0" />
+      <TextField fx:id="txtIdeusuario" layoutX="163.0" layoutY="196.0" />
+      <TextField fx:id="txtEmailUsuario" layoutX="163.0" layoutY="252.0" />
+      <Button fx:id="btnRegistrarUsuario" layoutX="256.0" layoutY="378.0" mnemonicParsing="false" onAction="#onRegistrar" prefHeight="44.0" prefWidth="142.0" text="Registrarse">
+         <font>
+            <Font name="Dubai Regular" size="12.0" />
+         </font></Button>
+      <Label fx:id="lblTelefonoUsuario" layoutX="342.0" layoutY="194.0" text="telefonoUsuario:">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblContrasenia" layoutX="342.0" layoutY="250.0" text="contraseña:">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTelefonoUsuario" layoutX="452.0" layoutY="196.0" />
+      <Hyperlink fx:id="linkInicioSesion" layoutX="235.0" layoutY="326.0" onAction="#IrinicioSesion" text="¿Ya tiene Cuenta? Inicie Sesión ">
+         <font>
+            <Font size="13.0" />
+         </font></Hyperlink>
+      <PasswordField fx:id="txtcontrasenia" layoutX="452.0" layoutY="252.0" />
+      <Label fx:id="lblTelefonoUsuario1" layoutX="396.0" layoutY="135.0" text="Saldo">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSaldo" layoutX="452.0" layoutY="137.0" />
+   </children>
+</AnchorPane>

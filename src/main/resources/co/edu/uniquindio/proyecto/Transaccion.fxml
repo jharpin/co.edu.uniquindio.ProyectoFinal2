@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="560.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.proyecto.viewController.TransaccionViewController">
+   <children>
+      <Label fx:id="lblTitulo" layoutX="297.0" text="Billetera Virtual">
+         <font><Font name="Dubai Bold" size="19.0" /></font>
+      </Label>
+      <Label fx:id="lblSubtitulo" layoutX="290.0" layoutY="27.0" text="Gestión de Transacciones">
+         <font><Font name="Dubai Regular" size="16.0" /></font>
+      </Label>
+
+      <!-- Formulario -->
+      <Label layoutX="42.0" layoutY="88.0" text="Cuenta Origen:" />
+      <ComboBox fx:id="cuentaOrigenField" layoutX="160.0" layoutY="84.0" prefHeight="22.0" prefWidth="139.0" />
+
+      <Label layoutX="40.0" layoutY="131.0" text="Cuenta Destino:" />
+      <ComboBox fx:id="cuentaDestinoField" layoutX="160.0" layoutY="127.0" prefHeight="22.0" prefWidth="139.0" />
+
+      <Label layoutX="40.0" layoutY="176.0" text="Monto:" />
+      <TextField fx:id="montoField" layoutX="159.0" layoutY="172.0" prefHeight="26.0" prefWidth="146.0" />
+
+      <Label layoutX="40.0" layoutY="216.0" text="Tipo de Transacción:" />
+      <ComboBox fx:id="tipoComboBox" layoutX="160.0" layoutY="212.0" />
+
+      <Label layoutX="281.0" layoutY="216.0" text="Categoría:" />
+      <ComboBox fx:id="categoriaComboBox" layoutX="336.0" layoutY="212.0" />
+
+      <Label layoutX="40.0" layoutY="263.0" text="Descripción:" />
+      <TextArea fx:id="descripcionArea" layoutX="162.0" layoutY="246.0" prefColumnCount="20" prefHeight="62.0" prefRowCount="3" prefWidth="164.0" />
+
+      <Button fx:id="limpiarFiltrosButton" layoutX="598.0" layoutY="324.0" onAction="#limpiarFiltros" prefHeight="26.0" prefWidth="130.0" text="Limpiar Filtros" />
+      <Button fx:id="btnEnviar" layoutX="178.0" layoutY="324.0" onAction="#onEnviar" prefHeight="26.0" prefWidth="130.0" text="Enviar Dinero" />
+
+      <!-- Filtros -->
+      <Label layoutX="459.0" layoutY="176.0" text="Filtrar por Fecha:" />
+      <DatePicker fx:id="filtroFechaPicker" layoutX="579.0" layoutY="172.0" prefHeight="26.0" prefWidth="146.0" />
+
+      <Label layoutX="462.0" layoutY="214.0" text="Filtrar por Tipo:" />
+      <ComboBox fx:id="filtroTipoComboBox" layoutX="579.0" layoutY="210.0" prefHeight="26.0" prefWidth="65.0" />
+
+      <Label layoutX="460.0" layoutY="254.0" text="Filtrar por Categoría:" />
+      <ComboBox fx:id="filtroCategoriaComboBox" layoutX="579.0" layoutY="250.0" prefHeight="26.0" prefWidth="66.0" />
+
+      <Button fx:id="filtrarButton" layoutX="449.0" layoutY="324.0" onAction="#filtrar" prefHeight="26.0" prefWidth="130.0" text="Aplicar Filtros" />
+
+      <!-- Tabla -->
+      <TableView fx:id="tablaTransacciones" layoutX="25.0" layoutY="363.0" prefHeight="125.0" prefWidth="696.0">
+         <columns>
+            <TableColumn fx:id="colIdTrans" text="ID Transacción" />
+            <TableColumn fx:id="colCuentaOrigen" text="Cuenta Origen" />
+            <TableColumn fx:id="colCuentaDestino" text="Cuenta Destino" />
+            <TableColumn fx:id="colValorTransferido" text="Valor Transferido" />
+            <TableColumn fx:id="colFechaTrans" text="Fecha" />
+            <TableColumn fx:id="colTipo" text="Tipo" />
+            <TableColumn fx:id="colCategoria" text="Categoría" />
+            <TableColumn fx:id="colDescripcion" text="Descripción" />
+         </columns>
+      </TableView>
+
+      <Button fx:id="verDetallesButton" layoutX="312.0" layoutY="500.0" onAction="#verDetalles" prefHeight="26.0" prefWidth="130.0" text="Ver Detalles " />
+
+      <Label fx:id="lblFiltro" layoutX="536.0" layoutY="98.0" text="Filtros">
+         <font><Font name="Dubai Bold" size="19.0" /></font>
+      </Label>
+
+      <Separator fx:id="separador" layoutX="427.0" layoutY="66.0" orientation="VERTICAL" prefHeight="292.0" prefWidth="20.0" />
+   </children>
+</AnchorPane>

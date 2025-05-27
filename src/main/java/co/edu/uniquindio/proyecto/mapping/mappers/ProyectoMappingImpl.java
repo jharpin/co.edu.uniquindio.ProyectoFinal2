@@ -1,0 +1,184 @@
+package co.edu.uniquindio.proyecto.mapping.mappers;
+
+import co.edu.uniquindio.proyecto.mapping.dto.*;
+
+import co.edu.uniquindio.proyecto.model.*;
+import co.edu.uniquindio.proyecto.services.IProyectoMapping;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProyectoMappingImpl implements IProyectoMapping {
+    @Override
+    public List<CategoriaDto> getCategoriaDtos(List<Categoria> listaCategoria) {
+        if(listaCategoria==null){
+            return null;
+        }
+        List<CategoriaDto> CategoriaDto = new ArrayList<CategoriaDto>(listaCategoria.size());
+        for (Categoria categoria : listaCategoria) {
+            CategoriaDto.add(categoriaToCategoriaDto(categoria));
+        }
+        return CategoriaDto;
+    }
+
+
+    @Override
+    public List<TransaccionDto> getTransaccionDtos(List<Transaccion> listaTransacciones) {
+        if(listaTransacciones==null){
+            return null;
+        }
+        List<TransaccionDto> transaccionesDto = new ArrayList<TransaccionDto>(listaTransacciones.size());
+        for (Transaccion transaccion : listaTransacciones) {
+            transaccionesDto.add(transaccionToTransaccionDto(transaccion));
+        }
+        return transaccionesDto;
+    }
+
+
+
+    @Override
+    public List<UsuarioDto> getUsuarioDtos(List<Usuario> listaUsuarios) {
+        if (listaUsuarios == null) {
+            return null;
+        }
+        List<UsuarioDto> listaUsuariosDto = new ArrayList<UsuarioDto>(listaUsuarios.size());
+        for (Usuario usuario : listaUsuarios) {
+            listaUsuariosDto.add(usuarioToUsuarioDto(usuario));
+        }
+        return listaUsuariosDto;
+    }
+
+    @Override
+    public List<PresupuestoDto> getPresupuestosDto(List<Presupuesto> listaPresupuestos) {
+        if (listaPresupuestos == null) {
+            return null;
+        }
+        List<PresupuestoDto> listaPresupuestosDto= new ArrayList<PresupuestoDto>(listaPresupuestos.size());
+        for (Presupuesto presupuesto: listaPresupuestos) {
+            listaPresupuestosDto.add(presupuestoToPresupuestoDto(presupuesto));
+        }
+        return listaPresupuestosDto;
+    }
+
+    private PresupuestoDto presupuestoToPresupuestoDto(Presupuesto presupuesto) {
+        return  new PresupuestoDto(presupuesto.getNombrePresupuesto()
+                                    ,presupuesto.getIdPresupuesto()
+                                    ,presupuesto.getMontoAsignado()
+                                    ,presupuesto.getMontoGastado()
+                                    ,presupuesto.getCategoria());
+    }
+    private Presupuesto presupuestoDtoToPresupuesto(PresupuestoDto presupuestoDto){
+        return Presupuesto.builder().
+                idPresupuesto(presupuestoDto.nombrePresupuesto()).
+                montoAsignado(presupuestoDto.montoAsignado()).
+                montoGastado(presupuestoDto.montoGastado())
+                .categoria(presupuestoDto.categoria()).build();
+    }
+
+    @Override
+    public TransaccionDto transaccionToTransaccionDto(Transaccion transaccion) {
+        return new TransaccionDto(
+                transaccion.getId()
+                ,transaccion.getCuentaOrigen()
+                ,transaccion.getCuentaDestino()
+                ,transaccion.getMonto()
+                ,transaccion.getFecha()
+                ,transaccion.getTipo()
+                ,transaccion.getCategoria()
+                ,transaccion.getDescripcion()
+        );
+    }
+
+    @Override
+    public UsuarioDto usuarioToUsuarioDto(Usuario usuario) {
+        return new UsuarioDto(
+                usuario.getNombreUsuario()
+                ,usuario.getIdUsuario()
+                , usuario.getEmailUsuario()
+                , usuario.getTelefonoUsuario()
+                , usuario.getContraseniaUsuario()
+                ,usuario.getDireccion()
+                ,usuario.getSaldo()
+        );
+
+    }
+    @Override
+    public Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto) {
+        return Transaccion.builder()
+                .id(transaccionDto.id())
+                .categoria(transaccionDto.categoria())
+                .descripcion(transaccionDto.descripcion())
+                .monto(transaccionDto.monto())
+                .fecha(transaccionDto.fecha())
+                .tipo(transaccionDto.tipo())
+                .cuentaOrigen(transaccionDto.cuentaOrigen())
+                .cuentaDestino(transaccionDto.cuentaDestino())
+                .build();
+    }
+
+    @Override
+    public CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
+        return new CategoriaDto(
+                categoria.getIdCategoria()
+                ,categoria.getNombreCategoria()
+                ,categoria.getDescripcionCategoria()
+
+        );
+    }
+
+    @Override
+    public Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
+        return Categoria.builder()
+                .idCategoria(categoriaDto.idCategoria())
+                .nombreCategoria(categoriaDto.nombreCategoria())
+                .descripcionCategoria(categoriaDto.descripcionCategoria())
+                .build();
+    }
+
+    @Override
+    public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
+        return Usuario.builder()
+                .nombreUsuario(usuarioDto.nombreUsuario())
+                .idUsuario(usuarioDto.idUsuario())
+                .emailUsuario(usuarioDto.emailUsuario())
+                .telefonoUsuario(usuarioDto.telefonoUsuario())
+                .direccion(usuarioDto.direccion())
+                .contraseniaUsuario(usuarioDto.contraseniaUsuario())
+                .saldo((usuarioDto.saldo()))
+                .build();
+    }
+    //cuenta desde aca por si se borra
+    @Override
+    public CuentaDto cuentaToCuentaDto(Cuenta cuenta) {
+        return new CuentaDto(
+                cuenta.getIdCuenta(),
+                cuenta.getNombreCuenta(),
+                cuenta.getNumeroCuenta(),
+                cuenta.getTipoCuenta()
+        );
+    }
+
+    @Override
+    public Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto) {
+        return Cuenta.builder()
+                .idCuenta(cuentaDto.idCuenta())
+                .nombreCuenta(cuentaDto.nombreCuenta())
+                .numeroCuenta(cuentaDto.numeroCuenta())
+                .tipoCuenta(cuentaDto.tipoCuenta())
+                .build();
+    }
+    @Override
+    public List<CuentaDto> getCuentaDtos(List<Cuenta> listaCuenta) {
+        if(listaCuenta==null){
+            return null;
+        }
+        List<CuentaDto> cuentasDto = new ArrayList<CuentaDto>(listaCuenta.size());
+        for (Cuenta cuenta : listaCuenta) {
+            cuentasDto.add(cuentaToCuentaDto(cuenta));
+        }
+        return cuentasDto;
+    }
+
+
+
+}

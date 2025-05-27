@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="437.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.ActualizarDatosViewController">
+   <children>
+      <AnchorPane layoutX="7.0" layoutY="3.0" minHeight="0.0" minWidth="0.0" prefHeight="441.0" prefWidth="627.0">
+         <children>
+            <Label fx:id="lblBilleteraVirtual" layoutX="232.0" layoutY="14.0" text="Billetera Virtual ">
+               <font>
+                  <Font name="Dubai Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTelefonoUsuario" layoutX="43.0" layoutY="181.0" text="Nombre usuario:">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnActualizarUsuario" layoutX="252.0" layoutY="304.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="44.0" prefWidth="140.0" text="Actualizar Datos" />
+            <Hyperlink fx:id="linkCerrar" layoutX="277.0" layoutY="360.0" onAction="#cerrarSesion" text="Cerrar sesión">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font></Hyperlink>
+            <Label fx:id="lblRegistroTl1" layoutX="247.0" layoutY="58.0" text="Actualizar Datos ">
+               <font>
+                  <Font name="Dubai Regular" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombreUsuario" layoutX="172.0" layoutY="183.0" />
+            <Label fx:id="lblTelefonoUsuario1" layoutX="341.0" layoutY="181.0" text="Email usuario:">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmailUsuario" layoutX="443.0" layoutY="183.0" />
+            <Label fx:id="lblTelefonoUsuario2" layoutX="43.0" layoutY="230.0" text="Numero telefono:">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNumerotelefono" layoutX="177.0" layoutY="232.0" />
+            <Label fx:id="lblinfo" layoutX="23.0" layoutY="58.0" prefHeight="108.0" prefWidth="598.0" text="Si desea actualizar sus datos ingrese en cualquier campo y modifiquelos, luego de al  boton Actualizar">
+               <font>
+                  <Font name="Dubai Regular" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

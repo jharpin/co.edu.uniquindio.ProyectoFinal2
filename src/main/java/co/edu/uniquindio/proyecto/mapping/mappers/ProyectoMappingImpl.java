@@ -92,12 +92,21 @@ public class ProyectoMappingImpl implements IProyectoMapping {
 
     @Override
     public CategoriaDto categoriaToCategoriaDto(Categoria categoria) {
-        return null;
+        return new CategoriaDto(
+                categoria.getIdCategoria()
+                ,categoria.getNombreCategoria()
+                ,categoria.getDescripcionCategoria()
+
+        );
     }
 
     @Override
     public Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto) {
-        return null;
+        return Categoria.builder()
+                .idCategoria(categoriaDto.idCategoria())
+                .nombreCategoria(categoriaDto.nombreCategoria())
+                .descripcionCategoria(categoriaDto.descripcionCategoria())
+                .build();
     }
 
     @Override

@@ -74,17 +74,17 @@ public class CategoriaViewController {
     void onEliminarCategoria(ActionEvent event) {
 
     }
-
+    private void cargarCategorias() {
+      List<CategoriaDto> categoria = categoriaController.obtenerCategoria();
+      listaCategorias.setAll(categoria);
+      listaOriginal.setAll(categoria);
+      tablaCategorias.setItems(listaOriginal);
+    }
     @FXML
     void initialize() {
         categoriaController = new CategoriaController();
         cargarCategorias();
     }
-    private void cargarCategorias() {
-        ArrayList<Categoria> categorias =  categoriaController.obtenerCategoria();
-        listaCategorias.setAll(categorias);
-        listaOriginal.setAll(categorias);
-        tablaCategorias.setItems(listaOriginal);
-    }
+
 
 }

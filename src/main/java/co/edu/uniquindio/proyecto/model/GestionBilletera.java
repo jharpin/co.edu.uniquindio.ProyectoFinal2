@@ -160,15 +160,7 @@ public class GestionBilletera  {
         }
     }
     public boolean eliminarCuenta(String idCuenta) {
-        System.out.println("Intentando eliminar cuenta con ID: " + idCuenta);
-        System.out.println("Lista actual:");
-        for (Cuenta c : listaCuentas) {
-            System.out.println("- " + c.getIdCuenta());
-        }
-
-        boolean resultado = listaCuentas.removeIf(cuenta -> cuenta.getIdCuenta().equals(idCuenta));
-        System.out.println("¿Eliminada?: " + resultado);
-        return resultado;
+        return listaCuentas.removeIf(cuenta -> cuenta.getIdCuenta().equals(idCuenta));
     }
 
 

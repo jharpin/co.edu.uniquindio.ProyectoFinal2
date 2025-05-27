@@ -161,7 +161,7 @@ public class RegistroUsuarioviewController {
                             ,txtTelefonoUsuario.getText()
                             ,txtcontrasenia.getText()
                             ,txtEmailUsuario.getText()
-                            ,Double.parseDouble(txtEmailUsuario.getText()));
+                            ,0);
     }
 
 

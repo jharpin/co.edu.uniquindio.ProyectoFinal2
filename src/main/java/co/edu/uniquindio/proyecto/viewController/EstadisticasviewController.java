@@ -50,11 +50,11 @@ public class EstadisticasviewController implements Initializable {
 
         for (Usuario usuario : usuarios) {
             double saldo = usuario.getSaldo();
-            if (saldo <= 100) {
+            if (saldo <= 1000) {
                 rango1++;
-            } else if (saldo <= 500) {
+            } else if (saldo <= 50000) {
                 rango2++;
-            } else if (saldo <= 1000) {
+            } else if (saldo <= 100000) {
                 rango3++;
             } else {
                 rango4++;

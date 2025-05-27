@@ -36,7 +36,7 @@
                     <children>
                         <SplitPane layoutX="24.0" layoutY="14.0" orientation="VERTICAL" prefHeight="397.0" prefWidth="647.0">
                             <items>
-                                <fx:include source="Presupuesto.fxml" />
+                                <fx:include source="GestionCuentasUsuario.fxml" />
                             </items>
                         </SplitPane>
                     </children>

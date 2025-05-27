@@ -10,10 +10,10 @@ public class CuentaController {
     ModelFactory modelFactory;
     public CuentaController() {modelFactory=ModelFactory.getInstance();}
     public List<CuentaDto> obtenerCuenta(){
-        return modelFactory.obtenerCategoria();
+        return modelFactory.obtenerCuenta();
     }
-    public boolean CrearCategoria(CategoriaDto categoria){
-        return modelFactory.crearCategoria(categoria);
+    public boolean CrearCuenta(CuentaDto cuenta){
+        return modelFactory.crearCuenta(cuenta);
     }
 
 }

@@ -14,6 +14,7 @@ public class GestionBilletera  {
     private ArrayList<Categoria>listaCategoria;
 
 
+
     public GestionBilletera() {
         /// inicializacion de listas
         this.listaCuentas = new ArrayList<>();

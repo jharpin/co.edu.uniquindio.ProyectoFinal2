@@ -1,10 +1,12 @@
 package co.edu.uniquindio.proyecto.mapping.mappers;
 
 import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
+import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 
 import co.edu.uniquindio.proyecto.model.Categoria;
+import co.edu.uniquindio.proyecto.model.Cuenta;
 import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
@@ -109,6 +111,7 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .build();
     }
 
+
     @Override
     public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
         return Usuario.builder()
@@ -119,7 +122,16 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
                 .build();
     }
+    //cuenta desde aca por si se borra 
+    @Override
+    public CuentaDto cuentaToCuentaDto(Cuenta cuenta) {
+        return null;
+    }
 
+    @Override
+    public Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto) {
+        return null;
+    }
 
 
 

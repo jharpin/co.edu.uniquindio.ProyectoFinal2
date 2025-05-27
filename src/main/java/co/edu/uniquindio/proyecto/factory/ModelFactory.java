@@ -136,7 +136,7 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public List<CuentaDto> obtenerCuenta() {
-        List<CCuenta> lista = gestionBilletera.getListaCuentas();
-        return mapper.getCuentaDto(lista);
+        List<Cuenta> lista = gestionBilletera.getListaCuentas();
+        return mapper.getCuentaDtos(lista);
     }
 }

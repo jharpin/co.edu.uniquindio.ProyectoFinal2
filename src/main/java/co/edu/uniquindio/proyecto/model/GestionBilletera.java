@@ -128,14 +128,22 @@ public class GestionBilletera  {
     }
 
     // cuentas por si se borra copiar desde aca
-    public boolean crearCuenta(Transaccion transaccion){
-        Transaccion Encontrada=obtenerTransaccion(transaccion.getId());
+    public boolean crearCuenta(Cuenta cuenta){
+        Cuenta Encontrada=obtenerCuenta(cuenta.getIdCuenta());
         if(Encontrada==null){
-            getListaTransacciones().add(transaccion);
+            getListaCuentas().add(cuenta);
             return true;
         }else{
             return false;
         }
+    }
+    public Cuenta obtenerCuenta(String idCuenta) {
+        for (Cuenta cuenta : listaCuentas) {
+            if (cuenta!= null && cuenta.getIdCuenta().equals(idCuenta)) {
+                return cuenta;
+            }
+        }
+        return null;
     }
 
     //crear un crud de usuarios en administrador

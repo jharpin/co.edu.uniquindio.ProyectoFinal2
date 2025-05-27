@@ -23,8 +23,8 @@
                   <Font name="Dubai Regular" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnActualizar" layoutX="236.0" layoutY="171.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="35.0" prefWidth="122.0" text="Actualizar Cuenta" />
-            <Button fx:id="btnEliminarCuenta" layoutX="377.0" layoutY="171.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="35.0" prefWidth="140.0" text="Eliminar Cuenta" />
+            <Button fx:id="btnActualizar" layoutX="399.0" layoutY="171.0" mnemonicParsing="false" onAction="#onActualizar" prefHeight="35.0" prefWidth="140.0" text="Actualizar Cuenta" />
+            <Button fx:id="btnEliminarCuenta" layoutX="241.0" layoutY="171.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="35.0" prefWidth="140.0" text="Eliminar Cuenta" />
             <TableView fx:id="tableCuentas" layoutX="63.0" layoutY="227.0" prefHeight="174.0" prefWidth="495.0">
                <columns>
                   <TableColumn fx:id="colidecuenta" prefWidth="88.79998016357422" text=" ID Cuenta" />
@@ -33,9 +33,12 @@
                   <TableColumn fx:id="coltipocuenta" prefWidth="152.00001831054686" text="tipo cuenta" />
                </columns>
             </TableView>
-            <Label fx:id="lblnumerocuenta" layoutX="55.0" layoutY="81.0" text="ide cuenta: " />
+            <Label fx:id="lblnumerocuenta" layoutX="55.0" layoutY="81.0" text="ide cuenta: ">
+               <font>
+                  <Font name="Dubai Regular" size="12.0" />
+               </font></Label>
             <TextField fx:id="txtideCuenta" layoutX="141.0" layoutY="77.0" prefHeight="26.0" prefWidth="140.0" />
-            <Button fx:id="btnAgregar" layoutX="96.0" layoutY="171.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="35.0" prefWidth="122.0" text="Agregar Cuenta " />
+            <Button fx:id="btnAgregar" layoutX="83.0" layoutY="171.0" mnemonicParsing="false" onAction="#onAgregar" prefHeight="35.0" prefWidth="140.0" text="Agregar Cuenta " />
             <Label fx:id="lblnumerocuenta1" layoutX="303.0" layoutY="81.0" text="numero cuenta: " />
             <TextField fx:id="txtnumerocuenta" layoutX="400.0" layoutY="77.0" />
             <Label fx:id="lblnumerocuenta11" layoutX="53.0" layoutY="118.0" text="numero cuenta: " />

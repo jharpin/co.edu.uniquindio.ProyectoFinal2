@@ -9,37 +9,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.GestionUsuarioViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.GestionUsuarioViewController">
    <children>
-      <AnchorPane layoutX="-2.0" prefHeight="471.0" prefWidth="638.0">
+      <AnchorPane layoutX="-1.0" prefHeight="471.0" prefWidth="638.0">
          <children>
-            <Label fx:id="lblBilleteraVirtual" layoutX="235.0" layoutY="14.0" text="Billetera Virtual ">
+            <Label fx:id="lblBilleteraVirtual" layoutX="246.0" text="Billetera Virtual ">
                <font>
                   <Font name="Dubai Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="lblLogintl" layoutX="249.0" layoutY="66.0" text="Gestion Usuarios">
+            <Label fx:id="lblLogintl" layoutX="261.0" layoutY="37.0" text="Gestion Usuarios">
                <font>
                   <Font name="Dubai Regular" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnActualizarUsuario" layoutX="91.0" layoutY="178.0" mnemonicParsing="false" onAction="#ActualizarUsuario" prefHeight="35.0" prefWidth="122.0" text="Actualizar Usuario" />
-            <Button fx:id="btnCrearUsuario" layoutX="258.0" layoutY="176.0" mnemonicParsing="false" onAction="#irCrearUsuario" prefHeight="35.0" prefWidth="122.0" text="Crear Usuario " />
-            <Button fx:id="btnEliminarUsuario" layoutX="424.0" layoutY="175.0" mnemonicParsing="false" onAction="#Eliminarusuario" prefHeight="35.0" prefWidth="140.0" text="Eliminar Usuario " />
-            <TableView fx:id="tableUsuarios" layoutX="84.0" layoutY="230.0" prefHeight="200.0" prefWidth="497.0">
+            <Button fx:id="btnActualizarUsuario" layoutX="138.0" layoutY="175.0" mnemonicParsing="false" onAction="#ActualizarUsuario" prefHeight="35.0" prefWidth="122.0" text="Actualizar Usuario">
+               <font>
+                  <Font name="Dubai Regular" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnCrearUsuario" layoutX="280.0" layoutY="175.0" mnemonicParsing="false" onAction="#irCrearUsuario" prefHeight="35.0" prefWidth="122.0" text="Crear Usuario " />
+            <Button fx:id="btnEliminarUsuario" layoutX="424.0" layoutY="175.0" mnemonicParsing="false" onAction="#Eliminarusuario" prefHeight="35.0" prefWidth="122.0" text="Eliminar Usuario ">
+               <font>
+                  <Font name="Dubai Regular" size="12.0" />
+               </font></Button>
+            <TableView fx:id="tableUsuarios" layoutX="84.0" layoutY="230.0" prefHeight="182.0" prefWidth="493.0">
               <columns>
                 <TableColumn fx:id="colIdUsuario" prefWidth="151.20001983642578" text=" ID Usuario" />
                 <TableColumn fx:id="colnombreUsuario" prefWidth="170.39996337890625" text="nombre" />
                   <TableColumn fx:id="colCorreoUsuario" prefWidth="175.99996948242188" text="correo" />
               </columns>
             </TableView>
-            <Hyperlink fx:id="linkCerrar" layoutX="295.0" layoutY="431.0" onAction="#cerrarSesion" text="Cerrar sesión" />
-            <Label layoutX="38.0" layoutY="120.0" text="Identificacion" />
-            <TextField fx:id="txtIdentificacion" layoutX="120.0" layoutY="116.0" prefHeight="25.0" prefWidth="122.0" />
-            <Label layoutX="257.0" layoutY="120.0" text="Nombre" />
-            <TextField fx:id="txtNombreUsuario" layoutX="308.0" layoutY="116.0" prefHeight="25.0" prefWidth="116.0" />
-            <Label layoutX="434.0" layoutY="120.0" text="correo" />
-            <TextField fx:id="txtCorreo" layoutX="485.0" layoutY="116.0" prefHeight="25.0" prefWidth="116.0" />
+            <Hyperlink fx:id="linkCerrar" layoutX="293.0" layoutY="419.0" onAction="#cerrarSesion" text="Cerrar sesión">
+               <font>
+                  <Font name="Dubai Regular" size="16.0" />
+               </font></Hyperlink>
+            <Label layoutX="55.0" layoutY="79.0" text="Identificacion" />
+            <TextField fx:id="txtIdentificacion" layoutX="138.0" layoutY="75.0" prefHeight="25.0" prefWidth="122.0" />
+            <Label layoutX="69.0" layoutY="133.0" text="Nombre" />
+            <TextField fx:id="txtNombreUsuario" layoutX="138.0" layoutY="123.0" prefHeight="26.0" prefWidth="122.0" />
+            <Label layoutX="302.0" layoutY="133.0" text="Correo electronico" />
+            <TextField fx:id="txtCorreo" layoutX="424.0" layoutY="123.0" prefHeight="25.0" prefWidth="116.0" />
          </children>
       </AnchorPane>
    </children>

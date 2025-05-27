@@ -4,14 +4,15 @@ import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
+import co.edu.uniquindio.proyecto.model.Categoria;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Transaccion;
 import co.edu.uniquindio.proyecto.model.Usuario;
-import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 import co.edu.uniquindio.proyecto.utils.DataUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModelFactory implements IModelFactoryServices {
@@ -46,14 +47,13 @@ public class ModelFactory implements IModelFactoryServices {
     public Usuario getUsuarioActivo() {
         return usuarioActivo;
     }
-
     public void setUsuarioActivo(Usuario usuarioActivo) {
         this.usuarioActivo = usuarioActivo;
     }
 
     @Override
     public boolean eliminarUsuario(String idUsuario) {
-        return gestionBilletera.eliminarUsuario(idUsuario);
+        return false;
     }
 
     @Override
@@ -103,8 +103,7 @@ public class ModelFactory implements IModelFactoryServices {
 
     @Override
     public boolean agregarUsuario(UsuarioDto usuariodto) {
-        Usuario usuario = mapper.usuarioDtoToUsuario(usuariodto);
-        return gestionBilletera.crearUsuario(usuario);
+        return false;
     }
 
     @Override
@@ -126,9 +125,8 @@ public class ModelFactory implements IModelFactoryServices {
         return false;
     }
 
-        @Override
-        public List<CategoriaDto> obtenerCategoria() {
-
-        return null;//return mapper.categoriaDtoToCategoria(gestionBilletera.getListaCategoria());
-        }
+    @Override
+    public ArrayList<Categoria> obtenerCategoria() {
+        return gestionBilletera.getListaCategoria();
+    }
 }

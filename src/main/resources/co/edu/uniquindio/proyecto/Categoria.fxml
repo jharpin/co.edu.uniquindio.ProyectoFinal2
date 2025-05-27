@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.CategoriaViewController">
    <children>
@@ -27,7 +27,7 @@
             <TextField fx:id="txtIdeCategoria" layoutX="116.0" layoutY="71.0" prefHeight="26.0" prefWidth="47.0" />
             <Label fx:id="lblnombreCategoria" layoutX="175.0" layoutY="76.0" text="Nombre Categoria :" />
             <TextField fx:id="txtnombreCategoria" layoutX="280.0" layoutY="71.0" prefHeight="26.0" prefWidth="136.0" />
-            <TableView fx:id="tablaTransacciones" layoutX="149.0" layoutY="208.0" prefHeight="159.0" prefWidth="349.0">
+            <TableView fx:id="tablaCategorias" layoutX="149.0" layoutY="208.0" prefHeight="159.0" prefWidth="349.0">
                <columns>
                   <TableColumn fx:id="colidCategoria" prefWidth="100.80001068115234" text="ID Categoria" />
                   <TableColumn fx:id="colNombreCategoria" prefWidth="132.0" text="nombre Categoria" />
@@ -53,5 +53,6 @@
             <TextField fx:id="txtDescripcionCateg" layoutX="499.0" layoutY="71.0" prefHeight="26.0" prefWidth="126.0" />
          </children>
       </AnchorPane>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

@@ -11,6 +11,7 @@ public class GestionBilletera  {
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Banco> listaBancos;
     private ArrayList<Transaccion>listaTransacciones;
+    private ArrayList<Categoria>listaCategoria;
 
 
     public GestionBilletera() {
@@ -19,6 +20,7 @@ public class GestionBilletera  {
         this.listaUsuarios = new ArrayList<>();
         this.listaBancos = new ArrayList<>();
         this.listaTransacciones = new ArrayList<>();
+        this.listaCategoria=new ArrayList<>();
           }
 
     public ArrayList<Transaccion>getListaTransacciones() {return listaTransacciones;}
@@ -30,7 +32,8 @@ public class GestionBilletera  {
     public void setListaBancos(ArrayList<Banco> listaBancos) {this.listaBancos = listaBancos;}
     public ArrayList<Usuario> getListaUsuarios() {return listaUsuarios;}
     public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {this.listaUsuarios = listaUsuarios;}
-
+    public ArrayList<Categoria> getListaCategoria() {return listaCategoria;}
+    public void setListaCategoria(ArrayList<Categoria> listaCategoria) {this.listaCategoria = listaCategoria;}
 
     public void mostrarInfoBilletera() {
     }
@@ -108,6 +111,23 @@ public class GestionBilletera  {
         }else {
             return false;
         }
+    }
+    public boolean crearCategoria(Categoria categoria){
+        Categoria Encontrada=obtenerCategoria(categoria.getIdCategoria());
+        if(Encontrada==null){
+            getListaCategoria().add(categoria);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public Categoria obtenerCategoria(String idCategoria) {
+        for (Categoria categoria : listaCategoria) {
+            if (categoria != null && categoria.getIdCategoria().equals(idCategoria)) {
+                return categoria;
+            }
+        }
+        return null;
     }
 
     //crear un crud de usuarios en administrador

@@ -104,8 +104,8 @@ public class GestionUsuarioViewController {
         initDataBinding();
         obtenerUsuarios();
         tableUsuarios.getItems().clear();
-        tableUsuarios.setItems(listaUsuarios);
-        listenerSelection();
+        tableUsuarios.getItems();
+        //listenerSelection();
     }
 
     private void obtenerUsuarios(){
@@ -116,21 +116,5 @@ public class GestionUsuarioViewController {
         colnombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
         colIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idUsuario()));
         colCorreoUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
-    }
-
-    private void listenerSelection(){
-        tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
-            usuarioSeleccionado = newSelection;
-            mostrarInformacionUsuario(usuarioSeleccionado);
-        });
-    }
-    private void mostrarInformacionCliente(UsuarioDto usuarioSeleccionado){
-        if(usuarioSeleccionado != null){
-            TxtNombre.setText(clienteseleccionado.nombre());
-            TxtApellido.setText(clienteseleccionado.apellido());
-            TxtCedula.setText(clienteseleccionado.cedula());
-            TxtEmail.setText(clienteseleccionado.email());
-            TxtDireccion.setText(clienteseleccionado.direccion());
-        }
     }
 }

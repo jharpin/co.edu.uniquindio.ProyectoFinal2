@@ -14,7 +14,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-public class TransaccionViewController {
+public class
+TransaccionViewController {
 
     TransaccionController transaccionController;
     ObservableList<TransaccionDto> listaTransacciones = FXCollections.observableArrayList();

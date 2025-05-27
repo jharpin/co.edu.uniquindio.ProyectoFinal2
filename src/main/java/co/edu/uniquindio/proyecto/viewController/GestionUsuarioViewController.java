@@ -44,8 +44,6 @@ public class GestionUsuarioViewController {
     @FXML
     private TableColumn<UsuarioDto, String> colCorreo;
 
-    @FXML
-    private TableColumn<UsuarioDto, String> colIdUsuario;
 
     @FXML
     private TableColumn<UsuarioDto, String> colNombreUsuario;
@@ -126,13 +124,13 @@ public class GestionUsuarioViewController {
     private void actualizarUsuario(){
 
             if (usuarioSeleccionado != null) {
-                UsuarioDto clienteActualizado = crearUsuarioDto();
-                if (datosValidos(clienteActualizado)) {
-                    if (gestionUsuarioController.actualizarUsuario(clienteActualizado)) {
+                UsuarioDto usuarioActualizado = crearUsuarioDto();
+                if (datosValidos(usuarioActualizado)){
+                    if (gestionUsuarioController.actualizarUsuario(usuarioActualizado)) {
                         for (UsuarioDto usuario1 : listaUsuarios) {
                             if (usuario1.equals(usuarioSeleccionado)) {
                                 listaUsuarios.remove(usuario1);
-                                listaUsuarios.add(usuario1);
+                                listaUsuarios.add(usuarioActualizado);
                                 break;
                             }
                         }
@@ -168,7 +166,7 @@ public class GestionUsuarioViewController {
 
     private void initDataBinding(){
         colNombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
-        colIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idUsuario()));
+        colTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().telefonoUsuario()));
         colCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
         colDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
         colSaldo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().saldo())));
@@ -183,7 +181,7 @@ public class GestionUsuarioViewController {
     private void mostrarInformacionUsuario(UsuarioDto usuarioSeleccionado){
         if(usuarioSeleccionado != null){
             txtNombreUsuario.setText(usuarioSeleccionado.nombreUsuario());
-            txtIdentificacion.setText(usuarioSeleccionado.idUsuario());
+            txtTelefono.setText(usuarioSeleccionado.telefonoUsuario());
             txtCorreo.setText(usuarioSeleccionado.emailUsuario());
             txtDireccion.setText(usuarioSeleccionado.direccion());
             txtSaldo.setText(String.valueOf(usuarioSeleccionado.saldo()));
@@ -191,7 +189,7 @@ public class GestionUsuarioViewController {
     }
     private UsuarioDto crearUsuarioDto(){
         return new UsuarioDto(txtNombreUsuario.getText()
-                                ,txtIdentificacion.getText()
+                                ,usuarioSeleccionado.idUsuario()
                                 ,txtCorreo.getText()
                                 ,txtTelefono.getText()
                                 ,txtDireccion.getText()
@@ -204,7 +202,7 @@ public class GestionUsuarioViewController {
                 usuarioDto.emailUsuario().isBlank() ||
                 usuarioDto.direccion().isBlank() ||
                 usuarioDto.telefonoUsuario().isBlank() ||
-                usuarioDto.saldo() != 0.0){
+                usuarioDto.saldo() == 0.0){
             return false;
         }
         return true;
@@ -216,8 +214,6 @@ public class GestionUsuarioViewController {
         aler.setContentText(contenido);
         aler.showAndWait();
     }
-
-
 
 
 }

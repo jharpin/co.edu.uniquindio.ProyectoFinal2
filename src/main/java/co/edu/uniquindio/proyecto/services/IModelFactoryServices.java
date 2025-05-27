@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyecto.services;
 
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.model.Cuenta;
 import co.edu.uniquindio.proyecto.model.Usuario;
 
 
@@ -23,7 +24,7 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
     boolean eliminarUsuario(String cedula);
     boolean agregarCuenta();
     boolean eliminarCuenta();
-    boolean actualizarCuenta();
+    boolean actualizarCuenta(Cuenta cuenta);
 
 
     List<Usuario> obtenerListaUsuarios();

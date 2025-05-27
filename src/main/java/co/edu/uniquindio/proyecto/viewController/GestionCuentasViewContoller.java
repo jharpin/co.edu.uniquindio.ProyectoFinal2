@@ -150,24 +150,18 @@ public class GestionCuentasViewContoller {
         }
 
 
-        for (Cuenta cuenta : listaCuenta()) {
-            if (cuenta.getIdCuenta().equals(seleccionada.idCuenta())) {
-                cuenta.setNumeroCuenta(numerocuenta);
-                cuenta.setNombreCuenta(nombrecuenta);
-                cuenta.setTipoCuenta(tipo);
-                break;
-            }
-        }
+//        for (Cuenta cuenta : listaCuenta()) {
+//            if (cuenta.getIdCuenta().equals(seleccionada.idCuenta())) {
+//                cuenta.setNumeroCuenta(numerocuenta);
+//                cuenta.setNombreCuenta(nombrecuenta);
+//                cuenta.setTipoCuenta(tipo);
+//                break;
+//            }
+//        }
 
-        cargarDatosTabla();
+
         limpiarCampos();
     }
-
-
-    }
-
-
-
 
     @FXML
     void onEliminar(ActionEvent event) {

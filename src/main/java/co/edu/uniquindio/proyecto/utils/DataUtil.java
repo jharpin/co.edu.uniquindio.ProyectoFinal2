@@ -14,6 +14,8 @@ public class DataUtil {
                 .emailUsuario("jhonatan@gmail.com")
                 .telefonoUsuario("123456789")
                 .contraseniaUsuario("1")
+                .direccion("av colon")
+                .saldo(2)
                 .build();
 
         Usuario usuario2 = Usuario.builder()

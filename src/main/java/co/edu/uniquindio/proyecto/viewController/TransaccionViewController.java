@@ -29,6 +29,8 @@ TransaccionViewController {
     @FXML private TableColumn<TransaccionDto, String> colIdTrans, colCuentaOrigen, colCuentaDestino, colTipo, colCategoria, colDescripcion;
     @FXML private TableColumn<TransaccionDto, Double> colValorTransferido;
     @FXML private TableColumn<TransaccionDto, LocalDate> colFechaTrans;
+    @FXML private Label lblFiltro;
+    @FXML private Separator separador;
 
     @FXML
     public void initialize() {

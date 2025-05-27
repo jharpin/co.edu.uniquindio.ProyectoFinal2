@@ -174,23 +174,7 @@ public class GestionCuentasViewContoller {
     private void cargarDatosTabla() {
         tableCuentas.setItems(listaCuenta);
     }
-
-
-
-
-    @FXML
-    void onEliminar(ActionEvent event) {
-        CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
-
-        if (seleccionada != null) {
-            cuentaController.eliminarCuenta(seleccionada.idCuenta());
-            listaCuenta.removeIf(c -> c.idCuenta().equals(seleccionada.idCuenta()));
-            tableCuentas.refresh();
-        }
-    }
-
-
-
+    
 
 
     private void mostrarAlerta(String titulo, String mensaje) {

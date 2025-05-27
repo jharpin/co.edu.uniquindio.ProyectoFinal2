@@ -68,54 +68,43 @@ public class LoginViewController {
 
     @FXML
     void IngresarLogin(ActionEvent event) {
-        String identificacion = txtIdentificacionLogin.getText();
-        String contrasena = txtContraseniaLogin.getText();
+        String id = txtIdentificacionLogin.getText();
+        String pass = txtContraseniaLogin.getText();
+        UsuarioDto usuario = loginProxy.iniciarSesionA(id, pass);
 
-        UsuarioDto usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
-
+        if (usuario == null) {
+            mostrarAlerta("Error de Inicio de Sesión", "Credenciales incorrectas", Alert.AlertType.ERROR);
+            return;
+        }
 
         ModelFactory.getInstance().setUsuarioActivo(usuario);
+        mostrarAlerta("Inicio de Sesión Exitoso", "¡Bienvenido, " + usuario.idUsuario() + "!", Alert.AlertType.INFORMATION);
 
-        if (usuario != null) {
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Inicio de Sesión Exitoso");
-            alerta.setHeaderText(null);
-            alerta.setContentText("¡Bienvenido, " + usuario.idUsuario() + "!");
-            alerta.showAndWait();
+        String vista = new Validador().validarAdministrador(id, pass)
+                ? "/co/edu/uniquindio/proyecto/DashboardAdministrador.fxml"
+                : "/co/edu/uniquindio/proyecto/DashboardUsuario.fxml";
 
-            // Verifica si es administrador
-            boolean esAdmin = new Validador().validarAdministrador(identificacion, contrasena);
-
-            String vistaFXML = esAdmin
-                    ? "/co/edu/uniquindio/proyecto/DashboardAdministrador.fxml"
-                    : "/co/edu/uniquindio/proyecto/DashboardUsuario.fxml";
-
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(vistaFXML));
-                Parent root = loader.load();
-
-
-                Object controller = loader.getController();
-                if (controller instanceof DashboardUsuarioViewController) {
-                    ((DashboardUsuarioViewController) controller).setUsuario(usuario);
-                }
-                // Haz similar para el admin si quieres
-
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(vista));
+            Parent root = loader.load();
+            Object controller = loader.getController();
+            if (controller instanceof DashboardUsuarioViewController usuarioController) {
+                usuarioController.setUsuario(usuario);
             }
-
-        } else {
-            System.out.println("Credenciales incorrectas");
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setTitle("Error de Inicio de Sesión");
-            alerta.setHeaderText("Credenciales incorrectas");
-            alerta.setContentText("Por favor, verifica tu identificación y contraseña.");
-            alerta.showAndWait();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 
 

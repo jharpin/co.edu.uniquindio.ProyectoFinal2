@@ -21,5 +21,5 @@ public class GestionUsuarioController {
 
     public boolean actualizarUsuario(UsuarioDto usuario){return modelFactory.actualizarUsuario(usuario);}
 
-    public List<Usuario> obtenerListaUsuarios(){return modelFactory.obtenerListaUsuarios();}
+
 }

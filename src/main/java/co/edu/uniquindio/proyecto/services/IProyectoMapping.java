@@ -2,11 +2,9 @@ package co.edu.uniquindio.proyecto.services;
 
 import co.edu.uniquindio.proyecto.mapping.dto.*;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.proyecto.model.Categoria;
-import co.edu.uniquindio.proyecto.model.Cuenta;
-import co.edu.uniquindio.proyecto.model.Transaccion;
-import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface IProyectoMapping {
@@ -25,4 +23,5 @@ public interface IProyectoMapping {
     CuentaDto cuentaToCuentaDto(Cuenta cuenta);
     Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto);
 
+    List<PresupuestoDto> getPresupuestosDto(List<Presupuesto> listaPresupuestos);
 }

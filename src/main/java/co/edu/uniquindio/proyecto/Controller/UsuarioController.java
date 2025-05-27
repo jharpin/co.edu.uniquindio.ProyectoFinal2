@@ -17,7 +17,7 @@ public class UsuarioController {
     }
 
 
-    public boolean actualizarUsuario(Usuario usuario) {
+    public boolean actualizarUsuario(UsuarioDto usuario) {
         return modelFactory.actualizarUsuario(usuario);
     }
 }

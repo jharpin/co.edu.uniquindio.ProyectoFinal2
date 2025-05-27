@@ -71,9 +71,7 @@ public class LoginViewController {
         String identificacion = txtIdentificacionLogin.getText();
         String contrasena = txtContraseniaLogin.getText();
 
-        Usuario usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
-
-
+        UsuarioDto usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
 
 
         ModelFactory.getInstance().setUsuarioActivo(usuario);
@@ -82,7 +80,7 @@ public class LoginViewController {
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Inicio de Sesión Exitoso");
             alerta.setHeaderText(null);
-            alerta.setContentText("¡Bienvenido, " + usuario.getIdUsuario() + "!");
+            alerta.setContentText("¡Bienvenido, " + usuario.idUsuario() + "!");
             alerta.showAndWait();
 
             // Verifica si es administrador

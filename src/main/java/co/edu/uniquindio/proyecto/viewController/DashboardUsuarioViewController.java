@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 public class DashboardUsuarioViewController {
 
-    private Usuario usuario;
+    private UsuarioDto usuario;
 
     private UsuarioController usuarioController;
 
@@ -151,7 +151,7 @@ public class DashboardUsuarioViewController {
         }
     }
 
-    public void setUsuario(Usuario usuario){
+    public void setUsuario(UsuarioDto usuario){
         this.usuario = usuario;
 
     }

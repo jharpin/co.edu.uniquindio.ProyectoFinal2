@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -104,7 +105,7 @@ public class GestionUsuarioViewController {
     @FXML
     void ActualizarUsuario(ActionEvent event) {
 
-//        actualizarUsuario();
+        actualizarUsuario();
 
     }
 
@@ -125,7 +126,23 @@ public class GestionUsuarioViewController {
     private void actualizarUsuario(){
 
             if (usuarioSeleccionado != null) {
-                gestionUsuarioController.actualizarUsuario(usuarioSeleccionado)
+                UsuarioDto clienteActualizado = crearUsuarioDto();
+                if (datosValidos(clienteActualizado)) {
+                    if (gestionUsuarioController.actualizarUsuario(clienteActualizado)) {
+                        for (UsuarioDto usuario1 : listaUsuarios) {
+                            if (usuario1.equals(usuarioSeleccionado)) {
+                                listaUsuarios.remove(usuario1);
+                                listaUsuarios.add(usuario1);
+                                break;
+                            }
+                        }
+                        mostrarMensaje("Cliente actualizado", null, "Los datos del cliente han sido actualizados.", Alert.AlertType.INFORMATION);
+                    } else {
+                        mostrarMensaje("Error", null, "No se pudo actualizar el cliente.", Alert.AlertType.ERROR);
+                    }
+                } else {
+                    mostrarMensaje("Campos incompletos", null, "Por favor, llena todos los campos.", Alert.AlertType.WARNING);
+                }
             }
 
     }
@@ -181,13 +198,13 @@ public class GestionUsuarioViewController {
                                 ,usuarioSeleccionado.contraseniaUsuario()
                                 ,Double.parseDouble(txtSaldo.getText()));
     }
-    private boolean datosValidos(Usuario usuarioDto) {
-        if(usuarioDto.getNombreUsuario().isBlank() ||
-                usuarioDto.getIdUsuario().isBlank()||
-                usuarioDto.getEmailUsuario().isBlank() ||
-                usuarioDto.getDireccion().isBlank() ||
-                usuarioDto.getTelefonoUsuario().isBlank() ||
-                usuarioDto.getSaldo() != 0.0){
+    private boolean datosValidos(UsuarioDto usuarioDto) {
+        if(usuarioDto.nombreUsuario().isBlank() ||
+                usuarioDto.idUsuario().isBlank()||
+                usuarioDto.emailUsuario().isBlank() ||
+                usuarioDto.direccion().isBlank() ||
+                usuarioDto.telefonoUsuario().isBlank() ||
+                usuarioDto.saldo() != 0.0){
             return false;
         }
         return true;

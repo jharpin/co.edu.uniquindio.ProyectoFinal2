@@ -12,23 +12,23 @@ import java.util.List;
 public class LoginService implements IAutentificador {
 
     ModelFactory modelfactory;
-    private List<Usuario> usuarios;
+    private List<UsuarioDto> usuarios;
 
     public LoginService() {
 
         modelfactory = ModelFactory.getInstance();
-        usuarios = modelfactory.obtenerListaUsuarios();
+        usuarios = modelfactory.obtenerUsuario();
 
 
     }
 
 
     @Override
-    public Usuario iniciarSesionA(String idUsuario, String contraseniaUsuario) {
+    public UsuarioDto iniciarSesionA(String idUsuario, String contraseniaUsuario) {
         System.out.println("Intentando autenticación para: " + idUsuario);
 
-        for (Usuario usuario : usuarios) {
-            if (usuario.getIdUsuario().equals(idUsuario) && usuario.getContraseniaUsuario().equals(contraseniaUsuario)) {
+        for (UsuarioDto usuario : usuarios) {
+            if (usuario.idUsuario().equals(idUsuario) && usuario.contraseniaUsuario().equals(contraseniaUsuario)) {
                 return usuario;
             }
         }
@@ -36,8 +36,5 @@ public class LoginService implements IAutentificador {
         System.out.println("Acceso denegado: usuario no válido.");
         return null;
     }
-
-
-
 
 }

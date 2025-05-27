@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ModelFactory implements IModelFactoryServices {
 
-    private Usuario usuarioActivo;
+    private UsuarioDto usuarioActivo;
     private static ModelFactory modelFactory;
     private GestionBilletera gestionBilletera;
     private IProyectoMapping mapper;
@@ -43,11 +43,12 @@ public class ModelFactory implements IModelFactoryServices {
         return gestionBilletera.crearUsuario(usuario1);
     }
 
-    public Usuario getUsuarioActivo() {
+    public UsuarioDto getUsuarioActivo() {
         return usuarioActivo;
     }
 
-    public void setUsuarioActivo(Usuario usuarioActivo) {
+
+    public void setUsuarioActivo(UsuarioDto usuarioActivo) {
         this.usuarioActivo = usuarioActivo;
     }
 
@@ -108,11 +109,11 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean actualizarUsuario(Usuario usuariodto) {
+    public boolean actualizarUsuario(UsuarioDto usuariodto) {
 
+        Usuario usuario = mapper.usuarioDtoToUsuario(usuariodto);
 
-
-        return gestionBilletera.actualizarUsuario(usuariodto);
+        return gestionBilletera.actualizarUsuario(usuario);
     }
 
 

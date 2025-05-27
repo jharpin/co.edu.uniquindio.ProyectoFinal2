@@ -87,14 +87,9 @@ public class GestionBilletera  {
                 break;
             }
         }
-        return null;
+        return usuario;
     }
-    public Usuario buscarUsuarioPorId(String idUsuario) {
-        return listaUsuarios.stream()
-                .filter(u -> u.getIdUsuario().equals(idUsuario))
-                .findFirst()
-                .orElse(null);
-    }
+
 
     public boolean actualizarUsuario(Usuario usuario) {
 
@@ -102,9 +97,9 @@ public class GestionBilletera  {
 
         if(usuarioActual != null){
 
-                usuarioActual.setNombreUsuario(usuario.getNombreUsuario());
-                usuario.setEmailUsuario(usuario.getEmailUsuario());
-                usuario.setTelefonoUsuario(usuario.getTelefonoUsuario());
+            usuarioActual.setEmailUsuario(usuario.getEmailUsuario());
+            usuarioActual.setTelefonoUsuario(usuario.getTelefonoUsuario());
+            usuarioActual.setNombreUsuario(usuario.getNombreUsuario());
 
                 return true;
 

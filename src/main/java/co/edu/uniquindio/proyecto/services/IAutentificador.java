@@ -4,5 +4,5 @@ import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Usuario;
 
 public interface IAutentificador {
-    Usuario iniciarSesionA(String identificacion, String contrasena);
+    UsuarioDto iniciarSesionA(String identificacion, String contrasena);
 }

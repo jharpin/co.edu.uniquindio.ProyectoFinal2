@@ -19,7 +19,7 @@ public class ActualizarDatosViewController {
 
     UsuarioController usuarioController;
     
-    private Usuario usuario;
+    private UsuarioDto usuario;
 
 
     @FXML
@@ -85,23 +85,33 @@ public class ActualizarDatosViewController {
 
     private void actualizarUsuario() {
 
+        UsuarioDto usuarioDto = new UsuarioDto(
+                txtNombreUsuario.getText(),
+                usuario.idUsuario(),
+                txtEmailUsuario.getText(),
+                txtNumerotelefono.getText(),
+                usuario.contraseniaUsuario(),
+                usuario.direccion(),
+                usuario.saldo()
+        );
 
-        usuario.setNombreUsuario(txtNombreUsuario.getText());
-        usuario.setTelefonoUsuario(txtNumerotelefono.getText());
 
-        usuarioController.actualizarUsuario(usuario);
+        //usuario.setNombreUsuario(txtNombreUsuario.getText());
+        //usuario.setTelefonoUsuario(txtNumerotelefono.getText());
+
+        usuarioController.actualizarUsuario(usuarioDto);
         Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Usuario actualizado");
         alerta.show();
 
     }
-
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDto usuario) {
         this.usuario = usuario;
-       
-        txtNombreUsuario.setText(usuario.getNombreUsuario());
-        txtNumerotelefono.setText(usuario.getTelefonoUsuario());
+
+        txtNombreUsuario.setText(usuario.nombreUsuario());
+        txtNumerotelefono.setText(usuario.telefonoUsuario());
 
     }
+
 
 
     @FXML
@@ -113,16 +123,14 @@ public class ActualizarDatosViewController {
     void onTransferir(ActionEvent event) {
 
     }
-
-
     @FXML
     void initialize() {
         usuarioController = new UsuarioController();
 
         usuario = ModelFactory.getInstance().getUsuarioActivo();
         if (usuario != null) {
-            txtNombreUsuario.setText(usuario.getNombreUsuario());
-            txtNumerotelefono.setText(usuario.getTelefonoUsuario());
+            setUsuario(usuario);
         }
     }
+
 }

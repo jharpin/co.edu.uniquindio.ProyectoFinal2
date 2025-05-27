@@ -90,25 +90,6 @@ public class GestionCuentaUsuarioViewController {
     }
     @FXML
     void initialize() {
-        assert btnEnviarDinero != null : "fx:id=\"btnEnviarDinero\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert btnRetirarDinero != null : "fx:id=\"btnRetirarDinero\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colCategoria != null : "fx:id=\"colCategoria\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colCuentaDestino != null : "fx:id=\"colCuentaDestino\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colCuentaOrigen != null : "fx:id=\"colCuentaOrigen\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colDescripcion != null : "fx:id=\"colDescripcion\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colFechaTrans != null : "fx:id=\"colFechaTrans\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colIdTrans != null : "fx:id=\"colIdTrans\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colTipo != null : "fx:id=\"colTipo\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert colValorTransferido != null : "fx:id=\"colValorTransferido\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert lblBilleteraVirtual != null : "fx:id=\"lblBilleteraVirtual\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert lblLogintl != null : "fx:id=\"lblLogintl\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert lblinfoestadodecuenta != null : "fx:id=\"lblinfoestadodecuenta\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert lblinfonumerocuenta != null : "fx:id=\"lblinfonumerocuenta\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert lblinfotipodecuenta != null : "fx:id=\"lblinfotipodecuenta\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert tablaGestioncuentasu != null : "fx:id=\"tablaGestioncuentasu\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert txtNumerocuentaEnviar != null : "fx:id=\"txtNumerocuentaEnviar\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert txtRetirarDinero != null : "fx:id=\"txtRetirarDinero\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
-        assert txtmontoaEnviar != null : "fx:id=\"txtmontoaEnviar\" was not injected: check your FXML file 'GestionCuentasUsuario.fxml'.";
 
     }
 

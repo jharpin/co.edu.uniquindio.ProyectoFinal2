@@ -3,7 +3,7 @@ package co.edu.uniquindio.proyecto.model;
 import co.edu.uniquindio.proyecto.model.builder.CuentaBuilder;
 import co.edu.uniquindio.proyecto.services.ICuentaCrud;
 
-public class Cuenta implements ICuentaCrud {
+public class Cuenta  {
     private String idCuenta;
     private String nombreCuenta;
     private String numeroCuenta;

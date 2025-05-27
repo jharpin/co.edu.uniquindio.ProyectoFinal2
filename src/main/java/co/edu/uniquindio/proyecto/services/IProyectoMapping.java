@@ -21,6 +21,7 @@ public interface IProyectoMapping {
     Transaccion transaccionDtoToTransaccion(TransaccionDto transaccionDto);
     CategoriaDto categoriaToCategoriaDto(Categoria categoria);
     Categoria categoriaDtoToCategoria(CategoriaDto categoriaDto);
+    List<CuentaDto> getCuentaDtos(List<Cuenta> listaCuenta);
     CuentaDto cuentaToCuentaDto(Cuenta cuenta);
     Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto);
 

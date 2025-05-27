@@ -1,13 +1,11 @@
 package co.edu.uniquindio.proyecto.factory;
 
 import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
+import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
-import co.edu.uniquindio.proyecto.model.Categoria;
-import co.edu.uniquindio.proyecto.model.GestionBilletera;
-import co.edu.uniquindio.proyecto.model.Transaccion;
-import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.*;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 import co.edu.uniquindio.proyecto.utils.DataUtil;
@@ -130,4 +128,15 @@ public class ModelFactory implements IModelFactoryServices {
         return mapper.getCategoriaDtos(lista);
     }
 
+    @Override
+    public boolean crearCuenta(CuentaDto cuenta) {
+        Cuenta cuenta1 = mapper.cuentaDtoToCuenta(cuenta);
+        return gestionBilletera.crearCuenta(cuenta1);
+    }
+
+    @Override
+    public List<CuentaDto> obtenerCuenta() {
+        List<CCuenta> lista = gestionBilletera.getListaCuentas();
+        return mapper.getCuentaDto(lista);
+    }
 }

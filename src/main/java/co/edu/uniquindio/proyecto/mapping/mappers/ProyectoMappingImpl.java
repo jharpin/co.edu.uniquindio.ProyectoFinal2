@@ -111,7 +111,6 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .build();
     }
 
-
     @Override
     public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
         return Usuario.builder()
@@ -122,15 +121,36 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
                 .build();
     }
-    //cuenta desde aca por si se borra 
+    //cuenta desde aca por si se borra
     @Override
     public CuentaDto cuentaToCuentaDto(Cuenta cuenta) {
-        return null;
+        return new CuentaDto(
+                cuenta.getIdCuenta(),
+                cuenta.getNombreCuenta(),
+                cuenta.getNumeroCuenta(),
+                cuenta.getTipoCuenta()
+        );
     }
 
     @Override
     public Cuenta cuentaDtoToCuenta(CuentaDto cuentaDto) {
-        return null;
+        return Cuenta.builder()
+                .idCuenta(cuentaDto.idCuenta())
+                .nombreCuenta(cuentaDto.nombreCuenta())
+                .numeroCuenta(cuentaDto.numeroCuenta())
+                .tipoCuenta(cuentaDto.tipoCuenta())
+                .build();
+    }
+    @Override
+    public List<CuentaDto> getCuentaDtos(List<Cuenta> listaCuenta) {
+        if(listaCuenta==null){
+            return null;
+        }
+        List<CuentaDto> cuentasDto = new ArrayList<CuentaDto>(listaCuenta.size());
+        for (Cuenta cuenta : listaCuenta) {
+            cuentasDto.add(cuentaToCuentaDto(cuenta));
+        }
+        return cuentasDto;
     }
 
 

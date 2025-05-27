@@ -1,8 +1,4 @@
 package co.edu.uniquindio.proyecto.model;
-import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
-import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.proyecto.model.builder.TransaccionBuilder;
-import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
 import java.util.ArrayList;
 
@@ -129,6 +125,17 @@ public class GestionBilletera  {
             }
         }
         return null;
+    }
+
+    // cuentas por si se borra copiar desde aca
+    public boolean crearCuenta(Transaccion transaccion){
+        Transaccion Encontrada=obtenerTransaccion(transaccion.getId());
+        if(Encontrada==null){
+            getListaTransacciones().add(transaccion);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //crear un crud de usuarios en administrador

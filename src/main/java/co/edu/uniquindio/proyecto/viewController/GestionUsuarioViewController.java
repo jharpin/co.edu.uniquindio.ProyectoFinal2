@@ -58,6 +58,9 @@ public class GestionUsuarioViewController {
     private TextField txtCorreo;
 
     @FXML
+    private Button btnNuevoUsuario;
+
+    @FXML
     private TextField txtDireccion;
 
     @FXML
@@ -67,7 +70,16 @@ public class GestionUsuarioViewController {
     private TextField txtNombreUsuario;
 
     @FXML
+    private TableColumn<UsuarioDto, String> colIdentificacion;
+
+    @FXML
+    private TableColumn<UsuarioDto, String> colContrasena;
+
+    @FXML
     private TextField txtSaldo;
+
+    @FXML
+    private TextField txtContraseña;
 
     @FXML
     private TextField txtTelefono;
@@ -105,6 +117,13 @@ public class GestionUsuarioViewController {
     }
 
     @FXML
+    void OnNuevoUsuario(ActionEvent event) {
+
+        nuevoUsuario();
+
+    }
+
+    @FXML
     void Eliminarusuario(ActionEvent event) {
         eliminarUsuario();
     }
@@ -113,6 +132,55 @@ public class GestionUsuarioViewController {
     void irCrearUsuario(ActionEvent event) {
         agregarUsuario();
     }
+
+    @FXML
+    void initialize() {
+
+        gestionUsuarioController = new GestionUsuarioController();
+        initView();
+    }
+
+    private void initView(){
+        initDataBinding();
+        obtenerUsuarios();
+        tableUsuarios.getItems().clear();
+        tableUsuarios.setItems(listaUsuarios);
+        listenerSelection();
+    }
+
+    private void obtenerUsuarios(){
+        listaUsuarios.addAll(gestionUsuarioController.obtnerUsuario());
+    }
+    private void initDataBinding(){
+        colNombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
+        colTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().telefonoUsuario()));
+        colCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
+        colDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
+        colSaldo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().saldo())));
+        colContrasena.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().contraseniaUsuario())));
+        colIdentificacion.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().idUsuario())));
+
+    }
+    private void listenerSelection(){
+        tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
+            usuarioSeleccionado = newSelection;
+            mostrarInformacionUsuario(usuarioSeleccionado);
+        });
+    }
+    private void mostrarInformacionUsuario(UsuarioDto usuarioSeleccionado){
+        if(usuarioSeleccionado != null){
+            txtNombreUsuario.setText(usuarioSeleccionado.nombreUsuario());
+            txtTelefono.setText(usuarioSeleccionado.telefonoUsuario());
+            txtCorreo.setText(usuarioSeleccionado.emailUsuario());
+            txtDireccion.setText(usuarioSeleccionado.direccion());
+            txtSaldo.setText(String.valueOf(usuarioSeleccionado.saldo()));
+            txtContraseña.setText(usuarioSeleccionado.contraseniaUsuario());
+            txtIdentificacion.setText(usuarioSeleccionado.idUsuario());
+        }
+    }
+
+
+
 
     private void agregarUsuario() {
 
@@ -133,10 +201,10 @@ public class GestionUsuarioViewController {
 
     private UsuarioDto crearUsuarioDto() {
         return new UsuarioDto(txtNombreUsuario.getText()
-                                ,"123"
-                                , txtCorreo.getText(),
+                                ,txtIdentificacion.getText()
+                                ,txtCorreo.getText(),
                                 txtTelefono.getText(),
-                                "345"
+                                txtContraseña.getText()
                                 ,txtDireccion.getText()
                                 ,Double.parseDouble(txtSaldo.getText()));
 
@@ -152,6 +220,7 @@ public class GestionUsuarioViewController {
                             if (usuario1.equals(usuarioSeleccionado)) {
                                 listaUsuarios.remove(usuario1);
                                 listaUsuarios.add(usuarioActualizado);
+
                                 break;
                             }
                         }
@@ -180,49 +249,7 @@ public class GestionUsuarioViewController {
         txtCorreo.setText("");
         txtDireccion.setText("");
         txtSaldo.setText("");
-    }
-
-    @FXML
-    void initialize() {
-
-        gestionUsuarioController = new GestionUsuarioController();
-        initView();
-    }
-
-    private void initView(){
-        initDataBinding();
-        obtenerUsuarios();
-        tableUsuarios.getItems().clear();
-        tableUsuarios.setItems(listaUsuarios);
-        listenerSelection();
-    }
-
-    private void obtenerUsuarios(){
-        listaUsuarios.addAll(gestionUsuarioController.obtnerUsuario());
-    }
-
-    private void initDataBinding(){
-        colNombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
-        colTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().telefonoUsuario()));
-        colCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
-        colDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
-        colSaldo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().saldo())));
-    }
-
-    private void listenerSelection(){
-        tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
-            usuarioSeleccionado = newSelection;
-            mostrarInformacionUsuario(usuarioSeleccionado);
-        });
-    }
-    private void mostrarInformacionUsuario(UsuarioDto usuarioSeleccionado){
-        if(usuarioSeleccionado != null){
-            txtNombreUsuario.setText(usuarioSeleccionado.nombreUsuario());
-            txtTelefono.setText(usuarioSeleccionado.telefonoUsuario());
-            txtCorreo.setText(usuarioSeleccionado.emailUsuario());
-            txtDireccion.setText(usuarioSeleccionado.direccion());
-            txtSaldo.setText(String.valueOf(usuarioSeleccionado.saldo()));
-        }
+        txtTelefono.setText("");
     }
     private UsuarioDto ActualizarUsuarioDto(){
         return new UsuarioDto(txtNombreUsuario.getText()

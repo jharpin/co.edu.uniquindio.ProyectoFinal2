@@ -1,14 +1,8 @@
 package co.edu.uniquindio.proyecto.mapping.mappers;
 
-import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
-import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
-import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
-import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.mapping.dto.*;
 
-import co.edu.uniquindio.proyecto.model.Categoria;
-import co.edu.uniquindio.proyecto.model.Cuenta;
-import co.edu.uniquindio.proyecto.model.Transaccion;
-import co.edu.uniquindio.proyecto.model.Usuario;
+import co.edu.uniquindio.proyecto.model.*;
 import co.edu.uniquindio.proyecto.services.IProyectoMapping;
 
 import java.util.ArrayList;
@@ -53,6 +47,34 @@ public class ProyectoMappingImpl implements IProyectoMapping {
         }
         return listaUsuariosDto;
     }
+
+    @Override
+    public List<PresupuestoDto> getPresupuestosDto(List<Presupuesto> listaPresupuestos) {
+        if (listaPresupuestos == null) {
+            return null;
+        }
+        List<PresupuestoDto> listaPresupuestosDto= new ArrayList<PresupuestoDto>(listaPresupuestos.size());
+        for (Presupuesto presupuesto: listaPresupuestos) {
+            listaPresupuestosDto.add(presupuestoToPresupuestoDto(presupuesto));
+        }
+        return listaPresupuestosDto;
+    }
+
+    private PresupuestoDto presupuestoToPresupuestoDto(Presupuesto presupuesto) {
+        return  new PresupuestoDto(presupuesto.getNombrePresupuesto()
+                                    ,presupuesto.getIdPresupuesto()
+                                    ,presupuesto.getMontoAsignado()
+                                    ,presupuesto.getMontoGastado()
+                                    ,presupuesto.getCategoria());
+    }
+    private Presupuesto presupuestoDtoToPresupuesto(PresupuestoDto presupuestoDto){
+        return Presupuesto.builder().
+                idPresupuesto(presupuestoDto.nombrePresupuesto()).
+                montoAsignado(presupuestoDto.montoAsignado()).
+                montoGastado(presupuestoDto.montoGastado())
+                .categoria(presupuestoDto.categoria()).build();
+    }
+
     @Override
     public TransaccionDto transaccionToTransaccionDto(Transaccion transaccion) {
         return new TransaccionDto(
@@ -120,6 +142,7 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .idUsuario(usuarioDto.idUsuario())
                 .emailUsuario(usuarioDto.emailUsuario())
                 .telefonoUsuario(usuarioDto.telefonoUsuario())
+                .direccion(usuarioDto.direccion())
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
                 .build();
     }

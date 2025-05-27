@@ -2,6 +2,9 @@ package co.edu.uniquindio.proyecto.model;
 
 import co.edu.uniquindio.proyecto.model.builder.UsuarioBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
         private String idUsuario;
         private String nombreUsuario;
@@ -10,6 +13,7 @@ public class Usuario {
         private String contraseniaUsuario;
         private String direccion;
         private double saldo;
+        private List<Presupuesto> listaPresupuestosAsociados;
 
         public Usuario( String nombreUsuario,String idUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario,String direccion,double saldo) {
 
@@ -20,6 +24,7 @@ public class Usuario {
             this.contraseniaUsuario = contraseniaUsuario;
             this.direccion = direccion;
             this.saldo = saldo;
+            listaPresupuestosAsociados = new ArrayList<>();
         }
 
     public String getIdUsuario() {return idUsuario;}

@@ -1,8 +1,10 @@
 package co.edu.uniquindio.proyecto.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestionBilletera  {
+    public List<Presupuesto> listaPresupuestos;
     private ArrayList<Cuenta> listaCuentas;
     private ArrayList<Usuario> listaUsuarios;
     private ArrayList<Banco> listaBancos;
@@ -18,10 +20,12 @@ public class GestionBilletera  {
         this.listaBancos = new ArrayList<>();
         this.listaTransacciones = new ArrayList<>();
         this.listaCategoria=new ArrayList<>();
+        this.listaPresupuestos = new ArrayList<>();
           }
 
     public ArrayList<Transaccion>getListaTransacciones() {return listaTransacciones;}
 
+    public List<Presupuesto> getListaPresupuestos(){return listaPresupuestos;}
 
     public ArrayList<Cuenta> getListaCuentas() {return listaCuentas;}
     public void setListaCuentas(ArrayList<Cuenta> listaCuentas) {this.listaCuentas = listaCuentas;}
@@ -158,6 +162,7 @@ public class GestionBilletera  {
             cuentaActual.setNombreCuenta(cuenta.getNombreCuenta());
             cuentaActual.setNumeroCuenta(cuenta.getNumeroCuenta());
             cuentaActual.setTipoCuenta(cuenta.getTipoCuenta());
+
 
             return true;
 

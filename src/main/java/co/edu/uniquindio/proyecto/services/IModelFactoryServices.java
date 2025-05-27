@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyecto.services;
 
+import co.edu.uniquindio.proyecto.mapping.dto.PresupuestoDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Cuenta;
@@ -28,7 +29,5 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
 
     boolean eliminarCuenta(String idCuenta);
 
-
-
-    List<Usuario> obtenerListaUsuarios();
+    List<PresupuestoDto> obtenerPresupuestos();
 }

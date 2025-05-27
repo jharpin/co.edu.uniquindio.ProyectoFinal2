@@ -1,9 +1,6 @@
 package co.edu.uniquindio.proyecto.factory;
 
-import co.edu.uniquindio.proyecto.mapping.dto.CategoriaDto;
-import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
-import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
-import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.mapping.dto.*;
 import co.edu.uniquindio.proyecto.mapping.mappers.ProyectoMappingImpl;
 import co.edu.uniquindio.proyecto.model.*;
 import co.edu.uniquindio.proyecto.services.IModelFactoryServices;
@@ -60,10 +57,6 @@ public class ModelFactory implements IModelFactoryServices {
         return gestionBilletera.actualizarCuenta(cuenta);
     }
 
-    @Override
-    public List<Usuario> obtenerListaUsuarios() {
-        return gestionBilletera.getListaUsuarios();
-    }
 
     @Override
     public List<UsuarioDto> obtenerUsuario() {
@@ -131,6 +124,11 @@ public class ModelFactory implements IModelFactoryServices {
     @Override
     public boolean eliminarCuenta(String idCuenta) {
         return gestionBilletera.eliminarCuenta(idCuenta);
+    }
+
+    @Override
+    public List<PresupuestoDto> obtenerPresupuestos() {
+        return mapper.getPresupuestosDto(gestionBilletera.getListaPresupuestos());
     }
 
 }

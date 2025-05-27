@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.viewController;
 
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
+import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.utils.DataUtil;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -31,6 +32,8 @@ public class TransaccionViewController {
     @FXML private TableColumn<TransaccionDto, Double> colValorTransferido;
     @FXML private TableColumn<TransaccionDto, LocalDate> colFechaTrans;
 
+
+
     @FXML
     public void initialize() {
         tipoComboBox.getItems().addAll("Depósito", "Retiro", "Transferencia");
@@ -54,16 +57,17 @@ public class TransaccionViewController {
     }
 
     private void cargarUsuarios() {
-        List<Usuario> usuarios = DataUtil.inicializarDatos()
+        List<Usuario> usuarios = GestionBilletera.getInstance()
                 .getListaUsuarios()
                 .stream()
                 .filter(u -> !u.getIdUsuario().equalsIgnoreCase("admi"))
                 .collect(Collectors.toList());
 
         List<String> nombres = usuarios.stream().map(Usuario::getNombreUsuario).toList();
-        cuentaOrigenField.getItems().addAll(nombres);
-        cuentaDestinoField.getItems().addAll(nombres);
+        cuentaOrigenField.getItems().setAll(nombres);
+        cuentaDestinoField.getItems().setAll(nombres);
     }
+
 
     private void cargarTransacciones() {
         listaTransacciones.clear();

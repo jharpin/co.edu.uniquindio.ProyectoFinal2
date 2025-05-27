@@ -96,7 +96,14 @@ public class GestionBilletera  {
         }
         return usuario;
     }
+    private static GestionBilletera instancia;
 
+    public static GestionBilletera getInstance() {
+        if (instancia == null) {
+            instancia = new GestionBilletera();
+        }
+        return instancia;
+    }
 
     public boolean actualizarUsuario(Usuario usuario) {
 
@@ -172,6 +179,9 @@ public class GestionBilletera  {
     }
     public boolean eliminarCuenta(String idCuenta) {
         return listaCuentas.removeIf(cuenta -> cuenta.getIdCuenta().equals(idCuenta));
+    }
+
+    public void setListaTransacciones(ArrayList<Transaccion> listaTransacciones) {
     }
 
 

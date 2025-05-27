@@ -145,6 +145,22 @@ public class GestionBilletera  {
         }
         return null;
     }
+    public boolean actualizarCuenta(Cuenta cuenta) {
+
+        Cuenta cuentaActual = obtenerCuenta(cuenta.getIdCuenta());
+
+        if(cuentaActual != null){
+
+            cuentaActual.setNombreCuenta(cuenta.getNombreCuenta());
+            cuentaActual.setNumeroCuenta(cuenta.getNumeroCuenta());
+            cuentaActual.setTipoCuenta(cuenta.getTipoCuenta());
+
+            return true;
+
+        }else {
+            return false;
+        }
+    }
 
     //crear un crud de usuarios en administrador
     //crear un crud de cuentas rn administrador

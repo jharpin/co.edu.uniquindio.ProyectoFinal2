@@ -16,7 +16,6 @@ public class UsuarioController {
         return modelFactory.crearUsuario(usuario);
     }
 
-
     public boolean actualizarUsuario(Usuario usuario) {
         return modelFactory.actualizarUsuario(usuario);
     }

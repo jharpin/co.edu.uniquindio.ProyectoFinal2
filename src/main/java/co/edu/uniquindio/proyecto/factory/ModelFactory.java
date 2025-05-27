@@ -64,8 +64,8 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean actualizarCuenta() {
-        return false;
+    public boolean actualizarCuenta(Cuenta cuenta) {
+        return gestionBilletera.actualizarCuenta(cuenta);
     }
 
     @Override

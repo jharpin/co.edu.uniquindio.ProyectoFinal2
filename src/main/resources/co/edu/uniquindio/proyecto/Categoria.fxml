@@ -35,7 +35,7 @@
                </columns>
             </TableView>
             <Label fx:id="lbldescripcion" layoutX="431.0" layoutY="76.0" text="Descripcion :" />
-            <Button fx:id="btnCrearCategoria" layoutX="100.0" layoutY="116.0" mnemonicParsing="false" onAction="#onCrear" prefHeight="44.0" prefWidth="126.0" text="Crear Categoria " textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
+            <Button fx:id="btnCrearCategoria" layoutX="100.0" layoutY="116.0"  onAction="#onCrear" prefHeight="44.0" prefWidth="126.0" text="Crear Categoria " textFill="#1f51a6" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Book Antiqua Bold" size="11.0" />
                </font>

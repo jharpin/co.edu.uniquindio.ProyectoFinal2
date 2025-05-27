@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.patrones.proxy;
 
 import co.edu.uniquindio.proyecto.factory.ModelFactory;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.services.IAutentificador;
@@ -17,7 +18,7 @@ public class LoginService implements IAutentificador {
 
         modelfactory = ModelFactory.getInstance();
         usuarios = modelfactory.obtenerListaUsuarios();
-        usuarios.add(new Usuario("admin123","admi","admin@admin.com",null,"admi12345."));
+
 
     }
 

@@ -20,4 +20,6 @@ public class GestionUsuarioController {
     public boolean eliminarUsuario(String id){return modelFactory.eliminarUsuario(id);}
 
     public boolean actualizarUsuario(Usuario usuario){return modelFactory.actualizarUsuario(usuario);}
+
+    public List<Usuario> obtenerListaUsuarios(){return modelFactory.obtenerListaUsuarios();}
 }

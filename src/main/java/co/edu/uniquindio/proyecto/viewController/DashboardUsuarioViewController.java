@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyecto.Controller.UsuarioController;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyecto.patrones.proxy;
 
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.Validador;
 import co.edu.uniquindio.proyecto.services.IAutentificador;

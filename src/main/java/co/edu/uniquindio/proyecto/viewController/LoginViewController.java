@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import co.edu.uniquindio.proyecto.Controller.UsuarioController;
 import co.edu.uniquindio.proyecto.factory.ModelFactory;
+import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Usuario;
 import co.edu.uniquindio.proyecto.model.Validador;
 import co.edu.uniquindio.proyecto.patrones.proxy.LoginProxy;
@@ -71,6 +72,9 @@ public class LoginViewController {
         String contrasena = txtContraseniaLogin.getText();
 
         Usuario usuario = loginProxy.iniciarSesionA(identificacion, contrasena);
+
+
+
 
         ModelFactory.getInstance().setUsuarioActivo(usuario);
 

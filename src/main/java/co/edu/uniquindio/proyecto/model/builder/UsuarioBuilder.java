@@ -8,6 +8,8 @@ public class UsuarioBuilder {
     private String emailUsuario;
     private String telefonoUsuario;
     private String contraseniaUsuario;
+    private String direccion;
+    private double saldo;
 
     public UsuarioBuilder nombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
@@ -29,9 +31,17 @@ public class UsuarioBuilder {
         this.contraseniaUsuario = contraseniaUsuario;
         return this;
     }
+    public UsuarioBuilder direccion(String direccion) {
+        this.direccion = direccion;
+        return this;
+    }
+    public UsuarioBuilder saldo(double saldo){
+        this.saldo = saldo;
+        return this;
+    }
 
     public Usuario build() {
-return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario);
+return new Usuario(nombreUsuario, idUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario,direccion,saldo);
     }
     public UsuarioBuilder setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;

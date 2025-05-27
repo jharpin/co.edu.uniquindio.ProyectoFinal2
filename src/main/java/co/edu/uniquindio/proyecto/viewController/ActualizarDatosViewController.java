@@ -84,6 +84,8 @@ public class ActualizarDatosViewController {
     }
 
     private void actualizarUsuario() {
+
+
         usuario.setNombreUsuario(txtNombreUsuario.getText());
         usuario.setTelefonoUsuario(txtNumerotelefono.getText());
 

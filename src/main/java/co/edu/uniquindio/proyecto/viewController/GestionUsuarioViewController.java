@@ -2,10 +2,12 @@ package co.edu.uniquindio.proyecto.viewController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyecto.Controller.GestionUsuarioController;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyecto.model.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,16 +41,28 @@ public class GestionUsuarioViewController {
     private Button btnEliminarUsuario;
 
     @FXML
-    private TableColumn<UsuarioDto, String> colCorreoUsuario;
+    private TableColumn<UsuarioDto, String> colCorreo;
 
     @FXML
     private TableColumn<UsuarioDto, String> colIdUsuario;
 
     @FXML
-    private TableColumn<UsuarioDto, String> colnombreUsuario;
+    private TableColumn<UsuarioDto, String> colNombreUsuario;
+
+    @FXML
+    private TableColumn<UsuarioDto , String> colSaldo;
+
+    @FXML
+    private TableColumn<UsuarioDto, String> colTelefono;
+
+    @FXML
+    private TableColumn<UsuarioDto, String> colDireccion;
 
     @FXML
     private TextField txtCorreo;
+
+    @FXML
+    private TextField txtDireccion;
 
     @FXML
     private TextField txtIdentificacion;
@@ -56,6 +70,11 @@ public class GestionUsuarioViewController {
     @FXML
     private TextField txtNombreUsuario;
 
+    @FXML
+    private TextField txtSaldo;
+
+    @FXML
+    private TextField txtTelefono;
     @FXML
     private Label lblBilleteraVirtual;
 
@@ -85,20 +104,29 @@ public class GestionUsuarioViewController {
     @FXML
     void ActualizarUsuario(ActionEvent event) {
 
-        actualizarUsuario();
+//        actualizarUsuario();
 
     }
 
     @FXML
     void Eliminarusuario(ActionEvent event) {
-
     }
 
     @FXML
     void irCrearUsuario(ActionEvent event) {
+        agregarUsuario();
+    }
+
+    private void agregarUsuario() {
+
 
     }
+
     private void actualizarUsuario(){
+
+            if (usuarioSeleccionado != null) {
+                gestionUsuarioController.actualizarUsuario(usuarioSeleccionado)
+            }
 
     }
 
@@ -122,9 +150,11 @@ public class GestionUsuarioViewController {
     }
 
     private void initDataBinding(){
-        colnombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
+        colNombreUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreUsuario()));
         colIdUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().idUsuario()));
-        colCorreoUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
+        colCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().emailUsuario()));
+        colDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
+        colSaldo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().saldo())));
     }
 
     private void listenerSelection(){
@@ -138,6 +168,39 @@ public class GestionUsuarioViewController {
             txtNombreUsuario.setText(usuarioSeleccionado.nombreUsuario());
             txtIdentificacion.setText(usuarioSeleccionado.idUsuario());
             txtCorreo.setText(usuarioSeleccionado.emailUsuario());
+            txtDireccion.setText(usuarioSeleccionado.direccion());
+            txtSaldo.setText(String.valueOf(usuarioSeleccionado.saldo()));
         }
     }
+    private UsuarioDto crearUsuarioDto(){
+        return new UsuarioDto(txtNombreUsuario.getText()
+                                ,txtIdentificacion.getText()
+                                ,txtCorreo.getText()
+                                ,txtTelefono.getText()
+                                ,txtDireccion.getText()
+                                ,usuarioSeleccionado.contraseniaUsuario()
+                                ,Double.parseDouble(txtSaldo.getText()));
+    }
+    private boolean datosValidos(Usuario usuarioDto) {
+        if(usuarioDto.getNombreUsuario().isBlank() ||
+                usuarioDto.getIdUsuario().isBlank()||
+                usuarioDto.getEmailUsuario().isBlank() ||
+                usuarioDto.getDireccion().isBlank() ||
+                usuarioDto.getTelefonoUsuario().isBlank() ||
+                usuarioDto.getSaldo() != 0.0){
+            return false;
+        }
+        return true;
+    }
+    private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType){
+        Alert aler = new Alert(alertType);
+        aler.setTitle(titulo);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
+    }
+
+
+
+
 }

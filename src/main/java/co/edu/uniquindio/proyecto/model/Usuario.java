@@ -8,14 +8,18 @@ public class Usuario {
         private String emailUsuario;
         private String telefonoUsuario;
         private String contraseniaUsuario;
+        private String direccion;
+        private double saldo;
 
-        public Usuario( String nombreUsuario,String idUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario) {
+        public Usuario( String nombreUsuario,String idUsuario, String emailUsuario, String telefonoUsuario, String contraseniaUsuario,String direccion,double saldo) {
 
             this.idUsuario = idUsuario;
             this.nombreUsuario = nombreUsuario;
             this.emailUsuario = emailUsuario;
             this.telefonoUsuario = telefonoUsuario;
             this.contraseniaUsuario = contraseniaUsuario;
+            this.direccion = direccion;
+            this.saldo = saldo;
         }
 
     public String getIdUsuario() {return idUsuario;}
@@ -35,6 +39,14 @@ public class Usuario {
     public void setTelefonoUsuario(String telefonoUsuario) {this.telefonoUsuario = telefonoUsuario;}
 
     public String getContraseniaUsuario() {return contraseniaUsuario;}
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
 
     public void setContraseniaUsuario(String contraseniaUsuario) {this.contraseniaUsuario = contraseniaUsuario;}
     public static UsuarioBuilder builder( ) {

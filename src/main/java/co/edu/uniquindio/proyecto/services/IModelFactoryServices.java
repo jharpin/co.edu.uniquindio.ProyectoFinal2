@@ -10,7 +10,6 @@ import java.util.List;
 public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGestionBilleteraCrud, ITransaccionCrud, ICategoria {
 
     void mostrarInfoBilletera();
-    List<UsuarioDto> obtenerUsuarios();
     List<TransaccionDto> obtenerTransacciones();
     boolean mostrarListaUsuarios();
     boolean mostrarListaBanco();
@@ -27,4 +26,5 @@ public interface IModelFactoryServices extends IUsuarioCrud, ICuentaCrud, IGesti
     boolean actualizarCuenta();
 
 
+    List<Usuario> obtenerListaUsuarios();
 }

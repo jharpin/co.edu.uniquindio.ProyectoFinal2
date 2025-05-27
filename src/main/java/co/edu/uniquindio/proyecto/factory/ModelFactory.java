@@ -46,6 +46,7 @@ public class ModelFactory implements IModelFactoryServices {
     public Usuario getUsuarioActivo() {
         return usuarioActivo;
     }
+
     public void setUsuarioActivo(Usuario usuarioActivo) {
         this.usuarioActivo = usuarioActivo;
     }
@@ -71,9 +72,15 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
+    public List<Usuario> obtenerListaUsuarios() {
+        return gestionBilletera.getListaUsuarios();
+    }
+
+    @Override
     public List<UsuarioDto> obtenerUsuario() {
         return mapper.getUsuarioDtos(gestionBilletera.getListaUsuarios());
     }
+
     @Override
     public List<TransaccionDto> obtenerTransacciones() {
         return mapper.getTransaccionDtos(gestionBilletera.getListaTransacciones());
@@ -82,11 +89,6 @@ public class ModelFactory implements IModelFactoryServices {
     @Override
     public void mostrarInfoBilletera() {
 
-    }
-
-    @Override
-    public List<UsuarioDto> obtenerUsuarios() {
-        return List.of();
     }
 
 
@@ -106,18 +108,13 @@ public class ModelFactory implements IModelFactoryServices {
     }
 
     @Override
-    public boolean actualizarUsuario(Usuario usuario) {
-
-        return gestionBilletera.actualizarUsuario(usuario);
-    }
+    public boolean actualizarUsuario(Usuario usuariodto) {
 
 
-    public List<Usuario> obtenerListaUsuarios() {
-        return gestionBilletera.getListaUsuarios();
+
+        return gestionBilletera.actualizarUsuario(usuariodto);
     }
-    public boolean verificarIdExistente(String id) {
-        return obtenerListaUsuarios().stream().anyMatch(u -> u.getIdUsuario().equals(id));
-    }
+
 
     @Override
     public boolean crearCategoria(CategoriaDto categoria) {

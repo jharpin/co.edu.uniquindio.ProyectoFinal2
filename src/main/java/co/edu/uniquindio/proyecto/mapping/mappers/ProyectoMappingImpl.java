@@ -73,6 +73,8 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 , usuario.getEmailUsuario()
                 , usuario.getTelefonoUsuario()
                 , usuario.getContraseniaUsuario()
+                ,usuario.getDireccion()
+                ,usuario.getSaldo()
         );
 
     }

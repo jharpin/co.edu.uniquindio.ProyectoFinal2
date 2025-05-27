@@ -57,10 +57,6 @@ public class ModelFactory implements IModelFactoryServices {
 
 
 
-    @Override
-    public boolean eliminarCuenta(String idCuenta) {
-        return gestionBilletera.eliminarCuenta(idCuenta);
-    }
 
 
 
@@ -136,4 +132,9 @@ public class ModelFactory implements IModelFactoryServices {
         List<Cuenta> lista = gestionBilletera.getListaCuentas();
         return mapper.getCuentaDtos(lista);
     }
+    @Override
+    public boolean eliminarCuenta(String idCuenta) {
+        return gestionBilletera.eliminarCuenta(idCuenta);
+    }
+
 }

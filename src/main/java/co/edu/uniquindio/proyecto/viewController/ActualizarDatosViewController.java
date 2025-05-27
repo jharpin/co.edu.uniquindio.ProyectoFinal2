@@ -39,6 +39,8 @@ public class ActualizarDatosViewController {
 
     @FXML
     private Label lblTelefonoUsuario2;
+    @FXML
+    private Label lblinfo;
 
     @FXML
     private Hyperlink linkCerrar;

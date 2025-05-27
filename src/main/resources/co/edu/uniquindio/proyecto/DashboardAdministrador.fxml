@@ -8,12 +8,12 @@
 
 <AnchorPane prefHeight="670.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.viewController.DashboardAdministradorViewController">
     <children>
-        <TabPane prefHeight="773.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="14.0" layoutY="14.0" prefHeight="547.0" prefWidth="636.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Gestionar Usuarios">
                     <AnchorPane>
                         <children>
-                            <SplitPane orientation="VERTICAL">
+                            <SplitPane layoutY="7.0" orientation="VERTICAL" prefHeight="466.0" prefWidth="608.0">
                                 <items>
                                     <fx:include source="GestionarUsuariosAdmi.fxml" />
                                 </items>

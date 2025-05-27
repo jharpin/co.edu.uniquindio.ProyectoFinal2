@@ -3,6 +3,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.proyecto.Controller.EstadisticasController;
 import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyecto.model.Usuario;
@@ -12,7 +13,9 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
-public class EstadisticasviewController implements Initializable {
+public class EstadisticasviewController  {
+
+    EstadisticasController estadisticasController;
 
     @FXML
     private ResourceBundle resources;
@@ -30,18 +33,15 @@ public class EstadisticasviewController implements Initializable {
 
     @FXML
     void initialize() {
+        estadisticasController = new EstadisticasController();
         assert lblBilleteraVirtual != null : "fx:id=\"lblBilleteraVirtual\" was not injected: check your FXML file 'EstadisticasGraficasAdmi.fxml'.";
         assert lblLogintl != null : "fx:id=\"lblLogintl\" was not injected: check your FXML file 'EstadisticasGraficasAdmi.fxml'.";
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        cargarEstadisticasSaldos();
-    }
 
     private void cargarEstadisticasSaldos() {
-        List<UsuarioDto> usuarios = ModelFactory.getInstance().obtenerUsuario();
+        List<UsuarioDto> usuarios = estadisticasController.obtenerListaUsuarios();
 
         int rango1 = 0;
         int rango2 = 0;

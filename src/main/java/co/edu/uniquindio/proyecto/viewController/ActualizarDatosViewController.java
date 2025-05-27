@@ -111,6 +111,7 @@ public class ActualizarDatosViewController {
 
         txtNombreUsuario.setText(usuario.nombreUsuario());
         txtNumerotelefono.setText(usuario.telefonoUsuario());
+        txtEmailUsuario.setText(usuario.emailUsuario());
 
     }
 

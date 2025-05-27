@@ -65,4 +65,11 @@ public class Usuario {
     }
 
 
+    public void setDireccion(String direccion) {
+            this.direccion = direccion;
+    }
+
+    public void setSaldo(double saldo) {
+            this.saldo = saldo;
+    }
 }

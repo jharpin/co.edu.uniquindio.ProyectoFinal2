@@ -97,6 +97,8 @@ public class GestionBilletera  {
             usuarioActual.setEmailUsuario(usuario.getEmailUsuario());
             usuarioActual.setTelefonoUsuario(usuario.getTelefonoUsuario());
             usuarioActual.setNombreUsuario(usuario.getNombreUsuario());
+            usuarioActual.setDireccion(usuario.getDireccion());
+            usuarioActual.setSaldo(usuario.getSaldo());
 
 
                 return true;

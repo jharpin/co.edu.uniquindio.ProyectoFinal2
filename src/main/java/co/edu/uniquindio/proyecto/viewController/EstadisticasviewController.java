@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
-public class EstadisticasviewController  {
+public class EstadisticasviewController {
 
     EstadisticasController estadisticasController;
 

@@ -98,8 +98,6 @@ public class ActualizarDatosViewController {
         );
 
 
-        //usuario.setNombreUsuario(txtNombreUsuario.getText());
-        //usuario.setTelefonoUsuario(txtNumerotelefono.getText());
 
         usuarioController.actualizarUsuario(usuarioDto);
         Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Usuario actualizado");

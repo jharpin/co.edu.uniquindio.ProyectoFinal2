@@ -24,7 +24,7 @@ import co.edu.uniquindio.proyecto.factory.ModelFactory;
 public class RegistroUsuarioviewController {
 
     UsuarioController usuarioController;
-    Usuario usuario;
+    UsuarioDto usuario;
     @FXML
     private ResourceBundle resources;
 
@@ -72,6 +72,10 @@ public class RegistroUsuarioviewController {
 
     @FXML
     private TextField txtcontrasenia;
+
+    @FXML
+    private TextField txtSaldo;
+
     @FXML
     void initialize() {
         usuarioController=new UsuarioController();
@@ -105,16 +109,17 @@ public class RegistroUsuarioviewController {
     void onRegistrar(ActionEvent event) {
 
 
-        // Obtener datos del formulario
+
         String idUsuario = txtIdeusuario.getText();
         String nombreUsuario = txtNombreUsuario.getText();
         String emailUsuario = txtEmailUsuario.getText();
         String telefonoUsuario = txtTelefonoUsuario.getText();
         String contraseniaUsuario = txtcontrasenia.getText();
+        double saldo = Double.parseDouble(txtSaldo.getText());
 
-        // Validación básica
+
         if (idUsuario.isEmpty() || nombreUsuario.isEmpty() || emailUsuario.isEmpty()
-                || telefonoUsuario.isEmpty() || contraseniaUsuario.isEmpty()) {
+                || telefonoUsuario.isEmpty() || contraseniaUsuario.isEmpty() || saldo == 0) {
             mostrarAlerta(null, null,"Campos incompletos");
             return;
 
@@ -131,6 +136,7 @@ public class RegistroUsuarioviewController {
             txtEmailUsuario.clear();
             txtTelefonoUsuario.clear();
             txtcontrasenia.clear();
+            txtSaldo.clear();
 
             // Mostrar la lista actual de usuarios
             String listaUsuarios = "Usuarios registrados:\n";
@@ -157,11 +163,11 @@ public class RegistroUsuarioviewController {
     private UsuarioDto crearUsuarioDto(){
         return new UsuarioDto(txtNombreUsuario.getText()
                             ,txtIdeusuario.getText()
-                            , txtEmailUsuario.getText()
+                            ,txtEmailUsuario.getText()
                             ,txtTelefonoUsuario.getText()
                             ,txtcontrasenia.getText()
                             ,txtEmailUsuario.getText()
-                            ,0);
+                            ,Double.parseDouble(txtSaldo.getText()));
     }
 
 

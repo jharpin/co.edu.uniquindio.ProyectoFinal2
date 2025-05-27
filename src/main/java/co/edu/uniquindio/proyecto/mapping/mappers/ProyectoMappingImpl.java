@@ -144,6 +144,7 @@ public class ProyectoMappingImpl implements IProyectoMapping {
                 .telefonoUsuario(usuarioDto.telefonoUsuario())
                 .direccion(usuarioDto.direccion())
                 .contraseniaUsuario(usuarioDto.contraseniaUsuario())
+                .saldo((usuarioDto.saldo()))
                 .build();
     }
     //cuenta desde aca por si se borra

@@ -90,7 +90,7 @@ public class GestionUsuarioViewController {
 
     }
     private void actualizarUsuario(){
-        if(){}
+
     }
 
     @FXML
@@ -104,8 +104,8 @@ public class GestionUsuarioViewController {
         initDataBinding();
         obtenerUsuarios();
         tableUsuarios.getItems().clear();
-        tableUsuarios.getItems()(listaUsuarios);
-        listenerSelection();
+        tableUsuarios.getItems();
+        //listenerSelection();
     }
 
     private void obtenerUsuarios(){

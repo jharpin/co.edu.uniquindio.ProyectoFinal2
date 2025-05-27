@@ -10,7 +10,9 @@ import co.edu.uniquindio.proyecto.factory.ModelFactory;
 import co.edu.uniquindio.proyecto.mapping.dto.CuentaDto;
 import co.edu.uniquindio.proyecto.mapping.dto.TransaccionDto;
 import co.edu.uniquindio.proyecto.model.Cuenta;
+import co.edu.uniquindio.proyecto.model.GestionBilletera;
 import co.edu.uniquindio.proyecto.model.Usuario;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -81,6 +83,7 @@ public class GestionCuentasViewContoller {
 
     @FXML
     private TextField txtnumerocuenta;
+
     @FXML
     void initialize() {
         cuentaController = new CuentaController();
@@ -114,7 +117,7 @@ public class GestionCuentasViewContoller {
         String nombrecuenta = txtnombreCuenta.getText();
         String tipo = comboTipo.getValue();
 
-        CuentaDto nueva = new CuentaDto(id, numerocuenta, nombrecuenta,tipo);
+        CuentaDto nueva = new CuentaDto(id, numerocuenta, nombrecuenta, tipo);
         if (cuentaController.CrearCuenta(nueva)) {
             listaCuenta.add(nueva);
             listaOriginal.add(nueva);
@@ -125,6 +128,7 @@ public class GestionCuentasViewContoller {
             mostrarAlerta("Error", "No se pudo registrar la Cuenta.");
         }
     }
+
     private void limpiarCampos() {
         txtideCuenta.clear();
         txtnumerocuenta.clear();
@@ -132,6 +136,7 @@ public class GestionCuentasViewContoller {
         comboTipo.setValue(null);
 
     }
+
     private void actualizarCuenta() {
         CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
         if (seleccionada == null) {
@@ -144,29 +149,64 @@ public class GestionCuentasViewContoller {
         String nombrecuenta = txtnombreCuenta.getText();
         String tipo = comboTipo.getValue();
 
-        if ( numerocuenta.isEmpty() || nombrecuenta.isEmpty() || tipo == null) {
+        if (numerocuenta.isEmpty() || nombrecuenta.isEmpty() || tipo == null) {
             mostrarAlerta("Error Campos vacíos", "Debes llenar todos los campos");
             return;
         }
 
-
-//        for (Cuenta cuenta : listaCuenta()) {
-//            if (cuenta.getIdCuenta().equals(seleccionada.idCuenta())) {
-//                cuenta.setNumeroCuenta(numerocuenta);
-//                cuenta.setNombreCuenta(nombrecuenta);
-//                cuenta.setTipoCuenta(tipo);
-//                break;
-//            }
-//        }
-
-
+        for (int i = 0; i < listaCuenta.size(); i++) {
+            CuentaDto cuenta = listaCuenta.get(i);
+            if (cuenta.idCuenta().equals(seleccionada.idCuenta())) {
+                CuentaDto actualizada = new CuentaDto(
+                        cuenta.idCuenta(),
+                        numerocuenta,
+                        nombrecuenta,
+                        tipo
+                );
+                listaCuenta.set(i, actualizada);
+                break;
+            }
+        }
+        cargarDatosTabla();
         limpiarCampos();
     }
+    private void cargarDatosTabla() {
+        tableCuentas.setItems(listaCuenta);
+    }
+
+
+
 
     @FXML
     void onEliminar(ActionEvent event) {
+        CuentaDto seleccionada = tableCuentas.getSelectionModel().getSelectedItem();
 
+        if (seleccionada == null) {
+            mostrarAlerta("Error", "Debes seleccionar una cuenta para eliminar.");
+            return;
+        }
+
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmación");
+        confirmacion.setHeaderText("¿Eliminar cuenta?");
+        confirmacion.setContentText("Cuenta: " + seleccionada.nombreCuenta());
+
+        confirmacion.showAndWait().ifPresent(respuesta -> {
+            if (respuesta == ButtonType.OK) {
+                boolean eliminada = cuentaController.eliminarCuenta(seleccionada.idCuenta());
+
+                if (eliminada) {
+                    listaCuenta.remove(seleccionada); // actualiza vista
+                    tableCuentas.refresh();
+                    limpiarCampos();
+                    mostrarAlerta("Éxito", "Cuenta eliminada correctamente.");
+                } else {
+                    mostrarAlerta("Error", "No se pudo eliminar la cuenta.");
+                }
+            }
+        });
     }
+
 
 
     private void mostrarAlerta(String titulo, String mensaje) {
@@ -176,4 +216,3 @@ public class GestionCuentasViewContoller {
         alerta.showAndWait();
     }
 }
-

@@ -55,14 +55,11 @@ public class ModelFactory implements IModelFactoryServices {
         return false;
     }
 
-    @Override
-    public boolean agregarCuenta() {
-        return false;
-    }
+
 
     @Override
-    public boolean eliminarCuenta() {
-        return false;
+    public boolean eliminarCuenta(String idCuenta) {
+        return gestionBilletera.eliminarCuenta(idCuenta);
     }
 
 

@@ -20,4 +20,7 @@ public class CuentaController {
     public boolean actualizarCuenta(Cuenta cuenta) {
         return modelFactory.actualizarCuenta(cuenta);
     }
+    public boolean eliminarCuenta(String idCuenta) {
+        return modelFactory.eliminarCuenta(idCuenta);
+    }
 }

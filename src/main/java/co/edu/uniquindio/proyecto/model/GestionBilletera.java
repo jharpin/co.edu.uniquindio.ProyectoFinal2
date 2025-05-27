@@ -157,6 +157,10 @@ public class GestionBilletera  {
             return false;
         }
     }
+    public boolean eliminarCuenta(String idCuenta) {
+        return listaCuentas.removeIf(cuenta -> cuenta.getIdCuenta().equals(idCuenta));
+    }
+
 
     //crear un crud de usuarios en administrador
     //crear un crud de cuentas rn administrador

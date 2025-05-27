@@ -87,10 +87,10 @@ public class PresupuestoViewController {
     @FXML
     private TextField txtnombrePresupuesto;
 
-//    @FXML
-//    void onActualizar(ActionEvent event) {
-//        actualizarPresupuesto();
-//    }
+    @FXML
+    void onActualizar(ActionEvent event) {
+
+    }
 
 //    private void actualizarPresupuesto() {
 //        if (presupuestoSeleccionado != null) {

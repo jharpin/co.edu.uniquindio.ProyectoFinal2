@@ -180,7 +180,10 @@ public class GestionUsuarioViewController {
     }
 
 
-
+    private void nuevoUsuario() {
+        limpiarCampos();
+        txtNombreUsuario.setText("Ingrese un nombre");
+    }
 
     private void agregarUsuario() {
 
@@ -250,6 +253,8 @@ public class GestionUsuarioViewController {
         txtDireccion.setText("");
         txtSaldo.setText("");
         txtTelefono.setText("");
+        txtIdentificacion.setText("");
+        txtContraseña.setText("");
     }
     private UsuarioDto ActualizarUsuarioDto(){
         return new UsuarioDto(txtNombreUsuario.getText()
